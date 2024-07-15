@@ -14,6 +14,7 @@ section.home {
     .btn-holder {
         letter-spacing: -.32em;
         margin: 0 -7px;
+        font-family:$font-family-title;
         .nav-item {
             letter-spacing: normal;
             margin: 0 7px;
@@ -22,7 +23,7 @@ section.home {
                 line-height: 20px;
                 padding: 9px 17px;
                 font-size: 14px;
-                border-radius: 6px;
+                border-radius: 0px;
                 font-weight: 500;
                 display: block;
             }
@@ -90,7 +91,7 @@ section.home {
                                 text-align: center;
                                 padding: 6px;
                                 height: 38px;
-                                border-radius: 6px;
+                                border-radius: 0px;
                                 background: $primary;
                                 font-family: $font-family-title;
                                 border: none;
@@ -105,7 +106,7 @@ section.home {
                         }
                         .input-holder {
                             overflow: hidden;
-                            border-radius: 6px;
+                            border-radius: 0px;
                             background: $primary-light;
                             padding: 0 0 0 33px;
                             position: relative;

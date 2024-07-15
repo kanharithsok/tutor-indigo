@@ -9,17 +9,18 @@
 <style>
 .top-header {
     background-color: #21472E; 
-    height: 50px;
+
     display: flex;
     align-items: center;
     color: white;
 
     .container {
         display: flex;
-        justify-content: flex-end; /* Align items to the right */
+        justify-content: flex-end;
         align-items: center;
         width: 100%;
         padding: 0 20px;
+
     }
 
     .nav-links {
@@ -28,15 +29,18 @@
         align-items: center;
         padding: 0;
         margin: 0;
-
+ 
         li {
             margin-right: 20px;
-
+           // background-color: #eeee; 
+          
+            align-items:center;
             a {
                 text-decoration: none;
                 color: white;
                 font-family: 'Inter', 'Khmer';
                 font-size: 18px;
+              
                 display: inline-block;
                 padding: 15px 0;
 
@@ -47,8 +51,12 @@
 
             &.dropdown {
                 position: relative;
-
+ 				//background-color: yellow; 
+      			width:auto;
+            	height: auto;
+            
                 .dropbtn {
+            	
                     background: none;
                     border: none;
                     color: white;
@@ -57,28 +65,48 @@
                     cursor: pointer;
                     display: flex;
                     align-items: center;
-
+			
+            		
+                    
                     .flag {
                         margin-right: 5px;
+                        height: 100%;
                         width: 30px;
+                       	padding: 5px 5px;
                     }
 
                     .arrow {
-                        margin-left: 5px;
+                        margin-left: 4px;
                     }
                 }
 
                 .dropdown-content {
+
                     display: none;
                     position: absolute;
-                    background-color: white;
+                
                     color: black;
-                    min-width: 100px;
-                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    min-width: 110px;
+                    width:auto;
+                    
+                    align-items: center;
                     z-index: 1;
                     top: 40px;
                     right: 0;
+                    border-radius: 0px;
+                 
+                    align-items:center;
+                    align:center;
 
+    
+   					background-color: white; 
+                    img{
+                      
+                        margin-right: 5px;
+                        width: 30px;
+                      	padding: 5px 5px 5px 5px;
+                        float: left;
+                    }
                     a {
                         color: black;
                         padding: 10px 15px;
@@ -86,7 +114,7 @@
                         display: block;
 
                         &:hover {
-                            background-color: #ddd;
+                            background-color: #eeee;
                         }
                     }
                 }
@@ -140,8 +168,19 @@
                         <span class="arrow">&#9660;</span>
                     </button>
                     <div class="dropdown-content">
+                        <div>
+                            <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000"
+                            alt="Flag" class="flag"> 
+                      
                         <a href="#" id="englishLink">ENG</a>
+                        <div>
+
+                            <div>
+                                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000"
+                                alt="Flag" class="flag"> 
+                          
                         <a href="#" id="khmerLink">KH</a>
+                            </div>
                     </div>
                 </li>
             </ul>
