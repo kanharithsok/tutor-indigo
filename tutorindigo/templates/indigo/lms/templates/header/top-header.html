@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title</title>
+  
+   
+<style>
+.top-header {
+    background-color: #21472E; 
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    .container {
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-right: 20px;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-family: 'Inter', 'Khmer';
+                font-size: 18px;
+                display: inline-block;
+                padding: 15px 0;
+
+                &:hover {
+                    color: #ccc;
+                }
+            }
+
+            &.dropdown {
+                position: relative;
+
+                .dropbtn {
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-family: 'Inter', 'Khmer';
+                    font-size: 18px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+
+                    .flag {
+                        margin-right: 5px;
+                        width: 30px;
+                    }
+
+                    .arrow {
+                        margin-left: 5px;
+                    }
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: white;
+                    color: black;
+                    min-width: 100px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    top: 40px;
+                    right: 0;
+
+                    a {
+                        color: black;
+                        padding: 10px 15px;
+                        text-decoration: none;
+                        display: block;
+
+                        &:hover {
+                            background-color: #ddd;
+                        }
+                    }
+                }
+
+                &:hover .dropdown-content {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+</style>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to the language links and text
+            const englishLink = document.getElementById("englishLink");
+            const khmerLink = document.getElementById("khmerLink");
+            const languageText = document.getElementById("languageText");
+
+            // Event listener for English link
+            englishLink.addEventListener("click", function(event) {
+               // // Prevent default link behavior
+                languageText.textContent = "ENG"; // Update language text
+                event.preventDefault(); 
+            });
+
+            // Event listener for Khmer link
+            khmerLink.addEventListener("click", function(event) {
+               
+                languageText.textContent = "KH"; // Update language text
+                event.preventDefault(); 
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <header class="top-header">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="https://www.creditbureau.com.kh/news-upcoming-event">FAQ</a></li>
+                <li><a href="https://www.creditbureau.com.kh/contact-us-address-and-telephone">Contact Us</a></li>
+                <li><a href="https://www.creditbureau.com.kh/complaints-general">Complain</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn">
+                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000"
+                        alt="Flag" class="flag"> <span id="languageText">ENG</span>
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" id="englishLink">ENG</a>
+                        <a href="#" id="khmerLink">KH</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+</body>
+
+
+
+</html>
