@@ -143,5 +143,12 @@ RUN npm install '@edx/brand@npm:@edly-io/indigo-brand-openedx@^1.0.0'
 RUN npm install '@edx/brand@npm:@edly-io/indigo-brand-openedx@^1.0.0'
 """,
         ),
+      (
+            "mfe-dockerfile-post-npm-install",
+            """
+RUN npm install '@edx/brand@npm:custom-brand-package'
+RUN npm install '@edx/brand@git+https://github.com/username/brand-openedx.git#custom-branch'
+""",
+        )
     ]
 )
