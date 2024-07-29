@@ -11,134 +11,205 @@
 <% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
 <%namespace name='static' file='static_content.html'/>
 <!-- NEW IN INDIGO update footer -->
-% if uses_bootstrap:
-<div class="wrapper wrapper-footer">
-  <footer id="footer" class="tutor-container"
-    ## When rendering the footer through the branding API,
-    ## the direction may not be set on the parent element,
-    ## so we set it here.
-    % if bidi:
-      dir=${bidi}
-    % endif
-  >
-  <div class="footer-top">
-    <div class="powered-area">
-      ## Please leave this link and use one of the logos provided
-      ## The OpenEdX link may be hidden when this view is served
-      ## through an API to partner sites (such as marketing sites or blogs),
-      ## which are not technically powered by OpenEdX.
-      % if not hide_openedx_link:
-      <ul class="logo-list">
-        <li>Powered by:</li>
-        <li>
-          <a href="https://docs.tutor.edly.io" rel="noopener" target="_blank">
-            <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="57" />
-          </a>
-        </li>
-        <li>
-          <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
-            <img src="${static.url('images/openedx-logo.png')}" alt="${footer['openedx_link']['title']}" width="79" />
-          </a>
-        </li>
-      </ul>
-    </div>
-    {% if INDIGO_FOOTER_NAV_LINKS %}
-    <nav class="nav-colophon" aria-label="${_('About')}">
-      <ol>
-          {% for link in INDIGO_FOOTER_NAV_LINKS %}
-          <li>
-            <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-          </li>
-          {% endfor %}
-      </ol>
-    </nav>
-    {% endif %}
-  </div>
-  <span class="copyright-site">Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
-  % endif
-    <div class="colophon">
 
-      % if context.get('include_language_selector', footer_language_selector_is_enabled()):
-          <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
-      % endif
 
-      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-        <p class="copyright">${footer['copyright']}
-            % if icp_license_info.get('icp_license'):
-              ${u" | {text}".format(text=icp_license_info.get('text'))}
-              <a href="${icp_license_info.get('icp_license_link', '#')}">
-                  ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-              </a>
-            % endif
-        </p>
-    </div>
-  </footer>
-</div>
-% else:
-<!-- NEW IN INDIGO update footer -->
-  <div class="wrapper wrapper-footer">
-    <footer id="footer" class="tutor-container"
-      ## When rendering the footer through the branding API,
-      ## the direction may not be set on the parent element,
-      ## so we set it here.
-      % if bidi:
-        dir=${bidi}
-      % endif
-    >
-    <div class="footer-top">
-      <div class="powered-area">
-        ## Please leave this link and use one of the logos provided
-        ## The OpenEdX link may be hidden when this view is served
-        ## through an API to partner sites (such as marketing sites or blogs),
-        ## which are not technically powered by OpenEdX.
-        % if not hide_openedx_link:
-        <ul class="logo-list">
-          <li>Powered by:</li>
-          <li>
-            <a href="https://docs.tutor.edly.io" rel="noopener" target="_blank">
-              <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="57" />
-            </a>
-          </li>
-          <li>
-            <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
-              <img src="${static.url('images/openedx-logo.png')}" alt="${footer['openedx_link']['title']}" width="79" />
-            </a>
-          </li>
-        </ul>
-      </div>
-      {% if INDIGO_FOOTER_NAV_LINKS %}
-      <nav class="nav-colophon" aria-label="${_('About')}">
-        <ol>
-            {% for link in INDIGO_FOOTER_NAV_LINKS %}
-            <li>
-              <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-            </li>
-            {% endfor %}
-        </ol>
-      </nav>
-      {% endif %}
-    </div>
-    <span class="copyright-site"> Hello Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
-    % endif
-      <div class="colophon">
 
-        % if context.get('include_language_selector', footer_language_selector_is_enabled()):
-            <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
-        % endif
 
-        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']}
-              % if icp_license_info.get('icp_license'):
-                ${u" | {text}".format(text=icp_license_info.get('text'))}
-                <a href="${icp_license_info.get('icp_license_link', '#')}">
-                    ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a>
-              % endif
-          </p>
-      </div>
+
+
+
+## =====================================
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+    <style>
+        .footer-top {
+            background: linear-gradient(135deg, #12492A, #2BAF65);
+            color: white;
+            padding: 40px 0;
+
+
+        }
+        .container-top ,.container-bot{
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1600px;
+          box-sizing: border-box;
+        }
+
+        .footer-bottom {
+            background-color: #374236;
+            color: #ffffff;
+            padding: 20px 0;
+        }
+
+        .footer-bottom a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-bottom .social-icons a {
+            color: #ffffff;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .social-icons a {
+          flex-wrap: wrap;
+            display: inline-block;
+            width: 50px; 
+            height: 50px; 
+            line-height: 50px;
+            border-radius: 50%;
+            background-color: #020202; 
+            color: #374236;
+            text-align: center;
+            margin-right: 10px;
+            font-size: 24px; 
+          }
+
+          .social-icons a:hover {
+              background-color: #2BAF65;
+              color: #ffffff;
+          }
+
+.social-icons i {
+    vertical-align: middle;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Footer -->
+    
+    <footer>
+
+ 
+        <!-- Top Footer -->
+        <div class="footer-top ">
+            <div class="container-top">
+                <div class="row">
+                    <div class="col-md-6 text-white">
+                        <h2 class="text-white">Learn and Grow</h2>
+                        <p>
+                          Our edX learning experience is grounded in cutting-edge cognitive science. With more than two dozen distinct learning features to help you achieve your goals, our approach follows three key principles
+                        </p>
+                        
+                            <strong>Experience</strong>
+                            <p> Learn new knowledge and skills in a variety of ways, from engaging video lectures and dynamic graphics to data visualizations and interactive elements.
+                            </p>
+
+                            <strong>Practice</strong> 
+                            <p>
+                            Demonstrating your knowledge is a critical part of learning. edX courses and programs provide a space to practice with quizzes, open response assessments, virtual environments, and more.
+                            </p>
+
+                            <strong>Apply</strong> 
+                            <p>
+                              Learning on edX transforms how you think and what you can do, and translates directly into the real world—immediately apply your new capabilities in the context of your job.
+                            </p>
+                       
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img src="${static.url('images/plower-white.png')}"  alt="Logo" style="max-width: 400px;">
+                    </div>
+               
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="container-bot">
+                <div class="row text-center text-white text-md-left">
+                  
+                    <!-- Logo and Social Media -->
+                    <div class="col-12 col-md-3 mb-4 mb-md-0 d-flex flex-column align-items-center">
+                        <img src="${static.url('images/cbc-logo-white.png')}" alt="Logo" style="max-width: 200px;">
+                        <ul class="list-unstyled list-inline social-icons mt-3" style="max-width: 300px;">
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                        <p class="mt-3">&copy; 2024 CBC. All rights reserved.</p>
+                        <div>
+                          % if context.get('include_language_selector', footer_language_selector_is_enabled()):
+                            <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
+                          % endif
+                        </div>
+                    </div>
+
+
+                    <!-- Browse Courses -->
+                    <div class="col-6 col-md-2 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-white mb-4 font-weight-bold">Browse Courses</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Programming</a></li>
+                            <li><a href="#">Learn Economics</a></li>
+                            <li><a href="#">Learn Project</a></li>
+                            <li><a href="#">Learn Business</a></li>
+                            <li><a href="#">Learn Software</a></li>
+                            <li><a href="#">Learn Computer</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- About Us -->
+                    <div class="col-6 col-md-2 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-white mb-4 font-weight-bold">About Us</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Company Profile</a></li>
+                            <li><a href="#">Vision, Mission & Core Value</a></li>
+                            <li><a href="#">Shareholders</a></li>
+                            <li><a href="#">Board of Directors</a></li>
+                            <li><a href="#">Management Team</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Media -->
+                    <div class="col-6 col-md-2 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-white mb-4 font-weight-bold">Media</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Programming</a></li>
+                            <li><a href="#">CSR Activities</a></li>
+                            <li><a href="#">Videos and Photos</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Our Members -->
+                    <div class="col-6 col-md-3 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-white mb-4 font-weight-bold">Our Members</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Benefits</a></li>
+                            <li><a href="#">How to become a member</a></li>
+                            <li><a href="#">Member Directory</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-  </div>
-% endif
+
+
+    <!-- Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
 % if include_dependencies:
   <%static:js group='base_vendor'/>
   <%static:css group='style-vendor'/>
@@ -147,105 +218,8 @@
 % endif
 % if footer_css_urls:
   % for url in footer_css_urls:
+ 
     <link rel="stylesheet" type="text/css" href="${url}"></link>
+  
   % endfor
 % endif
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet"
-    />
-    <title>Bootstrap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body class="bg-dark-subtle" background-color ="#eeee">
-    <!-- Example Code -->
-
-    <div class="container bg="#374236"">
-      <footer
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"
-      >
-        <div class="col mb-3">
-          <a
-            href="/"
-            class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
-          >
-          <img class="d-inline-block align-text-top" src="${static.url("images/logo.png")}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}" itemprop="logo" width="auto"
-          height="24"/>
-        
-          </a>
-          <p class="text-body-secondary">
-            © 2024 Company, Inc. All rights reserved.
-          </p>
-        </div>
-
-        <div class="col mb-3"></div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column"></ul>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-        </div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column"></ul>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-        </div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column"></ul>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-          </li>
-        </div>
-
-     
-      </footer>
-    </div>
-    <!-- End Example Code -->
-  </body>
-
-  
-</html>

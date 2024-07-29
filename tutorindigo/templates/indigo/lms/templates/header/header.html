@@ -43,7 +43,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 % endif
 
 <header class="global-header ${'slim' if course else ''}">
-    <%include file="top-header.html" />
+    ##<%include file="top-header.html" />
 
     <div class="header-container">
     % if settings.FEATURES.get('ENABLE_COOKIE_POLICY_BANNER', use_cookie_banner):
