@@ -71,16 +71,17 @@ header.global-header {
             position: relative;
             .toggle-user-dropdown {
                 padding: 9px 15px;
-                background: $primary-light;
-                color: $primary;
+                background: white;
+                color: #134223;
                 font-size: 14px;
                 font-weight: 500;
                 line-height: 20px;
                 border-radius: 0px;
                 margin: 12px 0;
+                border: 1px solid #134223;
                 &:after {
                     margin: 4px 0 0 4px;
-                    border: 2px solid #15376D;
+                    border: 1px solid #134223;
                     border-width: 2px 2px 0 0;
                     transform: rotate(135deg);
                     content: "";
