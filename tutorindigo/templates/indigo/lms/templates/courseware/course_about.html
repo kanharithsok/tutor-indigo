@@ -64,6 +64,7 @@ from openedx.core.lib.courses import course_image_url
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 </head>
 
 
@@ -80,11 +81,10 @@ body, html {
   min-height: 25%;
   height: 500px;
 }
-
-
-.menu {
-  display: none;
+.w3-button{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
 
 @media (max-width: 768px) 
 {
@@ -98,6 +98,11 @@ body, html {
   .title{
     font-size: 20px !important;
   
+  }
+  .detail_time{
+    .img{
+      width: 10px;
+    }
   }
 }
 
@@ -206,7 +211,7 @@ body, html {
               <a href="#video-modal" class="media " rel="leanModal"> 
                 
                   <img class="w3-opacity w3-hover-opacity-off" src="${course_image_urls['large']}" alt="video_course" style="height:500px;width:100%;"/> 
-                  <p class=" w3-button w3-display-middle w3-border w3-border w3-padding-large w3-hover-black " >
+                  <p class=" w3-button w3-display-middle w3-border w3-border w3-padding-large w3-hover-black w3-animate-opacity" >
                     <i class="fa fa-play-circle fa-3x w3-circle w3-text-white "> </i> 
                   </p>
               </a>
@@ -226,9 +231,68 @@ body, html {
         </div>
 
 
-  </header>
+</header>
+
+<!--Course Info Update-->
+
+<section class=" w3-row  w3-display-container" style="background-color: #00522C; height:120px;">
+  
+  <div class=" w3-col l2 w3-white w3-display-container" style=" height:100%;">
+    
+      <img src="${static.url('images/logo.png')}" class=" w3-padding w3-display-middle" alt="logo" style="width: 200px; " />
+  </div>
+
+  
+  <div class="w3-col detail_time m12 l8 " style=" height:100%;">
+    
+    <div class="w3-cell-row w3-padding h-100 w3-center" style="background-color: #00522C;">
+     
+      <!--Start Course-->
+      <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+        % if not course.start_date_is_still_default:
+        <%
+            course_start_date = course.advertised_start or course.start
+            course_date_string = course_start_date.strftime('%Y-%mm-%d')
+        %>
+        %endif
+        <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
+        <strong class="w3-margin-left w3-padding w3-left-align">Start ${course_date_string}</strong>
+  
+      </div>
+
+      <!--End Course-->
+      <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding">
+        <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
+        <strong class=" w3-margin-left w3-left-align">End 2024-02-Jan</strong>
+      </div>
+
+      <!--Course Type-->
+      <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding">
+        <img src="${static.url('images/head-icon.png')}" alt="logo" style="width: 30px; " />
+        <!-- <span class=" w3-margin-left w3-container w3-padding"> -->
+            <b class="w3-left-align">Self-Paced </>
+            <p class="w3-left-align">Progress at your own speed </p>
+        <!-- </span> -->
+      </div>
+    </div>
+   
+  </div>
 
 
+
+<!--Time Course-->
+  <div class="w3-col m12 l2  w3-border h-100 w3-padding w3-display-container" style="background-color: #ff0909; ">
+    
+    <span class=" w3-display-middle w3-left">
+      <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 30px; " />
+      <strong class=" w3-left-align">12 Weeks </strong>
+      <p class=" w3-left-align">6-18 hours per weeks </p>
+    </span>
+  </div>
+
+
+  
+</section>
 
 
 
