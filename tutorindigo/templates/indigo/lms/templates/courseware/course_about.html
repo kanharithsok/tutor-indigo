@@ -81,7 +81,7 @@ body, html {
   min-height: 25%;
   height: 500px;
 }
-.w3-button{
+.w3-button,.timer-info{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -235,7 +235,7 @@ body, html {
 
 <!--Course Info Update-->
 
-<section class=" w3-row  w3-display-container" style="background-color: #00522C; height:120px;">
+<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:120px;">
   
   <div class=" w3-col l2 w3-white w3-display-container" style=" height:100%;">
     
@@ -268,7 +268,7 @@ body, html {
 
       <!--Course Type-->
       <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding">
-        <img src="${static.url('images/head-icon.png')}" alt="logo" style="width: 30px; " />
+        <img class="w3-left-align" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 30px; " />
         <!-- <span class=" w3-margin-left w3-container w3-padding"> -->
             <b class="w3-left-align">Self-Paced </>
             <p class="w3-left-align">Progress at your own speed </p>
@@ -281,7 +281,7 @@ body, html {
 
 
 <!--Time Course-->
-  <div class="w3-col m12 l2  w3-border h-100 w3-padding w3-display-container" style="background-color: #ff0909; ">
+  <div class="w3-col m12 l2   h-100 w3-padding w3-display-container" style="background-color: #ff0909; ">
     
     <span class=" w3-display-middle w3-left">
       <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 30px; " />
