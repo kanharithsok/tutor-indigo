@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+banner-section {
+            background-color: #f0f0f0;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .banner-section h1 {
+            color: #2b3b2e;
+            font-weight: bold;
+        }
+        .banner-section h2 {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .search-box {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-box input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .search-box button {
+            background-color: #2b3b2e;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 4px;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .search-box button:hover {
+            background-color: #1d2b1e;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header-container {
+            max-width: 1600px;
+            margin: 40px auto;
+        }
+
+        .build-up-your-skills {
+            color: gray;
+        }
+
+        @media (min-width: 768px) {
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .banner-section {
+                text-align: left;
+            }
+            .image-section {
+                margin-left: 20px;
+            }
+        }
+</style>
+</head>
+
+
+<body>
+<div class="w3-container banner-section w3-border">
+        <div class="w3-row header-container">
+            <div class="w3-col m12 w3-left-align w3-left">
+                <h1 class="header-title-text">Welcome to CBC Academy</h1>
+                <h2 class="header-title-text">Online Courses</h2>
+                <p class="build-up-your-skills">Build up your skills. Explore courses here</p>
+                <div class="search-box w3-left">
+                    <input type="text" placeholder="What do you want to learn?">
+                    <button>SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

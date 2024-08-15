@@ -52,88 +52,169 @@ from openedx.core.lib.courses import course_image_url
   <script src="${static.url('js/course_info.js')}"></script>
 </%block>
 
-<%block name="pagetitle">${course.display_name_with_default}</%block>
 
-<section class="course-info about container">
 
-  <%block name="course_about_header">
-  <!-- Course profile header is updated inclusive of course heading and course image. -->
-  <header class="course-profile">
-    <div class="intro-inner-wrapper">
-      <div class="profile-top">
-        % if get_course_about_section(request, course, "video"):
-        <a href="#video-modal" class="media" rel="leanModal">
-          <div class="hero">
-            <img src="${course_image_urls['large']}" alt="" />
-            <div class="play-intro"></div>
+##<%include file="banner1.html" />
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inter";
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("${static.url('images/banner3.jpg')}");
+  min-height: 25%;
+  height: 500px;
+}
+
+
+.menu {
+  display: none;
+}
+
+
+
+</style>
+
+
+<header class="w3-display-container w3-row w3-border w3-black">
+
+        <!--Left side-->
+        <div class="w3-col s12 m12 l7 bgimg  w3-display-container" >
+
+          <div class="w3-cell w3-display-middle" style="height :70%; width:60%">
+              <p class="w3-left-align" style="font-size: 40px; color:darkgreen;"><b>${course.display_name_with_default} </b></p>
+              <p class="w3-left-align " style="font-size: 30px; color:darkgreen;"><b>${course.display_org_with_default}</b></p>
+              <p class=" m10 w3-text-gray">
+                Learn the concepts and techniques that make up the foundation of data science and machine learning.
+              </p>
+                
+
+              <!--Buttons Enroll-->
+           
+
+                  %if user.is_authenticated and registered:
+                  <p class="register disabled w3-margin-top w3-cell w3-padding-16" style=" color:rgb(255, 0, 0)">${_("Already Enrolled")}</p>
+                   
+                  <div class="w3-display-bottomright w3-center" >
+                    %if show_courseware_link:
+                      
+                      <a href="${course_target}">
+                    %endif
+                   
+
+                    %if show_courseware_link:
+                      <p class="w3-button w3-padding-large w3-hover-green" style="background-color: darkgreen; color:white"><b>${_("View Course")}</b></p>
+                     
+                    %endif
+                  </a>
+                 
+                  % elif is_course_full:
+                    <span class="register disabledf">
+                      ${_("Course is full")}
+                    </span>
+                  % elif invitation_only and not can_enroll:
+                    <span class="register disabled">${_("Enrollment in this course is by invitation only")}</span>
+                  ## Shib courses need the enrollment button to be displayed even when can_enroll is False,
+                  ## because AnonymousUsers cause can_enroll for shib courses to be False, but we need them to be able to click
+                  ## so that they can register and become a real user that can enroll.
+                  % elif not is_shib_course and not can_enroll:
+                  <span class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"><i class="fa fa-lock" aria-hidden="true"></i> ${_("Enrollment is Closed")}</span>
+                  %elif allow_anonymous:
+                    %if show_courseware_link:
+                    
+                  
+                      <a href="${course_target}">
+                      <p class="w3-button w3-padding-large" style="background-color: darkgreen; color:white"><b>${_("View Course")}</b></p>
+                      </a>
+                    %endif
+                  %else:
+                    <%
+                      if ecommerce_checkout:
+                        reg_href = ecommerce_checkout_link
+                      else:
+                        reg_href="#"
+                      if single_paid_mode:
+                        href_class = "add-to-cart"
+                      else:
+                        href_class = "register"
+                    %>
+                    
+                    <a href="${reg_href}" class="w3-button w3-padding-large  ${href_class}" style="background-color: darkgreen; color:white; text-decoration:none">
+                      <b>
+                      ${_("Enroll Now")}
+                      </b>
+                    </a>
+                    <div id="register_error"></div>
+                  %endif
+
+
+
+                </div>
+              <!--End-->
           </div>
-        </a>
-        %else:
-        <div class="media">
-          <div class="hero">
-            <!-- NEW IN INDIGO: Add fallback image in case of no course-image using onerror -->
-            <img src="${course_image_urls['large']}" onerror="this.src='/theming/asset/images/no_course_image.png';" alt="" />
-          </div>
-        </div>
-        % endif
-        <div class="info-profile">
-          <h1>
-            ${course.display_name_with_default}
-          </h1>
-          <span class="org">${course.display_org_with_default}</span>
-        </div>
-      </div>
-      <div class="main-cta">
-        %if user.is_authenticated and registered:
-          %if show_courseware_link:
-            <a href="${course_target}">
-          %endif
 
-          <span class="register disabled">${_("Already Enrolled")}</span>
-
-          %if show_courseware_link:
-            <strong>${_("View Course")}</strong>
-            </a>
-          %endif
-
-        % elif is_course_full:
-          <span class="register disabled">
-            ${_("Course is full")}
-          </span>
-        % elif invitation_only and not can_enroll:
-          <span class="register disabled">${_("Enrollment in this course is by invitation only")}</span>
-        ## Shib courses need the enrollment button to be displayed even when can_enroll is False,
-        ## because AnonymousUsers cause can_enroll for shib courses to be False, but we need them to be able to click
-        ## so that they can register and become a real user that can enroll.
-        % elif not is_shib_course and not can_enroll:
-        <span class="register closed disabled"><i class="fa fa-lock" aria-hidden="true"></i> ${_("Enrollment is Closed")}</span>
-        %elif allow_anonymous:
-          %if show_courseware_link:
-            <a href="${course_target}">
-            <strong>${_("View Course")}</strong>
-            </a>
-          %endif
-        %else:
-          <%
-            if ecommerce_checkout:
-              reg_href = ecommerce_checkout_link
-            else:
-              reg_href="#"
-            if single_paid_mode:
-              href_class = "add-to-cart"
-            else:
-              href_class = "register"
-          %>
-          <a href="${reg_href}" class="${href_class}">
-            ${_("Enroll Now")}
-          </a>
-          <div id="register_error"></div>
-        %endif
         </div>
-      </div>
+
+        <!--Right side-->
+
+        <div class="w3-col w3-small-hide m12 l5 w3-display-container " style="max-height :500px" >
+
+          <!-- <div class="w3-display-middle w3-yellow w3-center" style="width:100%;height :500px" > -->
+
+        
+  
+            % if get_course_about_section(request, course, "video"):
+          
+          
+            
+          
+
+              <a href="#video-modal" class="media " rel="leanModal"> 
+                
+                  <img class="w3-opacity w3-hover-opacity-off" src="${course_image_urls['large']}" alt="video_course" style="height:500px;width:100%;"/> 
+                  <p class=" w3-button w3-display-middle w3-border w3-border w3-padding-large " >
+                    <i class="fa fa-play-circle fa-3x w3-circle "> </i> 
+                  </p>
+              </a>
+
+         
+            %else:
+           
+                <!-- NEW IN INDIGO: Add fallback image in case of no course-image using onerror -->
+                <img src="${course_image_urls['large']}" onerror="this.src='/theming/asset/images/no_course_image.png';" alt="img" style="height:500px;width:100%;"/>
+           
+            % endif
+
+          <!-- </div> -->
+
+     
+
+        </div>
+
+
   </header>
-  </%block>
 
+
+
+
+
+
+  <!-- Infomation Course-->
   <div class="about-content">
 
     <%block name="course_about_details">
@@ -175,7 +256,7 @@ from openedx.core.lib.courses import course_image_url
                   <span class="important-dates-item-text start-date">${course_start_date}</span>
               % else:
                   <%
-                     course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+                    course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
                   %>
                   <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
               % endif
@@ -247,13 +328,13 @@ from openedx.core.lib.courses import course_image_url
       % if get_course_about_section(request, course, "ocw_links"):
       <div class="additional-resources">
         <header>
-          <h1>${_("Additional Resources")}</h1>
+          <h1>${_("Additional Resources")} Additional</h1>
       </div>
 
         <div>
           ## "MITOpenCourseware" should *not* be translated
           <h2 class="opencourseware">MITOpenCourseware</h2>
-             ${get_course_about_section(request, course, "ocw_links")}
+            ${get_course_about_section(request, course, "ocw_links")}
         </div>
     </div>
       %endif
@@ -261,14 +342,13 @@ from openedx.core.lib.courses import course_image_url
     % if sidebar_html_enabled:
       % if get_course_about_section(request, course, "about_sidebar_html"):
         <section class="about-sidebar-html">
+          about-sidebar-html
           ${get_course_about_section(request, course, "about_sidebar_html")}
         </section>
       % endif
     %endif
   </div>
 
-  </div>
-</div>
 
 ## Need to put this hidden form on the page so that the registration button works.
 ## Since it's no harm to display a hidden form, we display it with the most permissive conditional
