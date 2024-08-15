@@ -86,6 +86,20 @@ body, html {
   display: none;
 }
 
+@media (max-width: 768px) 
+{
+  .w3-col,
+  .media,
+  img{
+    max-height: 300px;
+ 
+  }
+
+  .title{
+    font-size: 20px !important;
+  
+  }
+}
 
 
 </style>
@@ -97,9 +111,9 @@ body, html {
         <div class="w3-col s12 m12 l7 bgimg  w3-display-container" >
 
           <div class="w3-cell w3-display-middle" style="height :70%; width:60%">
-              <p class="w3-left-align" style="font-size: 40px; color:darkgreen;"><b>${course.display_name_with_default} </b></p>
-              <p class="w3-left-align " style="font-size: 30px; color:darkgreen;"><b>${course.display_org_with_default}</b></p>
-              <p class=" m10 w3-text-gray">
+              <p class="title w3-left-align" style="font-size: 40px; color:darkgreen;"><b>${course.display_name_with_default} </b></p>
+              <p class="title w3-left-align " style="font-size: 30px; color:darkgreen;"><b>${course.display_org_with_default}</b></p>
+              <p class=" m10 w3-text-gray w3-hide-small">
                 Learn the concepts and techniques that make up the foundation of data science and machine learning.
               </p>
                 
@@ -187,8 +201,8 @@ body, html {
               <a href="#video-modal" class="media " rel="leanModal"> 
                 
                   <img class="w3-opacity w3-hover-opacity-off" src="${course_image_urls['large']}" alt="video_course" style="height:500px;width:100%;"/> 
-                  <p class=" w3-button w3-display-middle w3-border w3-border w3-padding-large " >
-                    <i class="fa fa-play-circle fa-3x w3-circle "> </i> 
+                  <p class=" w3-button w3-display-middle w3-border w3-border w3-padding-large w3-hover-black " >
+                    <i class="fa fa-play-circle fa-3x w3-circle w3-text-white "> </i> 
                   </p>
               </a>
 
@@ -196,7 +210,7 @@ body, html {
             %else:
            
                 <!-- NEW IN INDIGO: Add fallback image in case of no course-image using onerror -->
-                <img src="${course_image_urls['large']}" onerror="this.src='/theming/asset/images/no_course_image.png';" alt="img" style="height:500px;width:100%;"/>
+                <img src="${course_image_urls['large']}" class="media " onerror="this.src='/theming/asset/images/no_course_image.png';" alt="img" style="height:500px;width:100%;"/>
            
             % endif
 
