@@ -1,0 +1,184 @@
+<%page expression_filter="h"/>
+<%namespace name='static' file='../static_content.html'/>
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .background-banner-image {
+            background-image: url("${static.url('images/banner.png')}");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .my-top-banner {
+            max-width: 1600px;
+            margin-top: 65px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .my-text-input {
+            font-size: 16px !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-style: normal !important;
+            border-radius: 0px !important;
+        }
+
+        .my-search-button {
+        }
+
+        .red-header-text {
+            font-weight: bold !important;
+        }
+
+        .green-header-text {
+            font-weight: bold !important;
+        }
+
+        .my-search-box {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            width: 100%;
+        }
+
+        .build-up-your-skills-text {
+            color: #6A6E65;
+        }
+
+        .partnership-container {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-items-container {
+            max-width: 1600px;
+            /* background-color: red; */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .partnership-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .partner-item {
+            display: inline-block;
+            text-align: center;
+            margin: 0 15px;
+            white-space: normal;
+            width: 80px;
+            height: 80px;
+        }
+
+        .partner-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .partnership-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .partnership-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-banner-image">
+    <div class="w3-container w3-padding-large my-top-banner">
+        <div class="w3-cell-row w3-row-padding">
+            <div class="w3-cell w3-left-align w3-left">
+                <h1 class="w3-text-red w3-left-align red-header-text">Welcome to CBC Academy</h1>
+                <h1 class="w3-text-green w3-left-align green-header-text">Online Courses</h1>
+                <p class="w3-text w3-text-gray build-up-your-skills-text">Build up your skills. Explore courses here</p>
+                <div class="w3-left w3-margin-top my-search-box m4">
+                    <input class="w3-input my-text-input w3-left w3-left-align w3-margin-right" type="text" placeholder="What do you want to learn?">
+                    <a href="#" class="w3-button w3-padding-small w3-green w3-left w3-left-align my-search-button w3-hover-green">SEARCH <i class="fa fa-search w3-margin-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="partnership-container">
+        <div class="partner-items-container">
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=1" alt="Partner 1">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=2" alt="Partner 2">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=3" alt="Partner 3">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=4" alt="Partner 4">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=5" alt="Partner 5">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=6" alt="Partner 6">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=7" alt="Partner 1">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=8" alt="Partner 2">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=9" alt="Partner 3">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=10" alt="Partner 4">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=11" alt="Partner 5">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=12" alt="Partner 5">
+                </a>
+            </div>
+            <div class="partner-item">
+                <a href="#">
+                    <img src="https://picsum.photos/200/300?random=13" alt="Partner 5">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
