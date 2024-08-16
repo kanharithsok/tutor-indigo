@@ -54,9 +54,6 @@ from openedx.core.lib.courses import course_image_url
 
 
 
-##<%include file="banner1.html" />
-
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -268,7 +265,7 @@ body, html {
         % if not course.start_date_is_still_default:
         <%
             course_start_date = course.advertised_start or course.start
-            course_date_string = course_start_date.strftime('%YYYY-%mm-%dd')
+            course_date_string = course_start_date.strftime('%Y-%b-%d')
         %>
         %endif
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
@@ -280,7 +277,13 @@ body, html {
       <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
         <span class="w3-large w3-margin-left ">
-          <b >End 2024-02-Jan</b>
+          % if isinstance(course_start_date, str):
+          <%
+            course_end_date = course.end
+            course_date_string = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+          %>
+          %endif
+          <b >End ${course_date_string}</b>
         </span>
       </div>
 
