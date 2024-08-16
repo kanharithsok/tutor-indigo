@@ -100,8 +100,24 @@ body, html {
   
   }
   .detail_time{
-    .img{
-      width: 10px;
+
+ 
+
+
+      height: 180px !important;
+    
+    img{
+     
+      width: 20px !important;
+      height: 20px !important;
+     
+    }
+    span, .text{
+   
+     padding:10px;
+      font-size: 12px !important;
+      font-style: normal !important;
+      text-align: left !important;
     }
   }
 }
@@ -235,59 +251,75 @@ body, html {
 
 <!--Course Info Update-->
 
-<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:120px;">
+<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:140px;">
   
-  <div class=" w3-col l2 w3-white w3-display-container" style=" height:100%;">
+  <div class=" w3-col l2 w3-white w3-display-container w3-padding" style=" height:100%;">
     
       <img src="${static.url('images/logo.png')}" class=" w3-padding w3-display-middle" alt="logo" style="width: 200px; " />
   </div>
 
   
-  <div class="w3-col detail_time m12 l8 " style=" height:100%;">
+  <div class="w3-col detail_time m12 l8  " style=" height:100%;">
     
-    <div class="w3-cell-row w3-padding h-100 w3-center" style="background-color: #00522C;">
+    <div class="w3-cell-row h-100 " style="background-color: #00522C;">
      
       <!--Start Course-->
-      <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+      <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center">
         % if not course.start_date_is_still_default:
         <%
             course_start_date = course.advertised_start or course.start
-            course_date_string = course_start_date.strftime('%Y-%mm-%d')
+            course_date_string = course_start_date.strftime('%YYYY-%mm-%dd')
         %>
         %endif
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
-        <strong class="w3-margin-left w3-padding w3-left-align">Start ${course_date_string}</strong>
-  
+        <span class="w3-large w3-margin-left "><b>Start ${course_date_string}</b></span>
+        
       </div>
 
       <!--End Course-->
-      <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding">
+      <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
-        <strong class=" w3-margin-left w3-left-align">End 2024-02-Jan</strong>
+        <span class="w3-large w3-margin-left ">
+          <b >End 2024-02-Jan</b>
+        </span>
       </div>
 
       <!--Course Type-->
-      <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding">
-        <img class="w3-left-align" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 30px; " />
-        <!-- <span class=" w3-margin-left w3-container w3-padding"> -->
-            <b class="w3-left-align">Self-Paced </>
-            <p class="w3-left-align">Progress at your own speed </p>
-        <!-- </span> -->
+      <div class="w3-container w3-cell w3-cell-middle w3-padding w3-mobile  w3-center">
+            <img class="" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 40px; " />
+           <div class=" w3-center ">
+                <b class=" w3-large">Self-Paced </b>
+                <p class=" w3-medium">Progress at your own speed </p>
+            </div>
       </div>
     </div>
    
   </div>
 
 
-
 <!--Time Course-->
-  <div class="w3-col m12 l2   h-100 w3-padding w3-display-container" style="background-color: #ff0909; ">
+  <div class="w3-col m12 l2   h-100  w3-center" >
     
-    <span class=" w3-display-middle w3-left">
-      <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 30px; " />
-      <strong class=" w3-left-align">12 Weeks </strong>
-      <p class=" w3-left-align">6-18 hours per weeks </p>
-    </span>
+  
+      <div class=" w3-cell-row h-100  " style="background-color: #ff0909; ">
+       
+        <div class=" w3-cell w3-cell-middle w3-padding">
+
+          <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 40px;" />
+  
+            <div class=" w3-center ">
+              <b class=" w3-large">12 Weeks</b>
+              <p class=" w3-medium">6-18 hours per weeks </p>
+          </div>
+
+        </div>
+
+        <div class=" w3-cell w3-hide-small w3-hide-medium h-100" style="width: 10%;background-color: #00522C;">
+          <!-- <br/> -->
+        </div>
+
+      </div>
+
   </div>
 
 
@@ -456,3 +488,4 @@ body, html {
 <%static:require_module_async module_name="js/dateutil_factory" class_name="DateUtilFactory">
     DateUtilFactory.transform(iterationKey=".localized_datetime");
 </%static:require_module_async>
+
