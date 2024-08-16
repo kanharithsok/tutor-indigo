@@ -310,10 +310,28 @@ body, html {
 
           <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 40px;" />
   
-            <div class=" w3-center ">
-              <b class=" w3-large">12 Weeks</b>
-              <p class=" w3-medium">6-18 hours per weeks </p>
+          % if not course.start_date_is_still_default:
+          <%
+            course_start_date = course.advertised_start or course.start
+            course_end_date = course.end
+        
+            # Calculate duration in days and then weeks
+            duration_days = (course_end_date - course_start_date).days
+            duration_weeks = duration_days // 7  # Use integer division to get whole weeks
+
+            min_hours_per_week = 6
+            max_hours_per_week = 18
+          %>
+        
+          <div class="w3-center">
+            <b class="w3-large">${duration_weeks} Weeks</b>
+            <p class="w3-medium">${min_hours_per_week}-${max_hours_per_week} hours per week</p>
           </div>
+        % endif
+        
+        
+
+          
 
         </div>
 
@@ -333,7 +351,7 @@ body, html {
 
 
   <!-- Infomation Course-->
-  <div class="about-content">
+  <!-- <div class="about-content">
 
     <%block name="course_about_details">
     <div class="details">
@@ -347,11 +365,11 @@ body, html {
         ${clean_dangerous_html(get_course_about_section(request, course, "overview"))}
       </div>
     </div>
-    </%block>
+    </%block> -->
 
     <!-- NEW IN INDIGO sidebar is improved with better icons -->
 
-    <div class="course-sidebar">
+    <div class="course-sidebar  w3-green">
       <div class="course-summary">
         <h2>Course Summary</h2>
         <%block name="course_about_important_dates">
