@@ -66,10 +66,13 @@ from openedx.core.lib.courses import course_image_url
 
 
 <style>
+  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif !important}
 body, html {
   height: 100%;
-  font-family: "Inter";
+  font-family: "Inter"!important;
+  background-color: rgb(238, 239, 240);
 }
+
 
 .bgimg {
   background-position: center;
@@ -77,9 +80,11 @@ body, html {
   background-image: url("${static.url('images/banner3.jpg')}");
   min-height: 25%;
   height: 500px;
+
 }
 .w3-button,.timer-info{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
 }
 
 
@@ -350,140 +355,175 @@ body, html {
 
 
 
-  <!-- Infomation Course-->
-  <!-- <div class="about-content">
 
-    <%block name="course_about_details">
-    <div class="details">
-      % if staff_access and studio_url is not None:
-        <div class="wrap-instructor-info studio-view">
-          <a class="instructor-info-action" href="${studio_url}">${_("View About Page in studio")}</a>
-        </div>
-      % endif
 
-      <div class="inner-wrapper">
-        ${clean_dangerous_html(get_course_about_section(request, course, "overview"))}
-      </div>
+
+<!--Body Contain-->
+<section  class=" w3-container w3-margin-top" style="display: flex; justify-content: center;   ">
+
+
+  <div class=" w3-row w3-padding  " style="width: 1600px;" >
+
+    <!--Left-->
+    <div class=" w3-col l8 ">
+
+       <h1 class=" w3-text-black fa-address-book w3-left-align">
+        About this course
+       </h1>
+       <p class=" w3-text-black w3-cell-middle" style="width: 500px;">
+        Every single minute, computers across the world collect millions of gigabytes of data. What can you do to make sense of this mountain of data? How do data scientists use this data for the applications that power our modern world?
+       </p>
     </div>
-    </%block> -->
 
-    <!-- NEW IN INDIGO sidebar is improved with better icons -->
+    <!--Riht-->
+    <div class=" w3-col l4 w3-container">
 
-    <div class="course-sidebar  w3-green">
-      <div class="course-summary">
-        <h2>Course Summary</h2>
-        <%block name="course_about_important_dates">
-        <ol class="important-dates">
-          <li class="important-dates-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3ZM18.8201 8.99997L12.0001 12.72L5.18007 8.99997L12.0001 5.27997L18.8201 8.99997ZM12 18.72L17 15.99V12.27L12 15L7 12.27V15.99L12 18.72Z" fill="#9CA3AF"/>
-              </svg>
-            <p class="important-dates-item-title">${_("Course Number")}</p><span class="important-dates-item-text course-number">${course.display_number_with_default}</span></li>
-          % if not course.start_date_is_still_default:
-              <%
-                  course_start_date = course.advertised_start or course.start
-              %>
-            <li class="important-dates-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 4H19C20.1 4 21 4.9 21 6V20C21 21.1 20.1 22 19 22H5C3.89 22 3 21.1 3 20L3.01 6C3.01 4.9 3.89 4 5 4H6V2H8V4H16V2H18V4ZM5 10V20H19V10H5ZM19 8H5V6H19V8ZM17 13H12V18H17V13Z" fill="#9CA3AF"/>
-                </svg>
-              <p class="important-dates-item-title">${_("Classes Start")}</p>
-              % if isinstance(course_start_date, str):
-                  <span class="important-dates-item-text start-date">${course_start_date}</span>
-              % else:
-                  <%
-                    course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
-                  %>
-                  <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
-              % endif
-            </li>
-          % endif
-            ## We plan to ditch end_date (which is not stored in course metadata),
-            ## but for backwards compatibility, show about/end_date blob if it exists.
-            % if course.end:
-                <%
-                    course_end_date = course.end
-                %>
+          <!-- NEW IN INDIGO sidebar is improved with better icons -->
 
-            <li class="important-dates-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 4H19C20.1 4 21 4.9 21 6V20C21 21.1 20.1 22 19 22H5C3.89 22 3 21.1 3 20L3.01 6C3.01 4.9 3.89 4 5 4H6V2H8V4H16V2H18V4ZM5 10V20H19V10H5ZM19 8H5V6H19V8ZM17 13H12V18H17V13Z" fill="#9CA3AF"/>
-                </svg>
-                <p class="important-dates-item-title">${_("Classes End")}</p>
-                  % if isinstance(course_end_date, str):
-                      <span class="important-dates-item-text final-date">${course_end_date}</span>
-                  % else:
+          <div class="course-sidebar  w3-white   w3-card ">
+            
+            <div class="course-summary">
+
+              <div class="w3-container w3-padding-36 " style="background-color: #00522C;">
+                <h1 class="w3-text-white">Course Summary</h1>
+              </div>
+       
+              <%block name="course_about_important_dates">
+              <ol class="w3-ul w3-hoverable w3-white">
+                <li class="w3-padding-16">
+                  <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                  <p class="important-dates-item-title"><b>${_("Course Number")}</b></p><span class="important-dates-item-text course-number">${course.display_number_with_default}</span></li>
+                % if not course.start_date_is_still_default:
                     <%
-                        course_date_string = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+                        course_start_date = course.advertised_start or course.start
                     %>
-                    <span class="important-dates-item-text final-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
+                  <li class="w3-padding-16">
+                    <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                    <p class="important-dates-item-title"><b>${_("Classes Start")}</b></p>
+                    % if isinstance(course_start_date, str):
+                        <span class="important-dates-item-text start-date">${course_start_date}</span>
+                    % else:
+                        <%
+                          course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+                        %>
+                        <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
+                    % endif
+                  </li>
+                % endif
+                  ## We plan to ditch end_date (which is not stored in course metadata),
+                  ## but for backwards compatibility, show about/end_date blob if it exists.
+                  % if course.end:
+                      <%
+                          course_end_date = course.end
+                      %>
+
+                  <li class="w3-padding-16">
+                      <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                      <p class="important-dates-item-title"><b>${_("Classes End")}</b></p>
+                        % if isinstance(course_end_date, str):
+                            <span class="important-dates-item-text final-date">${course_end_date}</span>
+                        % else:
+                          <%
+                              course_date_string = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+                          %>
+                          <span class="important-dates-item-text final-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
+                        % endif
+                  </li>
                   % endif
-            </li>
-            % endif
 
-          % if get_course_about_section(request, course, "effort"):
-            <li class="important-dates-item"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
-          % endif
+                % if get_course_about_section(request, course, "effort"):
+                  <li class="w3-padding-16"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
+                % endif
 
-          ##<li class="important-dates-item"><span class="icon fa fa-clock-o" aria-hidden="true"></span><p class="important-dates-item-title">${_('Course Length')}</p><span class="important-dates-item-text course-length">${_('{number} weeks').format(number=15)}</span></li>
+                ##<li class="w3-padding-16"><span class="icon fa fa-clock-o" aria-hidden="true"></span><p class="important-dates-item-title">${_('Course Length')}</p><span class="important-dates-item-text course-length">${_('{number} weeks').format(number=15)}</span></li>
 
-          %if course_price and (is_cosmetic_price_enabled):
-            <li class="important-dates-item">
-              <span class="icon fa fa-money" aria-hidden="true"></span>
-              <p class="important-dates-item-title">${_("Price")}</p>
-              <span class="important-dates-item-text">${course_price}</span>
-            </li>
+                %if course_price and (is_cosmetic_price_enabled):
+                  <li class="w3-padding-16">
+                    <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                    <p class="important-dates-item-title"><b>${_("Price")}</b></p>
+                    <span class="important-dates-item-text">${course_price}</span>
+                  </li>
+                %endif
+
+                % if pre_requisite_courses:
+                <% prc_target = reverse('about_course', args=[str(pre_requisite_courses[0]['key'])]) %>
+                <li class="w3-padding-16">
+                  <span class="icon fa fa-list-ul" aria-hidden="true"></span>
+                  <p class="important-dates-item-title">${_("Prerequisites")}</p>
+                  ## Multiple pre-requisite courses are not supported on frontend that's why we are pulling first element
+                  <span class="important-dates-item-text pre-requisite"><a href="${prc_target}">${pre_requisite_courses[0]['display']}</a></span>
+                  <p class="tip">
+                  ${Text(_("You must successfully complete {link_start}{prc_display}{link_end} before you begin this course.")).format(
+                    link_start=HTML('<a href="{}">').format(prc_target),
+                    link_end=HTML('</a>'),
+                    prc_display=pre_requisite_courses[0]['display'],
+                  )}
+                  </p>
+                </li>
+                % endif
+
+                % if get_course_about_section(request, course, "prerequisites"):
+                  <li class="w3-padding-16"><span class="icon fa fa-book" aria-hidden="true"></span><p class="important-dates-item-title">${_("Requirements")}</p><span class="important-dates-item-text prerequisites">${get_course_about_section(request, course, "prerequisites")}</span></li>
+                % endif
+              </ol>
+              </%block>
+              <%include file="course_about_sidebar_header.html" />
+            </div>
+
+            ## For now, ocw links are the only thing that goes in additional resources
+            % if get_course_about_section(request, course, "ocw_links"):
+            <div class="additional-resources">
+              <header>
+                <h1>${_("Additional Resources")} Additional</h1>
+            </div>
+
+            <div>
+              ## "MITOpenCourseware" should *not* be translated
+              <h2 class="opencourseware">MITOpenCourseware</h2>
+                ${get_course_about_section(request, course, "ocw_links")}
+            </div>
+          </div>
           %endif
 
-          % if pre_requisite_courses:
-          <% prc_target = reverse('about_course', args=[str(pre_requisite_courses[0]['key'])]) %>
-          <li class="prerequisite-course important-dates-item">
-            <span class="icon fa fa-list-ul" aria-hidden="true"></span>
-            <p class="important-dates-item-title">${_("Prerequisites")}</p>
-            ## Multiple pre-requisite courses are not supported on frontend that's why we are pulling first element
-            <span class="important-dates-item-text pre-requisite"><a href="${prc_target}">${pre_requisite_courses[0]['display']}</a></span>
-            <p class="tip">
-            ${Text(_("You must successfully complete {link_start}{prc_display}{link_end} before you begin this course.")).format(
-              link_start=HTML('<a href="{}">').format(prc_target),
-              link_end=HTML('</a>'),
-              prc_display=pre_requisite_courses[0]['display'],
-            )}
-            </p>
-          </li>
-          % endif
 
-          % if get_course_about_section(request, course, "prerequisites"):
-            <li class="important-dates-item"><span class="icon fa fa-book" aria-hidden="true"></span><p class="important-dates-item-title">${_("Requirements")}</p><span class="important-dates-item-text prerequisites">${get_course_about_section(request, course, "prerequisites")}</span></li>
-          % endif
-        </ol>
-        </%block>
-        <%include file="course_about_sidebar_header.html" />
-    </div>
-
-      ## For now, ocw links are the only thing that goes in additional resources
-      % if get_course_about_section(request, course, "ocw_links"):
-      <div class="additional-resources">
-        <header>
-          <h1>${_("Additional Resources")} Additional</h1>
-      </div>
-
-        <div>
-          ## "MITOpenCourseware" should *not* be translated
-          <h2 class="opencourseware">MITOpenCourseware</h2>
-            ${get_course_about_section(request, course, "ocw_links")}
-        </div>
-    </div>
-      %endif
-
-    % if sidebar_html_enabled:
-      % if get_course_about_section(request, course, "about_sidebar_html"):
-        <section class="about-sidebar-html">
-          about-sidebar-html
-          ${get_course_about_section(request, course, "about_sidebar_html")}
-        </section>
-      % endif
-    %endif
+          % if sidebar_html_enabled:
+            % if get_course_about_section(request, course, "about_sidebar_html"):
+              <section class="about-sidebar-html">
+                about-sidebar-html
+                ${get_course_about_section(request, course, "about_sidebar_html")}
+              </section>
+            % endif
+          %endif
+          
   </div>
+
+</section>
+
+<section class=" w3-green" style="display: flex; justify-content:center; ">
+
+    <div class=" w3-container w3-border" style="width:1600px;">
+        <!-- Infomation Course-->
+        <div class="about-content"> 
+
+          <%block name="course_about_details">
+          <div class="details">
+          % if staff_access and studio_url is not None:
+          <div class="wrap-instructor-info studio-view">
+            <a class="instructor-info-action" href="${studio_url}">${_("View About Page in studio")}</a>
+          </div>
+          % endif
+      
+          <div class="inner-wrapper">
+          ${clean_dangerous_html(get_course_about_section(request, course, "overview"))}
+          </div>
+          </div>
+          </%block>
+          </div>
+
+    </div>
+
+</section>
+
 
 
 ## Need to put this hidden form on the page so that the registration button works.
