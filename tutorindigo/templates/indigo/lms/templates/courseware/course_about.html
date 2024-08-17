@@ -127,7 +127,7 @@ body, html {
 
 </style>
 
-
+<!--Banner-->
 <header class="w3-display-container w3-row w3-border w3-black">
 
         <!--Left side-->
@@ -251,7 +251,7 @@ body, html {
 
 </header>
 
-<!--Course Info Update-->
+<!--panel Info-->
 
 <section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:140px;">
   
@@ -314,8 +314,7 @@ body, html {
         <div class=" w3-cell w3-cell-middle w3-padding">
 
           <img src="${static.url('images/clock-icon2.png')}" alt="logo" style="width: 40px;" />
-  
-          % if not course.start_date_is_still_default:
+          % if course.start and course.end and not course.start_date_is_still_default:
           <%
             course_start_date = course.advertised_start or course.start
             course_end_date = course.end
@@ -323,7 +322,7 @@ body, html {
             # Calculate duration in days and then weeks
             duration_days = (course_end_date - course_start_date).days
             duration_weeks = duration_days // 7  # Use integer division to get whole weeks
-
+        
             min_hours_per_week = 6
             max_hours_per_week = 18
           %>
@@ -333,7 +332,6 @@ body, html {
             <p class="w3-medium">${min_hours_per_week}-${max_hours_per_week} hours per week</p>
           </div>
         % endif
-        
         
 
           
@@ -353,26 +351,38 @@ body, html {
 </section>
 
 
+<!--Summary-->
 
 
-
-
-
-<!--Body Contain-->
 <section  class=" w3-container w3-margin-top" style="display: flex; justify-content: center;   ">
 
 
   <div class=" w3-row w3-padding  " style="width: 1600px;" >
 
     <!--Left-->
-    <div class=" w3-col l8 ">
+    <div class=" w3-col l8 w3-card w3-white " >
 
-       <h1 class=" w3-text-black fa-address-book w3-left-align">
-        About this course
-       </h1>
-       <p class=" w3-text-black w3-cell-middle" style="width: 500px;">
-        Every single minute, computers across the world collect millions of gigabytes of data. What can you do to make sense of this mountain of data? How do data scientists use this data for the applications that power our modern world?
-       </p>
+      <div class="row w3-padding" >
+        <div class=" w3-half" >
+
+          <div class=" w3-padding">
+            <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" >
+            <h1 class=" w3-text-black w3-left-align" style="color: #00522C;">
+              <b>About this course</b>
+            </h1>
+          </div>
+
+           <p class=" w3-text-black w3-cell-middle" >
+            Every single minute, computers across the world collect millions of gigabytes of data. What can you do to make sense of this mountain of data? How do data scientists use this data for the applications that power our modern world?
+           </p>
+        </div>
+        <div class="w3-half w3-center" >
+          <img src="${static.url('images/brain.png')}" alt="Image" class="w3-left w3-margin-right w3-left-align" style="width:350px;  ">
+        </div>
+      </div>
+
+
+    
     </div>
 
     <!--Riht-->
@@ -384,12 +394,12 @@ body, html {
             
             <div class="course-summary">
 
-              <div class="w3-container w3-padding-36 " style="background-color: #00522C;">
+              <div class="w3-container w3-padding-36 w3-center " style="background-color: #00522C;">
                 <h1 class="w3-text-white">Course Summary</h1>
               </div>
        
               <%block name="course_about_important_dates">
-              <ol class="w3-ul w3-hoverable w3-white">
+              <ol class="w3-ul w3-hoverable w3-hover-light-green w3-white">
                 <li class="w3-padding-16">
                   <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                   <p class="important-dates-item-title"><b>${_("Course Number")}</b></p><span class="important-dates-item-text course-number">${course.display_number_with_default}</span></li>
@@ -441,7 +451,7 @@ body, html {
                   <li class="w3-padding-16">
                     <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                     <p class="important-dates-item-title"><b>${_("Price")}</b></p>
-                    <span class="important-dates-item-text">${course_price}</span>
+                    <span class="important-dates-item-text w3-text-red">${course_price}</span>
                   </li>
                 %endif
 
@@ -467,7 +477,11 @@ body, html {
                 % endif
               </ol>
               </%block>
+
+              <div class="  w3-padding w3-center w3-text-black w3-hover-text-black" style="background-color: #E1ECC5;">
               <%include file="course_about_sidebar_header.html" />
+              </div>
+
             </div>
 
             ## For now, ocw links are the only thing that goes in additional resources
@@ -499,9 +513,11 @@ body, html {
 
 </section>
 
-<section class=" w3-green" style="display: flex; justify-content:center; ">
 
-    <div class=" w3-container w3-border" style="width:1600px;">
+<!--Contain Course-->
+<section class=" " style=" background-color:#eef6ec; display: flex; justify-content:center; ">
+
+    <div class=" w3-container " style="width:1600px;">
         <!-- Infomation Course-->
         <div class="about-content"> 
 
@@ -524,7 +540,10 @@ body, html {
 
 </section>
 
-
+<!--contact-->
+<section style=" background-color:#ffffff; display: flex; justify-content:center; ">
+<%include file="contact.html" />
+</section>
 
 ## Need to put this hidden form on the page so that the registration button works.
 ## Since it's no harm to display a hidden form, we display it with the most permissive conditional
