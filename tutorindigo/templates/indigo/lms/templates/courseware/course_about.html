@@ -59,19 +59,17 @@ from openedx.core.lib.courses import course_image_url
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
 </head>
 
 
 <style>
-  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif !important}
-body, html {
-  height: 100%;
-  font-family: "Inter"!important;
-  background-color: rgb(238, 239, 240);
-}
+  html, body,h1,h2,h3,h4,h5 {font-family: "Inter", sans-serif !important}
+  body, html {
+    height: 100%;
+    background-color: rgb(238, 239, 240);
+  }
 
 
 .bgimg {
@@ -90,7 +88,7 @@ body, html {
 
 @media (max-width: 768px) 
 {
-  .w3-col,
+  
   .media,
   img{
     max-height: 300px;
@@ -122,6 +120,22 @@ body, html {
       text-align: left !important;
     }
   }
+
+  .about_course{
+    h1,i{
+     
+      font-size: 20px !important;
+    }
+    .w3-col{
+      img{
+        background-color: aqua;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+
+    }
 }
 
 
@@ -258,6 +272,7 @@ body, html {
   <div class=" w3-col l2 w3-white w3-display-container w3-padding" style=" height:100%;">
     
       <img src="${static.url('images/logo.png')}" class=" w3-padding w3-display-middle" alt="logo" style="width: 200px; " />
+      
   </div>
 
   
@@ -357,40 +372,47 @@ body, html {
 <section  class=" w3-container w3-margin-top" style="display: flex; justify-content: center;   ">
 
 
-  <div class=" w3-row w3-padding  " style="width: 1600px;" >
+  <div class=" w3-row w3-padding  w3-margin" style="width: 1600px;" >
 
     <!--Left-->
-    <div class=" w3-col l8 w3-card w3-white " >
+    <div class="left-side w3-col w3-container s12 m6 l8 w3-margin-top" >
 
-      <div class="row w3-padding" >
-        <div class=" w3-half" >
+      <div class="w3-row w3-padding w3-card-4 w3-white " >
 
-          <div class=" w3-padding">
-            <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" >
-            <h1 class=" w3-text-black w3-left-align" style="color: #00522C;">
-              <b>About this course</b>
-            </h1>
+        <!-- Left Column -->
+        <div class="w3-col l6 m12 w3-container">
+
+          <div>
+            <span class="about_course" style="color: #00522C !important; display: flex; align-items: center;">
+              <i class="fas fa-info-circle fa-3x w3-text-green" style="margin-right: 10px;"></i>
+              <h1><b>About this course</b></h1>
+            </span>
           </div>
 
-           <p class=" w3-text-black w3-cell-middle" >
+          <p class="w3-text-black w3-margin-top">
             Every single minute, computers across the world collect millions of gigabytes of data. What can you do to make sense of this mountain of data? How do data scientists use this data for the applications that power our modern world?
-           </p>
+          </p>
+
         </div>
-        <div class="w3-half w3-center" >
-          <img src="${static.url('images/brain.png')}" alt="Image" class="w3-left w3-margin-right w3-left-align" style="width:350px;  ">
+
+        <!-- Right Column -->
+        <div class="w3-col l6 m12  w3-center w3-container  w3-margin-top">
+          <img src="${static.url('images/brain.png')}" alt="Image" style="width:100%">
         </div>
+      
       </div>
+    
 
 
     
     </div>
 
     <!--Riht-->
-    <div class=" w3-col l4 w3-container">
+    <div class=" w3-col s12 m6 l4 w3-container w3-margin-top">
 
           <!-- NEW IN INDIGO sidebar is improved with better icons -->
 
-          <div class="course-sidebar  w3-white   w3-card ">
+          <div class="course-sidebar  w3-white   w3-card-4 ">
             
             <div class="course-summary">
 
@@ -400,25 +422,33 @@ body, html {
        
               <%block name="course_about_important_dates">
               <ol class="w3-ul w3-hoverable w3-hover-light-green w3-white">
-                <li class="w3-padding-16">
-                  <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                  <p class="important-dates-item-title"><b>${_("Course Number")}</b></p><span class="important-dates-item-text course-number">${course.display_number_with_default}</span></li>
+                <li class="w3-padding-16" style="display: flex; align-items: center;">
+                  <i class="fas fa-clipboard-list fa-3x w3-text-green" style="margin-right: 10px;"></i>
+                  <div class=" w3-margin-left">
+                      <p class="important-dates-item-title" ><b>${_("Course Number")}</b></p>
+                      <span class="important-dates-item-text course-number">${course.display_number_with_default}</span>
+                  </div>
+                </li>
+              
                 % if not course.start_date_is_still_default:
                     <%
                         course_start_date = course.advertised_start or course.start
                     %>
-                  <li class="w3-padding-16">
-                    <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                    <p class="important-dates-item-title"><b>${_("Classes Start")}</b></p>
-                    % if isinstance(course_start_date, str):
-                        <span class="important-dates-item-text start-date">${course_start_date}</span>
-                    % else:
-                        <%
-                          course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
-                        %>
-                        <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
-                    % endif
+                <li class="w3-padding-16" style="display: flex; align-items: center;">
+                      <i class="fas fa-calendar-alt fa-3x w3-text-green" style="margin-right: 10px;"></i>
+                      <div class=" w3-margin-left">
+                          <p class="important-dates-item-title" ><b>${_("Classes Start")}</b></p>
+                          % if isinstance(course_start_date, str):
+                              <span class="important-dates-item-text start-date">${course_start_date}</span>
+                          % else:
+                              <%
+                                course_date_string = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+                              %>
+                              <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
+                          % endif
+                      </div>
                   </li>
+                  
                 % endif
                   ## We plan to ditch end_date (which is not stored in course metadata),
                   ## but for backwards compatibility, show about/end_date blob if it exists.
@@ -427,32 +457,52 @@ body, html {
                           course_end_date = course.end
                       %>
 
-                  <li class="w3-padding-16">
-                      <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                      <p class="important-dates-item-title"><b>${_("Classes End")}</b></p>
+                  <li class="w3-padding-16" style="display: flex; align-items: center;">
+                      <i class="fas fa-calendar-check fa-3x w3-text-green"></i>
+                     <div class=" w3-margin-left">
+                      <p ><b>${_("Classes End")}</b></p>
                         % if isinstance(course_end_date, str):
-                            <span class="important-dates-item-text final-date">${course_end_date}</span>
+                            <span class="">${course_end_date}</span>
                         % else:
                           <%
                               course_date_string = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
                           %>
                           <span class="important-dates-item-text final-date localized_datetime" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}"></span>
                         % endif
+                      </div>
                   </li>
                   % endif
 
                 % if get_course_about_section(request, course, "effort"):
-                  <li class="w3-padding-16"><span class="icon fa fa-pencil" aria-hidden="true"></span><p class="important-dates-item-title">${_("Estimated Effort")}</p><span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span></li>
+               
+                <li class="w3-padding-16" style="display: flex; align-items: center;">
+                  <span class="icon fa fa-pencil fa-3x" aria-hidden="true" style="margin-right: 10px;"></span>
+                  <div class=" w3-margin-left">
+                      <p class="important-dates-item-title" style="margin: 0;">${_("Estimated Effort")}</p>
+                      <span class="important-dates-item-text effort">${get_course_about_section(request, course, "effort")}</span>
+                  </div>
+                </li>
+              
                 % endif
 
-                ##<li class="w3-padding-16"><span class="icon fa fa-clock-o" aria-hidden="true"></span><p class="important-dates-item-title">${_('Course Length')}</p><span class="important-dates-item-text course-length">${_('{number} weeks').format(number=15)}</span></li>
+               <li class="w3-padding-16" style="display: flex; align-items: center;">
+                <i class="icon fa fa-clock-o fa-3x fa-3x w3-text-green" aria-hidden="true"></i>
+                <div class=" w3-margin-left">
+                  <p ><b>${_('Course Length')}</b></p>
+                  <span>${_('{number} weeks').format(number=15)}</span>
+                </div>
+
+              </li>
 
                 %if course_price and (is_cosmetic_price_enabled):
-                  <li class="w3-padding-16">
-                    <img src="${static.url('images/clock-icon2.png')}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                    <p class="important-dates-item-title"><b>${_("Price")}</b></p>
-                    <span class="important-dates-item-text w3-text-red">${course_price}</span>
-                  </li>
+                <li class="w3-padding-16" style="display: flex; align-items: center;">
+                  <i class="fas fa-dollar-sign fa-3x w3-text-green" style="margin-right: 10px;"></i>
+                  <div class=" w3-margin-left">
+                      <p class="important-dates-item-title" ><b>${_("Price")}</b></p>
+                      <span>${course_price}</span>
+                  </div>
+                </li>
+              
                 %endif
 
                 % if pre_requisite_courses:
@@ -515,7 +565,7 @@ body, html {
 
 
 <!--Contain Course-->
-<section class=" " style=" background-color:#eef6ec; display: flex; justify-content:center; ">
+<section class=" h-100" style=" background-color:#eef6ec; display: flex; justify-content:center; ">
 
     <div class=" w3-container " style="width:1600px;">
         <!-- Infomation Course-->
