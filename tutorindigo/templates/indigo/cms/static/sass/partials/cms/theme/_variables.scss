@@ -15,6 +15,14 @@ $serif: 'Inter';
 $f-sans-serif: 'Inter', 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-family-title: 'Inter';
 $font-family-sans-serif: 'Inter', 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+///////// Google Fonts
+$font-inter: 'Inter', sans-serif;
+$font-red-hat-display: 'Red Hat Display', sans-serif;
+$font-kantumruy-pro: 'Kantumruy Pro', sans-serif;
+$font-battambang: 'Battambang', sans-serif;
+
 
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Battambang:wght@400;700&family=Red+Hat+Display:wght@400;700&family=Inter:wght@400;700&display=swap');

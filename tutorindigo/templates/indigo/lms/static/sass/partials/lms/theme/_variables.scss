@@ -5,6 +5,14 @@ $primary-light: #F2F7F8;
 $font-family-title: 'Inter', sans-serif;;
 $serif: Crimson;
 $f-sans-serif: Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+///////// Google Fonts
+$font-inter: 'Inter', sans-serif;
+$font-red-hat-display: 'Red Hat Display', sans-serif;
+$font-kantumruy-pro: 'Kantumruy Pro', sans-serif;
+$font-battambang: 'Battambang', sans-serif;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Battambang:wght@400;700&family=Red+Hat+Display:wght@400;700&family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';

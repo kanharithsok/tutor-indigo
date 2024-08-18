@@ -1,6 +1,6 @@
 // Include custom header
 body {
-    font-family: $font-family-title;
+    font-family:$font-inter;
 }
 header.global-header {
     border: none;
@@ -17,7 +17,7 @@ header.global-header {
         display: block;
     }
     .main-header {
-        height: auto;
+        min-height: 75px;
         align-content: center;
       // background-color: rgb(131, 15, 121);
         height: auto;

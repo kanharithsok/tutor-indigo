@@ -1,3 +1,27 @@
+// styles.scss
+
+
+
+body,p {
+    font-family: $font-inter !important;
+}
+
+h1, h2, h3 {
+    font-family: $font-red-hat-display !important;
+}
+
+.special-text {
+    font-family: $font-kantumruy-pro;
+}
+
+.khmer-text {
+    font-family: $font-battambang;
+}
+
+
+
+
+
 /////////////////////////////////
 .w3-content-top {
     max-width: 1600px;
@@ -33,6 +57,7 @@
     background-color: #374236;
     color: #ffffff;
     padding: 20px 0;
+
 }
 .w3-cell {
     display: flex;

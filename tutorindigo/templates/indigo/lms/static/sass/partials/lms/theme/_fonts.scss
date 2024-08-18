@@ -1,48 +1,53 @@
-///////// Serif
+// _fonts.scss
+
+///////// Internal Serif Font: Crimson
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-Regular.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-Italic.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-SemiBold.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-SemiBoldItalic.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-SemiBoldItalic.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-Bold.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Crimson';
-  src:
-    url('#{$static-path}/fonts/CrimsonText-BoldItalic.ttf') format('truetype');
+  src: url('#{$static-path}/fonts/CrimsonText-BoldItalic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
 }
+
+///////// Google Fonts
+$font-inter: 'Inter', sans-serif;
+$font-red-hat-display: 'Red Hat Display', sans-serif;
+$font-kantumruy-pro: 'Kantumruy Pro', sans-serif;
+$font-battambang: 'Battambang', sans-serif;
+
+// Ensure the Google Fonts are imported at the top of your CSS
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Battambang:wght@400;700&family=Red+Hat+Display:wght@400;700&family=Inter:wght@400;700&display=swap');
