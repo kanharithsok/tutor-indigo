@@ -52,9 +52,9 @@ enterprise_customer_link = get_enterprise_learner_portal(request)
       <span class="course-name">${display_name}</span>
     </div>
   % endif
-  % if not user.is_authenticated:
-  <div class= "Title" >Online Course</div>
-  %endif
+  ## % if not user.is_authenticated:
+
+  ## %endif
 </h1>
 
 

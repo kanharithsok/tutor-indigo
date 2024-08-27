@@ -406,14 +406,14 @@ body.view-instructordash {
           line-height: 20px;
           font-weight: 500;
           padding: 9px 17px;
-          color: #374151;
+          //color: #374151;
           text-decoration: none !important;
           &.active-section {
             background: $primary !important;
             color: white !important;
           }
           &:hover {
-            color: $dark;
+            color: white;
           }
         }
       }

@@ -12,19 +12,22 @@ section.home {
 }
 .global-header .nav-links .secondary {
     .btn-holder {
-        letter-spacing: -.32em;
-        margin: 0 -7px;
-        font-family:$font-family-title;
+        //letter-spacing: -.32em;
+       // margin: 0 -7px;
+        font-family:$font-inter;
         .nav-item {
-            letter-spacing: normal;
-            margin: 0 7px;
-            padding: 12px 0;
+            //letter-spacing: normal;
+            // margin: 0 7px;
+            // padding: 12px 0;
+            //background-color: red;
             .btn {
-                line-height: 20px;
+          
+               // line-height: 20px;
                 padding: 9px 17px;
-                font-size: 14px;
+                font-size: 16px;
                 border-radius: 0px;
-                font-weight: 500;
+                font-family:$font-inter;
+              //  font-weight: 500;
                 display: block;
             }
         }
@@ -107,7 +110,7 @@ section.home {
                         .input-holder {
                             overflow: hidden;
                             border-radius: 0px;
-                            background: $primary-light;
+                            // background: $primary-light;
                             padding: 0 0 0 33px;
                             position: relative;
                             display: block;
