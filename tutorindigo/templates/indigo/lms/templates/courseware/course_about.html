@@ -273,8 +273,6 @@ from openedx.core.lib.courses import course_image_url
     
       <img src="${settings.CMS_ROOT_URL}/${organization.logo.url}" class=" w3-padding w3-circle w3-display-middle" alt="logo" style="max-width: 250px; height:100% !important; " />
 
-     
-      
   </div>
 
   
@@ -291,6 +289,8 @@ from openedx.core.lib.courses import course_image_url
         %>
         %endif
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
+
+    
         <span class="w3-large w3-margin-left "><b>Start ${course_date_string}</b></span>
         
       </div>
@@ -299,10 +299,10 @@ from openedx.core.lib.courses import course_image_url
       <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
         <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
         <span class="w3-large w3-margin-left ">
-          % if isinstance(course_start_date, str):
+          % if course.end and not course.start_date_is_still_default:
           <%
             course_end_date = course.end
-            course_date_string = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
+            course_date_string = course_end_date.strftime('%Y-%b-%d')
           %>
           %endif
           <b >End ${course_date_string}</b>
@@ -313,7 +313,17 @@ from openedx.core.lib.courses import course_image_url
       <div class="w3-container w3-cell w3-cell-middle w3-padding w3-mobile  w3-center">
             <img class="" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 40px; " />
            <div class=" w3-center ">
-                <b class=" w3-large">Self-Paced </b>
+            % if  course.self_paced :
+            <%
+              course_type_string = "Self paced"
+            %>
+            %else:
+            <%
+              course_type_string = "Instructor paced"
+            %>
+            %endif
+        
+                <b class=" w3-large">${course_type_string} </b>
                 <p class=" w3-medium">Progress at your own speed </p>
             </div>
       </div>
