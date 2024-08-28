@@ -101,9 +101,6 @@
             <!-- </div> -->
           </div>
 
-
-
-
         </div>
 
       
@@ -146,6 +143,11 @@
   <section class="find-courses w3-container" style="background: none;" >
     <section class="courses-container " style="background-color: #F6F6F6;">
 
+      <div class=" w3-padding w3-left-align">
+        <i class="fas fa-book fa-3x " style="color:#374236;"></i>
+        <span class="w3-text-black w3-margin-left" style="font-size: 30px; color:#374236;"><b>${_('Explore top courses')}</b></span>
+      </div>
+    
       <!-- NEW IN INDIGO Modified search bar and filters. -->
       % if course_discovery_enabled:
         <div class="saerch-bar-discover">
@@ -169,10 +171,10 @@
 
     <!--Course Cards-->
 
-      <div class="course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
+      <div class=" w3-container course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
         <ul class="courses-listing courses-list">
           %for course in courses:
-          <strong>aaaaaaa ${course.name}</strong>
+        
           <li class="courses-listing-item w3-card-4" >
             <%include file="../course.html" args="course=course" />
           

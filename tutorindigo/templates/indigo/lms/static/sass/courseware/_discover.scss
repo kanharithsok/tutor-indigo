@@ -48,6 +48,7 @@
                     border-radius: 8px;
                     overflow: hidden;
                     background: #fff;
+                    padding-bottom: 20px;
 
 
                     position: relative;
@@ -132,19 +133,22 @@
                         }
                  
                         .course-date {
-                            
-                            padding: 10px 20px;
-                            margin: 0 -20px;
-                            margin-bottom: 10px;
-                            font-size: 14px;
-                            line-height: 20px;
-                            .course-date-wrapper {
-                                border: 1px solid #090909 !important;
-                                border-radius: 15px;
-                                margin-bottom: 20px;
-                                padding: 10px;
-                          
-                            }
+                            // border: 1px solid #090909 !important;
+                             border-radius: 15px;
+                             padding: 5px 5px  !important;
+                     
+                         
+                             margin-bottom: 50px !important;
+                             font-size: 20px !important;
+
+                            line-height: 30px;
+                            // .course-date-wrapper {
+                            //     //border: 1px solid #090909 !important;
+                            //     border-radius: 15px;
+                            //     margin-bottom: 20px;
+                            //     padding: 10px;
+                                
+                            // }
                         }
                     }
                 }
