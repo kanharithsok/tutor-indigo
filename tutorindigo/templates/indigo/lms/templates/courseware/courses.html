@@ -45,7 +45,7 @@
 </head>
 
 
-<main id="main" aria-label="Content" tabindex="-1"  >
+<main id="main" aria-label="Content" tabindex="-1" style="background-color:#F6F6F6 !important;" >
 
 <!--Banner-->
 <header class="w3-display-container">
@@ -87,7 +87,7 @@
                     >
 
                     SEARCH
-                      <i class="fa fa-search"></i>
+                      <i class="fa fa-search" icon fa fa-clock-o></i>
                      
                     </button>
                   </div>
@@ -117,12 +117,22 @@
 
 </header>
 
+<!-- <aside  class="search-facets phone-menu">
+
+  <section class="search-facets-lists w3-green">
+  </section>
+</aside> -->
+
 <!--Org-->
-<section class="w3-container w3-center w3-card-4 w3-padding w3-margin-bottom w3-border">
+<section class="w3-container w3-center w3-card-4 w3-padding w3-margin-bottom w3-border" style="background-color: white !important;">
   <div class="w3-container" style="overflow-x: auto; white-space: nowrap; max-width: 1600px; margin: auto;">
     <div style="display: flex;">
+   
       %for org in organizations:
-      <a href="#" class="w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
+     
+ 
+
+      <a href="${org.short_name}" class="w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
         <img src="${settings.CMS_ROOT_URL}/${org.logo.url}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
       </a>
       %endfor
@@ -133,8 +143,8 @@
 <!--body-->
 
 
-  <section class="find-courses w3-border w3-container" >
-    <section class="courses-container ">
+  <section class="find-courses w3-container" style="background: none;" >
+    <section class="courses-container " style="background-color: #F6F6F6;">
 
       <!-- NEW IN INDIGO Modified search bar and filters. -->
       % if course_discovery_enabled:
@@ -147,8 +157,8 @@
             </a>
             <div class="dropdown-menu search-facets-lists" aria-labelledby="dropdownMenuLink">
                 <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
-                  <h2 class="header-search-facets">${_('Refine Your Search')}</h2>
-                  <section class="search-facets-lists">
+                  <h1 class="header-search-facets w3-yellow">${_('Refine Your Search')}</h1>
+                  <section class="search-facets-lists w3-green">
                   </section>
                 </aside>
             </div>
@@ -162,8 +172,10 @@
       <div class="course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
         <ul class="courses-listing courses-list">
           %for course in courses:
-          <li class="courses-listing-item w3-card-4">
+          <strong>aaaaaaa ${course.name}</strong>
+          <li class="courses-listing-item w3-card-4" >
             <%include file="../course.html" args="course=course" />
+          
           </li>
           %endfor
         </ul>

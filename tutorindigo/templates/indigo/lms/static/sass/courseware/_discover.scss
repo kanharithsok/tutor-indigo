@@ -1,5 +1,8 @@
+
+
 // // Include custom discover
 .find-courses {
+
     padding-bottom: 0 !important;
     .courses-container {
         padding: 25px 0;
@@ -45,7 +48,18 @@
                     border-radius: 8px;
                     overflow: hidden;
                     background: #fff;
+
+
+                    position: relative;
+                    overflow: hidden;
+                    transition: transform 0.3s ease-in-out;
+
+                    &:hover{
+                      
+                        transform: scale(1.05);
+                    }
                     .course-image {
+                        position: relative;
                         .cover-image {
                             height: 220px;
                             &:before {
@@ -55,7 +69,27 @@
                                 object-fit: cover;
                                 object-position: center;
                                 height: 220px;
+
+                            
+                                transition: filter 0.3s ease-in-out; 
                             }
+                        }
+                        .learn-more {
+                       
+               
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            
+                            background-color:#2e5f3f !important;
+                            color: white;
+                     
+                            border-radius: 5px;
+                            text-transform: uppercase;
+                            text-align: center;
+                            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.293), 0px 1px 3px rgba(0, 0, 0, 0.634);
+                        
                         }
                     }
                     .course-info {
@@ -96,40 +130,29 @@
                             white-space: nowrap;
                             text-overflow: ellipsis;
                         }
-                        .learn-more {
-                            display: block;
-                            border-radius: 6px;
-                            background: $primary;
-                            text-align: center;
-                            padding: 9px 17px;
-                            font-size: 14px;
-                            font-weight: 500;
-                            line-height: 20px;
-                            margin: 0 0 30px;
-                            color: #fff;
-                            &:hover {
-                                opacity: .8;
-                            }
-                        }
+                 
                         .course-date {
+                            
                             padding: 10px 20px;
                             margin: 0 -20px;
                             margin-bottom: 10px;
                             font-size: 14px;
                             line-height: 20px;
                             .course-date-wrapper {
-                                border: 1px solid #858A7E;
+                                border: 1px solid #090909 !important;
                                 border-radius: 15px;
                                 margin-bottom: 20px;
                                 padding: 10px;
-                                svg {
-                                    display: inline-block;
-                                    margin: -4px 10px 0 0;
-                                    vertical-align: middle;
-                                }
+                          
                             }
                         }
                     }
+                }
+
+                .course:hover .cover-image img {
+                 
+                    opacity: 50% !important;
+                    filter: blur(5px); /* Blurs the image on hover */
                 }
             }
         }
@@ -315,13 +338,16 @@
                 font-weight: 700;
             }
             ul.facet-list {
+              
                 padding: 0 0 0 25px;
                 max-height: 100px;
                 overflow-y: auto;
                 li {
                     height: auto;
                     margin: 0 0 10px;
+               
                     button.facet-option {
+                    
                         position: relative;
                         float: none;
                         width: auto;
@@ -373,10 +399,6 @@
 /// 
 
 html, body,h1,h2,h3,h4,h5,span {font-family: $font-inter !important}
-body, html {
-  height: 100%;
-  background-color: #F6F6F6;
-}
 
 
 .bgimg {
