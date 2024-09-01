@@ -1,15 +1,15 @@
 // // Include custom home
-// section.home {
-//     max-width: 1600px;
-//     margin: 0 auto;
-//     padding: 0 15px;
-// }
-// .home>header .title {
-//     background: none !important;
-// }
-// .home>header .outer-wrapper {
-//     max-width: 100%;
-// }
+section.home {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.home>header .title {
+    background: none !important;
+}
+.home>header .outer-wrapper {
+    max-width: 100%;
+}
 .global-header .nav-links .secondary {
     .btn-holder {
         //letter-spacing: -.32em;
@@ -34,111 +34,111 @@
     }
 }
 
-// #main .home.style-logout  {
-//     header {
-//         .outer-wrapper {
-//             .title {
-//                 width: 100%;
-//                 float: none;
-//                 margin: 0;
-//                 padding: 30px 0 0;
-//                 min-height: 20px;
-//                 @include media-breakpoint-up(sm) {
-//                     padding: 50px 0 0;
-//                 }
-//                 .heading-group {
-//                     margin: 0 0 25px;
-//                     text-align: left;
-//                     padding: 0;
-//                     @include media-breakpoint-up(sm) {
-//                         margin: 0 0 45px;
-//                     }
-//                     h1 {
-//                         color: #111827;
-//                         font-size: 20px;
-//                         font-weight: 700;
-//                         line-height: 30px;
-//                         margin: 0 0 8px;
-//                         text-align: left;
-//                         @include media-breakpoint-up(md) {
-//                             font-size: 24px;
-//                             font-weight: 700;
-//                             margin: 0 0 12px;
-//                         }
-//                     }
-//                     p {
-//                         font-size: 16px;
-//                         line-height: 20px;
-//                         color: #515661;
-//                         font-style: normal;
-//                         margin: 0;
-//                     }
-//                 }
-//                 .course-search {
-//                     padding: 0;
-//                     .search-field-wrapper {
-//                         &:after {
-//                             clear: both;
-//                             content: "";
-//                             display: block;
-//                         }
-//                         .button-holder {
-//                             float: right;
-//                             button {
-//                                 position: static;
-//                                 margin: 0 0 0 16px;
-//                                 min-width: 90px;
-//                                 color: #fff;
-//                                 font-size: 16px;
-//                                 font-weight: 500;
-//                                 line-height: 26px;
-//                                 text-align: center;
-//                                 padding: 6px;
-//                                 height: 38px;
-//                                 border-radius: 0px;
-//                                  background: none !important;
-//                                 // font-family: $font-family-title;
-//                                 border: none;
-//                                 @include media-breakpoint-up(sm) {
-//                                     min-width: 100px;
-//                                 }
-//                                 &:hover {
-//                                     background: $primary;
-//                                     opacity: .8;
-//                                 }
-//                             }
-//                         }
-//                         .input-holder {
-//                             overflow: hidden;
-//                             border-radius: 0px;
-//                             // background: $primary-light;
-//                             padding: 0 0 0 33px;
-//                             position: relative;
-//                             display: block;
-//                             svg {
-//                                 position: absolute;
-//                                 left: 12px;
-//                                 font-size: 20px;
-//                                 top: 10px;
-//                             }
-//                             input {
-//                                 border: none;
-//                                 box-shadow: none;
-//                                 height: 38px;
-//                                 width: 100%;
-//                                 background: none;
-//                                 outline: none;
-//                                 font-size: 14px;
-//                                 line-height: 20px;
-//                                 padding: 9px 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+#main .home.style-logout  {
+    header {
+        .outer-wrapper {
+            .title {
+                width: 100%;
+                float: none;
+                margin: 0;
+                padding: 30px 0 0;
+                min-height: 20px;
+                @include media-breakpoint-up(sm) {
+                    padding: 50px 0 0;
+                }
+                .heading-group {
+                    margin: 0 0 25px;
+                    text-align: left;
+                    padding: 0;
+                    @include media-breakpoint-up(sm) {
+                        margin: 0 0 45px;
+                    }
+                    h1 {
+                        color: #111827;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 30px;
+                        margin: 0 0 8px;
+                        text-align: left;
+                        @include media-breakpoint-up(md) {
+                            font-size: 24px;
+                            font-weight: 700;
+                            margin: 0 0 12px;
+                        }
+                    }
+                    p {
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #515661;
+                        font-style: normal;
+                        margin: 0;
+                    }
+                }
+                .course-search {
+                    padding: 0;
+                    .search-field-wrapper {
+                        &:after {
+                            clear: both;
+                            content: "";
+                            display: block;
+                        }
+                        .button-holder {
+                            float: right;
+                            button {
+                                position: static;
+                                margin: 0 0 0 16px;
+                                min-width: 90px;
+                                color: #fff;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 26px;
+                                text-align: center;
+                                padding: 6px;
+                                height: 38px;
+                                border-radius: 0px;
+                                 background: none !important;
+                                // font-family: $font-family-title;
+                                border: none;
+                                @include media-breakpoint-up(sm) {
+                                    min-width: 100px;
+                                }
+                                &:hover {
+                                    background: $primary;
+                                    opacity: .8;
+                                }
+                            }
+                        }
+                        .input-holder {
+                            overflow: hidden;
+                            border-radius: 0px;
+                            // background: $primary-light;
+                            padding: 0 0 0 33px;
+                            position: relative;
+                            display: block;
+                            svg {
+                                position: absolute;
+                                left: 12px;
+                                font-size: 20px;
+                                top: 10px;
+                            }
+                            input {
+                                border: none;
+                                box-shadow: none;
+                                height: 38px;
+                                width: 100%;
+                                background: none;
+                                outline: none;
+                                font-size: 14px;
+                                line-height: 20px;
+                                padding: 9px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 html,
 body,
@@ -156,21 +156,27 @@ html {
     background-color: rgb(238, 239, 240);
 }
 
+
 button,
 .button-search,
 input {
     border-radius: 0% !important;
 
     background-image: none !important;
-    color: white !important;
+   // color: white !important;
     font-family: $font-inter;
     text-shadow: none !important;
-    font: normal !important;
+   // font: normal !important;
     width: 100% !important;
     height: 50px !important;
 }
 button,.button-search {
     background-color: #21472e !important;
+    color: white !important;
+ 
+}
+button:hover{
+    background-color: green !important;
 }
 label {
     font: 1em sans-serif !important;
