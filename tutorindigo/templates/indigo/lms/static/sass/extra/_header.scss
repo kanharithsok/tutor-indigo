@@ -2,11 +2,15 @@
 body {
     font-family:$font-inter;
 }
+.global-header .nav-links .main .nav-tab a {
+    display:inline !important;
+}
 header.global-header {
     border: none;
     padding: 0;
     overflow: visible;
     height: auto;
+    
    // background-color: beige;
   
    
@@ -17,7 +21,7 @@ header.global-header {
         display: block;
     }
     .main-header {
-        min-height: 75px;
+        //min-height: 75px;
         align-content: center;
       // background-color: rgb(131, 15, 121);
         height: auto;
@@ -29,6 +33,7 @@ header.global-header {
         font-weight: bold;
         margin: 15px 15px 15px 35px;
         font-size: x-large;
+    
       
         }
       
@@ -36,11 +41,11 @@ header.global-header {
         a {
             @include media-breakpoint-up(lg) {
                 margin: 0;
-                margin: 20px 0 0;
+                //margin: 20px 0 0;
             }
             .logo {
-                height: 40px;
-                margin: 0;
+                height: 50px;
+                margin: 10px;
             }
         }
         .course-header {
@@ -49,19 +54,26 @@ header.global-header {
     }
     .nav-links {
         .main {
-            margin: 0 0 0 38px;
+           // margin: 0 0 0 38px;
             .nav-tab {
+                align-items: center !important;
+                justify-items: center !important;
                 a {
-                    font-size: 14px;
-                    font-weight: 500;
-                    line-height: 22px;
-                    padding: 20px 0;
-                    color: $light-dark;
-                    margin: 0 16px 0 0;
-                    border-bottom: 2px solid transparent;
-                    &.active, &:hover {
-                        color: $dark;
-                        border-bottom: 2px solid $primary;
+                    align-content: center !important;
+                    // font-size: 14px;
+                    // font-weight: 500;
+                    //line-height: 22px;
+                    //height: 75px !important;
+                    padding: 30px;
+                    color: black;
+                  // margin: 0 16px 0 0;
+                    border-bottom: 2px solid black !important;
+                    //display: block !important;
+                     &:hover {
+                        color: white;
+                        // border-bottom: 2px solid $primary;
+                        background-color: #134223 !important;
+                       
                     }
                 }
             }
