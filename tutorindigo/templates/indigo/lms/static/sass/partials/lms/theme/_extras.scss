@@ -1,4 +1,4 @@
-body,p {
+body,p,button,input,select,textarea {
   font-family: $font-inter !important;
 }
 
@@ -248,16 +248,19 @@ nav.wrapper-preview-menu {
   position: relative;
   overflow: hidden;
   width: 100%;
+ 
   // #2C362B
   .register-btn {
     background-color: #21472E !important;
     background-color: 1px solid #2C362B !important;
     color: white !important;
+    padding:  10px 20px;
   }
-  .sign-in-btn {
+  .sign-in-btn  {
     background-color: white !important;
     border: 1px solid #21472E !important;
     color: #2C362B !important;
+    padding:  10px 20px;
   }
 }
 #lean_overlay {
