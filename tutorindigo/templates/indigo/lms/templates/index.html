@@ -39,7 +39,37 @@ from openedx.core.djangolib.markup import HTML, Text
   height: 500px;
 
 }
-banner2
+
+.filter-tabs {
+  display: flex;
+  justify-content: space-around;
+ 
+}
+.filter-tabs .w3-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  width: auto;
+}
+.filter-tabs .w3-button.active {
+
+  border-bottom: 3px solid #4CAF50;
+  color: #4CAF50;
+}
+.filter-content {
+  margin-top: 20px;
+}
+.filter-card {
+  display: none;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
 
 </style>
 
@@ -122,11 +152,31 @@ banner2
   </div>
 </section>
 
+
 <section class="home style-logout">
-     
+
+  <!--Filter Subject-->
+  <div class="w3-container ">
+    <h1>New top courses</h1>
+  
+    <div class="filter-tabs w3-border-bottom">
+      <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
+      <div class="w3-button tablink" onclick="filterSelection('education')">Education</div>
+      <div class="w3-button tablink" onclick="filterSelection('finance')">Finance</div>
+      <div class="w3-button tablink" onclick="filterSelection('programming')">Programming</div>
+      <div class="w3-button tablink" onclick="filterSelection('leadership')">Leadership & Interpersonal Skills</div>
+      <div class="w3-button tablink" onclick="filterSelection('business')">Business Management & Strategy</div>
+  </div>
+
+
+  </div>
+
   <%include file="${courses_list}" />
 
 </section>
+
+
+
 
 <!--Banner2-->
 <header class="w3-display-container">
@@ -145,28 +195,10 @@ banner2
 
           <div class="discover-search w3-padding-64 ">
             <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
-           
-            
-              % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
-              <div class="course-search">
-                <form method="get" action="/courses">
-                  <!-- UPDATE IN INDIGO2.1 - Change the structure for search bar  -->
-                  <div class="search-field-wrapper">
-               
-                   
-                      <div class="w3-col s4 m3 l2">
-                        <button class=" w3-button button-search w3-hover-green" type="submit" style="width: 200px;">
-                          Register for free
-                        
-                        </button>
-                      </div>
 
-                    </label>
-                  </div>
-                </form>
-              </div>
-              % endif
-
+              <button class=" w3-button button-register w3-hover-green" type="submit" style="width: 200px!important;">
+                Register for free
+              </button>
 
             </div>
 
@@ -183,7 +215,24 @@ banner2
 
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home style-logout">
-     
+      
+    <!--Filter Subject-->
+    <div class="w3-container ">
+      <h2>Explore top courses</h2>
+    
+      <div class="filter-tabs w3-border-bottom">
+        <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
+        <div class="w3-button tablink" onclick="filterSelection('education')">Education</div>
+        <div class="w3-button tablink" onclick="filterSelection('finance')">Finance</div>
+        <div class="w3-button tablink" onclick="filterSelection('programming')">Programming</div>
+        <div class="w3-button tablink" onclick="filterSelection('leadership')">Leadership & Interpersonal Skills</div>
+        <div class="w3-button tablink" onclick="filterSelection('business')">Business Management & Strategy</div>
+    </div>
+
+
+    </div>
+
+
       <%include file="${courses_list}" />
 
     </section>
@@ -203,7 +252,8 @@ banner2
          if(getParameterByName('next')) {
               $('#login').trigger("click");
          }
-      })
+      }),
+
    </script>
 </%block>
 
@@ -212,5 +262,7 @@ banner2
   ## show either with or without this extra js for 3 minutes at a time.
 <script type="text/javascript">
   $(window).load(function() {$('#signup_action').trigger("click");});
+ 
 </script>
 % endif
+
