@@ -139,15 +139,14 @@ from openedx.core.djangolib.markup import HTML, Text
   <div class="w3-container" style="overflow-x: auto; white-space: nowrap; max-width: 1600px; margin: auto;">
     <div style="display: flex;">
    
-     ##%for org in course:
+      %for org in organizations:
      
  
 
       <a href="#" class="org-icon-filter w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
-       
-        <img src="${static.url('images/flower-green.png')}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
+        <img src="${settings.CMS_ROOT_URL}/${org.logo.url}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
       </a>
-     ## %endfor
+      %endfor
     </div>
   </div>
 </section>
@@ -156,8 +155,8 @@ from openedx.core.djangolib.markup import HTML, Text
 <section class="home style-logout">
 
   <!--Filter Subject-->
-  <div class="w3-container ">
-    <h1>New top courses</h1>
+  <div class="w3-container">
+    <h1 class="Titil2">New top courses</h1>
   
     <div class="filter-tabs w3-border-bottom">
       <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
@@ -213,12 +212,13 @@ from openedx.core.djangolib.markup import HTML, Text
   <%include file="index_promo_video.html" />
 </header>
 
+<!--Cards -->
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home style-logout">
       
     <!--Filter Subject-->
     <div class="w3-container ">
-      <h2>Explore top courses</h2>
+      <h1 class="Titil2">Explore top courses</h1>
     
       <div class="filter-tabs w3-border-bottom">
         <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
