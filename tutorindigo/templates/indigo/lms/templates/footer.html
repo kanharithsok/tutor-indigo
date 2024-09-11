@@ -14,138 +14,6 @@
 
 <!-- NEW IN INDIGO update footer -->
 % if uses_bootstrap:
-<div class="wrapper wrapper-footer">
-  <footer>
-    <!-- Top Footer -->
-    <div class="footer-top">
-      <div class="container-top">
-        <div class="row">
-          <div class="col-md-6 text-white">
-            <h2 class="text-white">Learn and Grow</h2>
-            <p>
-              Our edX learning experience is grounded in cutting-edge cognitive
-              science. With more than two dozen distinct learning features to
-              help you achieve your goals, our approach follows three key
-              principles
-            </p>
-
-            <strong>Experience</strong>
-            <p>
-              Learn new knowledge and skills in a variety of ways, from engaging
-              video lectures and dynamic graphics to data visualizations and
-              interactive elements.
-            </p>
-
-            <strong>Practice</strong>
-            <p>
-              Demonstrating your knowledge is a critical part of learning. edX
-              courses and programs provide a space to practice with quizzes,
-              open response assessments, virtual environments, and more.
-            </p>
-
-            <strong>Apply</strong>
-            <p>
-              Learning on edX transforms how you think and what you can do, and
-              translates directly into the real world—immediately apply your new
-              capabilities in the context of your job.
-            </p>
-          </div>
-          <div
-            class="col-md-6 d-flex flex-row justify-content-center align-items-center"
-          >
-            <img
-              src="${static.url('images/flower-white.png')}"
-              alt="Logo"
-              style="max-width: 400px"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom Footer -->
-    <div class="footer-bottom">
-      <div class="container-bot">
-        <div class="row text-center text-white text-md-left">
-          <!-- Logo and Social Media -->
-          <div
-            class="col-md-3 mb-4 mb-md-0 d-flex flex-column justify-content-center align-items-center"
-          >
-            <img
-              src="${static.url('images/logo-white.png')}"
-              alt="Logo"
-              style="max-width: 200px"
-            />
-
-            <ul
-              class="list-unstyled list-inline social-icons mt-3 d-flex flex-row justify-content-center align-items-center"
-            >
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </ul>
-
-            <p class="mt-3">&copy; 2024 CBC. All rights reserved.</p>
-          </div>
-
-          <!-- Browse Courses -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5 class="w3-text-white w3-margin-bottom w3-bold">
-              Browse Courses
-            </h5>
-            <ul class="w3-ul">
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">Learn Economics</a></li>
-              <li><a href="#">Learn Project</a></li>
-              <li><a href="#">Learn Business</a></li>
-              <li><a href="#">Learn Software</a></li>
-              <li><a href="#">Learn Computer</a></li>
-            </ul>
-          </div>
-
-          <!-- About Us -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5 class="text-uppercase text-white mb-4 font-weight-bold">
-              About Us
-            </h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Company Profile</a></li>
-              <li><a href="#">Vision, Mission & Core Value</a></li>
-              <li><a href="#">Shareholders</a></li>
-              <li><a href="#">Board of Directors</a></li>
-              <li><a href="#">Management Team</a></li>
-            </ul>
-          </div>
-
-          <!-- Media -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5 class="text-uppercase text-white mb-4 font-weight-bold">
-              Media
-            </h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">CSR Activities</a></li>
-              <li><a href="#">Videos and Photos</a></li>
-            </ul>
-          </div>
-
-          <!-- Our Members -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5 class="text-uppercase text-white mb-4 font-weight-bold">
-              Our Members
-            </h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Benefits</a></li>
-              <li><a href="#">How to become a member</a></li>
-              <li><a href="#">Member Directory</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
 
 % else:
 <!-- NEW IN INDIGO update footer -->
@@ -275,14 +143,15 @@
 
         <!-- Our Members -->
         <div class="w3-col s6 m3 l2 w3-left-align ">
+          <h5 class="w3-text-white w3-margin-bottom w3-bold" id="footer_language">Language</h5>
+          <div class="language-select">
+              <select id="language" onchange="changeLanguage(this.value)">
+                  <option value="en">English</option>
+                  <option value="kh">Khmer</option>
+              </select>
+          </div>
           
-                <h5 class="w3-text-white w3-margin-bottom w3-bold">Our Members</h5>
-                <ul >
-                    <li><a href="#">Benefits</a></li>
-                    <li><a href="#">How to become a member</a></li>
-                    <li><a href="#">Member Directory</a></li>
-                </ul>
-          
+      
         </div>
         
       </div>
@@ -303,3 +172,31 @@
     <link rel="stylesheet" type="text/css" href="${url}">
   % endfor
 % endif
+
+<script>
+
+  async function loadTranslations() {
+    try {
+      const response = await fetch('../translations/lang.json'); // Check the path and server configuration
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      const translations = await response.json();
+      return translations;
+    } catch (error) {
+      console.error('Error loading translations:', error);
+      return null;
+    }
+  }
+  
+
+  
+  async function changeLanguage(lang) {
+    const translations = await loadTranslations();
+    if (translations && translations[lang]) {
+      // Update the footer content dynamically
+      document.getElementById('footer_language').innerText = translations[lang]['language'];
+    }
+  }
+
+</script>
