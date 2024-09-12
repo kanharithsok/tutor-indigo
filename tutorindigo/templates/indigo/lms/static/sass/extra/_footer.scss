@@ -85,17 +85,17 @@ h5 &ul {
 .language-select {
     margin-bottom: 20px;
     display: flex;
-    padding: 30px;
-    justify-content: center;
+    //padding: 10px;
+    justify-content: left;
     align-items: center;
     position: relative; /* Make the container relative */
-    background-color: red;
+
 }
 
 select {
-    padding: 40px;
+    padding: 10px;
     font-size: 16px;
-    width: 100%;
+    // width: 100%;
     max-width: 300px;
     position: relative; /* Ensure the select button stays in its place */
     z-index: 1; /* Make sure it's above other content */
