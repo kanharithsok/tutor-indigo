@@ -125,14 +125,19 @@
   <div class="w3-container" style="overflow-x: auto; white-space: nowrap; max-width: 1600px; margin: auto;">
     <div style="display: flex;">
    
-      %for org in organizations:
-     
- 
 
-      <a href="${org.short_name}" class="org-icon-filter w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
-        <img src="${settings.CMS_ROOT_URL}${org.logo.url}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
-      </a>
+      %for org in organizations:
+        %if org and org.logo and org.logo.url:
+            <a href="#" class="org-icon-filter w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
+                <img src="${settings.CMS_ROOT_URL}${org.logo.url}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
+            </a>
+            <!-- <a href="${org.short_name}" class="org-icon-filter w3-circle w3-margin-right w3-margin-top w3-margin-bottom" style="display: inline-block; transition: transform 0.3s;">
+              <img src="${settings.CMS_ROOT_URL}${org.logo.url}" class="w3-circle w3-card-4" style="width: 100px; height: 100px;">
+            </a> -->
+            
+        %endif
       %endfor
+  
     </div>
   </div>
 </section>
@@ -146,6 +151,7 @@
       <div class=" w3-padding w3-left-align">
         <i class="fas fa-book fa-3x " style="color:#374236;"></i>
         <span class="w3-text-black w3-margin-left" style="font-size: 30px; color:#374236;"><b>${_('Explore top courses')}</b></span>
+        ${_('Refine Your Search')}
       </div>
     
       <!-- NEW IN INDIGO Modified search bar and filters. -->
@@ -159,8 +165,8 @@
             </a>
             <div class="dropdown-menu search-facets-lists" aria-labelledby="dropdownMenuLink">
                 <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
-                  <h1 class="header-search-facets w3-yellow">${_('Refine Your Search')}</h1>
-                  <section class="search-facets-lists w3-green">
+                  <h1 class="header-search-facets">${_('Refine Your Search')}</h1>
+                  <section class="search-facets-lists">
                   </section>
                 </aside>
             </div>
