@@ -55,7 +55,7 @@ header.global-header {
     .nav-links {
         .main {
             // margin:  10px 0 0 20px
-            margin: 0% !important;
+            //margin: 10px 0 0 20px !important;
             align-items: center !important;
           
             .nav-tab {
@@ -66,8 +66,9 @@ header.global-header {
                     // font-size: 14px;
                     // font-weight: 500;
                     //line-height: 22px;
+                    margin-left:30px;
                     height: 75px !important;
-                     padding: 35px;
+                    padding: 35px;
                     color: black;
                     // margin: 0 16px 0 0;
                     border-bottom: 2px solid black !important;
