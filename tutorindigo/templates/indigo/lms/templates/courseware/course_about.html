@@ -269,11 +269,24 @@ from openedx.core.lib.courses import course_image_url
 
 <section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:140px;">
   
-  <div class=" w3-col l2 w3-white w3-display-container w3-padding" style=" height:100%;">
-    
-      <img src="${settings.CMS_ROOT_URL}${organization.logo.url}" class=" w3-padding w3-circle w3-display-middle" alt="logo" style="max-width: 250px; height:100% !important; " />
-
+  <div class="w3-col l2 w3-white w3-display-container w3-padding" style="height: 100%;">
+    % if organization.logo and organization.logo.url:
+      <img 
+        src="${settings.CMS_ROOT_URL}${organization.logo.url}" 
+        class="w3-padding w3-circle w3-display-middle" 
+        alt="logo" 
+        style="max-width: 250px; height: 100% !important;" 
+      />
+    % else:
+      <img 
+        src="${static.url('images/flower-white.png')}"
+        class="w3-padding w3-circle w3-display-middle" 
+        alt="default logo" 
+        style="max-width: 250px; height: 100% !important;" 
+      />
+    % endif
   </div>
+
 
   
   <div class="w3-col detail_time m12 l8  " style=" height:100%;">
