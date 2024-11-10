@@ -148,16 +148,16 @@
   <section class="find-courses w3-container" style="background: none;" >
     <section class="courses-container " >
 
-      <div class=" w3-padding w3-left-align">
+      <div class="w3-padding w3-left-align">
         <i class="fas fa-book fa-3x " style="color:#374236;"></i>
-        <span class="w3-text-black w3-margin-left" style="font-size: 30px; color:#374236;"><b>${_('Explore top courses')}</b></span>
+        <span class="top-courses w3-text-black w3-margin-left" style="font-size: 30px; color:#374236;"><b>${_('Explore top courses')}</b></span>
    
       </div>
     
       <!-- NEW IN INDIGO Modified search bar and filters. -->
       % if course_discovery_enabled:
-        <div class="saerch-bar-discover">
-          <div class="dropdown filter-block">
+        <div class="saerch-bar-discover w3-hide-large w-100">
+          <div class="dropdown filter-block w-100">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               
               <span>Filters</span>
@@ -172,22 +172,49 @@
             </div>
           </div>
         
+
+   
+       
       </div>
     % endif
 
     <!--Course Cards-->
 
-      <div class=" w3-container course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
-        <ul class="courses-listing courses-list">
-          %for course in courses:
-        
-          <li class="courses-listing-item w3-card-4" >
-            <%include file="../course.html" args="course=course" />
+      <div class="course-list-container w3-border-black w3-row w3-padding h-100">
+
+               <!-- NEW IN INDIGO: Added search bar. -->
+         % if course_discovery_enabled:
+        <div class="w3-col l2 w3-hide-medium  w3-hide-small w3-margin-right filter w3-center w3-white h-100" >
+      
+          <h4 class=" w3-padding-top-24">
+            Filter Course 
+            <i class="fa fa-arrow-down-wide-short w3-margin-right"></i>
+          </h4>
+
+          <aside class="search-facets phone-menu w-100 ">
+            <section class="search-facets-lists w3-padding-small w3-border-white">
+            </section>
+          </aside>
+        </div>
+        % endif
+        <div class=" w3-rest ">
+     
+          <div class=" course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
+            <ul class="courses-listing courses-list">
+              %for course in courses:
+            
+              <li class="courses-listing-item w3-card-2" >
+                <%include file="../course.html" args="course=course" />
+              
+              </li>
+              %endfor
+            </ul>
+          </div>
           
-          </li>
-          %endfor
-        </ul>
-      </div>
+          <!-- Course Cards -->
+        </div>
+
+    </div>
 
     </section>
   </section>
