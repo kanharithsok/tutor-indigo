@@ -15,15 +15,21 @@
         width: 100% !important;
         float: none !important;
     }
-
-    .top-courses {
-        @include media-(xs) { 
-            font-size: 14px !important;
-            background-color: red;
-          
+    .filters{
+        background-color:transparent !important; 
+        li{
+            background: none !important;
+            padding: 0% !important;
         }
-      
+        .flt-right {
+            float: right;
+            max-width: 150px !important;
+        }
     }
+    .discovery-button{
+        text-align: center !important;
+    }
+ 
 }
 .courses-container {
     .courses {
@@ -188,6 +194,7 @@
             border: none;
             .clear-filters {
                 display: none;
+                max-width: 200px !important;
             }
             ul {
                 li {
@@ -205,7 +212,9 @@
                 }
             }
         }
+    
     }
+
     .discover-search {
         overflow: hidden;
         .wrapper-search-context {
@@ -368,11 +377,12 @@
                         float: none;
                         width: auto;
                        // background: none !important;
-                        padding: 0 0 0 24px;
+                     
                         font-size: 14px;
-                        line-height: 20px;
+                        
+                        //line-height: 20px;
                         color: #191B23!important;
-                        background-color: aquamarine !important;
+                        background-color: #F2F7F8 !important;
                         &.selected {
                             .count {
                                 background: $primary;
@@ -393,7 +403,7 @@
                             position: absolute;
                             left: 0;
                             right: auto;
-                            top: 2px;
+                          //  top: 2px;
                             width: 16px;
                             height: 16px;
                             border-radius: 4px;
@@ -438,10 +448,10 @@ input,.btn-search{
     
     background-image: none;
 
-    background-color: #21472E !important;
+   // background-color: #21472E !important;
     &:hover:not(:disabled) {
       background-image: none;
-      background-color:green !important;
+     // background-color:green !important;
       color: white !important;
     }
 
@@ -469,11 +479,7 @@ text-shadow:none;
     }
     .top-courses {
         
-            font-size: 14px !important;
-            background-color: red;
-          
-    
-      
+            font-size: 20px !important      
     }
 
   
