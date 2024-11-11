@@ -194,12 +194,12 @@
 
                <!-- NEW IN INDIGO: Added search bar. -->
          % if course_discovery_enabled:
-        <div class="w3-col l2 w3-hide-medium  w3-hide-small w3-margin-right filter w3-center w3-white h-100" >
+        <div class="w3-col l3 w3-hide-medium  w3-hide-small filter w3-center w3-white h-100" style="margin-right: 3%;">
       
-          <h4 class=" w3-padding-top-24">
+          <h3 class=" w3-padding-top-24">
             Filter Course 
             <i class="fa fa-arrow-down-wide-short w3-margin-right"></i>
-          </h4>
+          </h3>
 
           <aside class="search-facets phone-menu w-100 ">
             <section class="search-facets-lists w3-padding-small w3-border-white">
@@ -207,13 +207,22 @@
           </aside>
         </div>
         % endif
-        <div class=" w3-rest ">
+        <div class="courses-card w3-rest">
+          <div class="courses-list-title w3-container">
+            <!-- <img class=" w3-green" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 40px; " /> -->
+            <i class=" fa fa-note-sticky  " style="color: green;"  ></i>
+            <span>
+              Continuing Education
+            </span>
+          </div>
      
+       
+
           <div class=" course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
             <ul class="courses-listing courses-list">
               %for course in courses:
             
-              <li class="courses-listing-item w3-card-2" >
+              <li class="courses-listing-item w3-card">
                 <%include file="../course.html" args="course=course" />
               
               </li>
