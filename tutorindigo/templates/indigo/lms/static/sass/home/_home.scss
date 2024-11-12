@@ -4,37 +4,36 @@ section.home {
     margin: 0 auto;
     padding: 0 15px;
 }
-.home>header .title {
+.home > header .title {
     background: none !important;
 }
-.home>header .outer-wrapper {
+.home > header .outer-wrapper {
     max-width: 100%;
 }
 .global-header .nav-links .secondary {
     .btn-holder {
         //letter-spacing: -.32em;
-       // margin: 0 -7px;
-        font-family:$font-inter;
+        // margin: 0 -7px;
+        font-family: $font-inter;
         .nav-item {
             //letter-spacing: normal;
             // margin: 0 7px;
             // padding: 12px 0;
             //background-color: red;
             .btn {
-
-               // line-height: 20px;
+                // line-height: 20px;
                 padding: 9px 17px;
                 font-size: 16px;
                 border-radius: 0px;
-                font-family:$font-inter;
-              //  font-weight: 500;
+                font-family: $font-inter;
+                //  font-weight: 500;
                 display: block;
             }
         }
     }
 }
 
-#main .home.style-logout  {
+#main .home.style-logout {
     header {
         .outer-wrapper {
             .title {
@@ -96,7 +95,7 @@ section.home {
                                 padding: 6px;
                                 height: 38px;
                                 border-radius: 0px;
-                                 background: none !important;
+                                background: none !important;
                                 // font-family: $font-family-title;
                                 border: none;
                                 @include media-breakpoint-up(sm) {
@@ -104,7 +103,7 @@ section.home {
                                 }
                                 &:hover {
                                     background: $primary;
-                                    opacity: .8;
+                                    opacity: 0.8;
                                 }
                             }
                         }
@@ -156,26 +155,28 @@ html {
     background-color: rgb(238, 239, 240);
 }
 
-
 button,
 .button-search,
 input {
     border-radius: 0% !important;
 
     background-image: none !important;
-   // color: white !important;
+    // color: white !important;
     font-family: $font-inter;
     text-shadow: none !important;
-   // font: normal !important;
+    // font: normal !important;
     width: 100% !important;
     height: 50px !important;
 }
-button,.button-search {
+button,
+.button-search {
     background-color: #21472e !important;
     color: white !important;
- 
+    @include media-breakpoint-down(sm) {
+        font-size: xx-small !important;
+    }
 }
-button:hover{
+button:hover {
     background-color: green !important;
 }
 label {
