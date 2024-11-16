@@ -406,8 +406,8 @@
                         background-color: #f2f7f8 !important;
                         &.selected {
                             .count {
-                                background: $primary;
-                                border-color: $primary;
+                                // background: $primary;
+                                // border-color: $primary;
                                 &:before {
                                     content: "\f00c";
                                     width: auto;
