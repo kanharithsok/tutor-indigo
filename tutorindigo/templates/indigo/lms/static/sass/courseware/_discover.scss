@@ -475,11 +475,17 @@ span {
     height: 500px;
 }
 
-input,
+.discovery-input,
 .btn-search {
     border-radius: 0% !important;
     border-color: #21472e !important;
     height: 50px !important;
+}
+.previous-button,.next-button,.submit {
+    border-radius: 0% !important;
+    border-color: #21472e !important;
+    height: 50px !important;
+    background-color: #21472E !important;
 }
 
 .btn-search {
@@ -488,7 +494,7 @@ input,
     // background-color: #21472E !important;
     &:hover:not(:disabled) {
         background-image: none;
-        // background-color:green !important;
+         background-color:green !important;
         color: white !important;
     }
 

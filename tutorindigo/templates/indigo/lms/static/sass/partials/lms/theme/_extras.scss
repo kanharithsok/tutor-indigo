@@ -1,8 +1,15 @@
-body,p,button,input,select,textarea {
+body,
+p,
+button,
+input,
+select,
+textarea {
   font-family: $font-inter !important;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: $font-red-hat-display !important;
 }
 
@@ -21,12 +28,13 @@ $content-padding-bottom: 10px;
 $header-height: 75px;
 $footer-height: 125.5px;
 
-body, body.view-profile {
+body,
+body.view-profile {
   min-height: initial;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 .page-content-container {
   max-width: 1600px;
@@ -39,7 +47,8 @@ body, body.view-profile {
   border-radius: 0;
 }
 
-.btn, .global-header .nav-links .secondary .btn {
+.btn,
+.global-header .nav-links .secondary .btn {
   border-radius: 0;
 }
 
@@ -59,7 +68,9 @@ body, body.view-profile {
     padding-bottom: $content-padding-bottom;
     margin-top: $header-height;
   }
-  min-height: calc(100vh - #{$header-height + $content-padding-top + $content-padding-bottom + $footer-height}); // sticky footer
+  min-height: calc(
+    100vh - #{$header-height + $content-padding-top + $content-padding-bottom + $footer-height}
+  ); // sticky footer
 }
 
 ////////////////// Fonts
@@ -71,7 +82,7 @@ header.global-header {
     position: fixed;
     top: 0;
     z-index: 200; // necessary to keep the header on top of other elements
-    overflow: visible;  // fix for Safari
+    overflow: visible; // fix for Safari
   }
   //background-color: #4c61bf;
   box-shadow: none;
@@ -88,10 +99,10 @@ header.global-header .nav-links .secondary .dropdown-user-menu {
 /////////////////// Sign in form
 
 .login-register .form-field {
-    // Hide "Sign in with your company or school link"
-    button.enterprise-login {
-        display: none;
-    }
+  // Hide "Sign in with your company or school link"
+  button.enterprise-login {
+    display: none;
+  }
 }
 
 /////////////////// Home page
@@ -116,11 +127,13 @@ header.global-header .nav-links .secondary .dropdown-user-menu {
   text-align: center;
 }
 
-.animation-home-header-pop-up, .home > header .outer-wrapper {
+.animation-home-header-pop-up,
+.home > header .outer-wrapper {
   animation: none;
 }
 
-.highlighted-courses .courses, .find-courses .courses {
+.highlighted-courses .courses,
+.find-courses .courses {
   padding-top: 0;
 }
 
@@ -131,7 +144,8 @@ header.global-header .nav-links .secondary .dropdown-user-menu {
   .courses-listing-item {
     margin: 0 20px 30px 20px;
     // Fix right margin
-    &:nth-child(4n), &:last-child {
+    &:nth-child(4n),
+    &:last-child {
       margin-right: 20px;
     }
   }
@@ -144,10 +158,10 @@ header.global-header .nav-links .secondary .dropdown-user-menu {
 
 ////////////////// "View this course as staff/learner/..."
 nav.wrapper-preview-menu {
-    // It is necessary to specify `nav` in order to override the common higher priority rule
-    @include media-breakpoint-up(lg) {
-      margin-top: $header-height;
-    }
+  // It is necessary to specify `nav` in order to override the common higher priority rule
+  @include media-breakpoint-up(lg) {
+    margin-top: $header-height;
+  }
 }
 
 ////////////////// Course about page
@@ -184,9 +198,9 @@ nav.wrapper-preview-menu {
   }
 }
 
-
 /////////////////// Course search
-.find-courses, .university-profile {
+.find-courses,
+.university-profile {
   background-color: #fff;
 }
 
@@ -220,24 +234,26 @@ nav.wrapper-preview-menu {
   padding: 25px 40px;
 
   .wrapper-logo {
-      display: none;
+    display: none;
   }
   .copyright {
-      display: none;
+    display: none;
   }
   .nav-legal ul {
-      display: inline-block;
+    display: inline-block;
   }
   footer#footer-openedx .footer-about-openedx {
-      a {
-          float: none;
-      }
-      p {
-          text-align: right;
-      }
+    a {
+      float: none;
+    }
+    p {
+      text-align: right;
+    }
   }
 }
-.container, .main-container, .find-courses {
+.container,
+.main-container,
+.find-courses {
   max-width: 1600px;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -248,19 +264,24 @@ nav.wrapper-preview-menu {
   position: relative;
   overflow: hidden;
   width: 100%;
- 
+
   // #2C362B
   .register-btn {
-    background-color: #21472E !important;
-    background-color: 1px solid #2C362B !important;
-    color: white !important;
-    padding:  10px 20px;
+    // background-color: #21472E !important;
+    // background-color: 1px solid #2C362B !important;
+
+    color: #21472e !important;
+    @include media-breakpoint-up(lg) {
+      padding: 10px 20px;
+      background-color: #21472e !important;
+      color: white !important;
+    }
   }
-  .sign-in-btn  {
+  .sign-in-btn {
     background-color: white !important;
-    border: 1px solid #21472E !important;
-    color: #2C362B !important;
-    padding:  10px 20px;
+    border: 1px solid #21472e !important;
+    color: #2c362b !important;
+    padding: 10px 20px;
   }
 }
 #lean_overlay {
@@ -271,16 +292,16 @@ nav.wrapper-preview-menu {
   padding: 0;
   background: none;
   .inner-wrapper {
-      padding: 15px;
-      border-radius: 8px;
-      border: none;
-      @include media-breakpoint-up(sm) {
-        padding: 24px;
-      }
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    @include media-breakpoint-up(sm) {
+      padding: 24px;
     }
+  }
 }
 .container {
-  &.about{
+  &.about {
     padding: 30px 0;
     font-size: 16px;
     line-height: 24px;
@@ -305,21 +326,24 @@ nav.wrapper-preview-menu {
       max-width: 178px;
       padding: 30px 0;
       img {
-         width: 100%;
-         display: block;
-         height: auto;
+        width: 100%;
+        display: block;
+        height: auto;
       }
     }
   }
 }
-body.view-statictab, body.view-instructordash, body.view-teams, body.view-wiki {
+body.view-statictab,
+body.view-instructordash,
+body.view-teams,
+body.view-wiki {
   .wrapper-course-material {
     margin: 0 auto;
     max-width: 1600px;
     padding: 20px 15px !important;
     .tabs.course-tabs {
       margin: 0 0 10px;
-      border-bottom: 1px solid #E5E7EB;
+      border-bottom: 1px solid #e5e7eb;
       li {
         margin: 0 32px 0 0;
         a {
@@ -327,7 +351,8 @@ body.view-statictab, body.view-instructordash, body.view-teams, body.view-wiki {
           font-size: 14px;
           font-weight: 500;
           color: $light-dark;
-          &:hover, &:visited {
+          &:hover,
+          &:visited {
             color: $dark;
             border-color: transparent;
           }
@@ -344,12 +369,12 @@ body.view-statictab, body.view-instructordash, body.view-teams, body.view-wiki {
       padding: 0;
     }
     .static_tab_wrapper {
-        border: none;
-        max-width: 1600px;
-        padding: 0 15px;
-        margin: 0 auto;
-        box-sizing: border-box;
-        background: no-repeat;
+      border: none;
+      max-width: 1600px;
+      padding: 0 15px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      background: no-repeat;
     }
   }
 }
@@ -358,7 +383,7 @@ body.view-teams {
     max-width: 1600px !important;
     padding: 0 15px !important;
     margin: 0 auto;
-    >div {
+    > div {
       border: none;
       background: none;
     }
@@ -369,7 +394,7 @@ body.view-instructordash {
     max-width: 1600px !important;
     padding: 0 15px !important;
     margin: 0 auto;
-    >div {
+    > div {
       border: none;
       background: none;
     }
@@ -390,10 +415,10 @@ body.view-instructordash {
       width: 100%;
       white-space: nowrap;
       overflow-x: auto;
-      border: 1px solid #E5E7EB;
+      border: 1px solid #e5e7eb;
       border-radius: 6px;
       padding: 0 !important;
-      letter-spacing: -.32em;
+      letter-spacing: -0.32em;
       li {
         letter-spacing: normal;
         &:first-child {
@@ -404,7 +429,7 @@ body.view-instructordash {
         button {
           border: none !important;
           border-radius: 0 !important;
-          border-left: 1px solid #E5E7EB !important;
+          border-left: 1px solid #e5e7eb !important;
           font-size: 14px;
           line-height: 20px;
           font-weight: 500;
@@ -425,7 +450,8 @@ body.view-instructordash {
       margin: 0;
       table {
         width: 100%;
-        th, td {
+        th,
+        td {
           padding: 10px;
           width: 50%;
           font-size: 16px;
@@ -434,15 +460,19 @@ body.view-instructordash {
           color: #111827;
         }
         .total {
-          border-top: 1px solid #E5E7EB;
-          th, td {
+          border-top: 1px solid #e5e7eb;
+          th,
+          td {
             color: $primary;
             font-weight: 700;
           }
         }
       }
     }
-    .info-holder, .basic-wrapper, .course-errors-wrapper, .running-tasks-container {
+    .info-holder,
+    .basic-wrapper,
+    .course-errors-wrapper,
+    .running-tasks-container {
       background: $primary-light;
       padding: 15px;
       margin: 0 0 30px;
@@ -450,7 +480,7 @@ body.view-instructordash {
         font-size: 18px;
         color: $dark;
         font-weight: 600;
-        span  {
+        span {
           font-size: 14px;
           font-weight: normal;
           color: $light-dark;
@@ -464,7 +494,8 @@ body.view-instructordash {
         display: flex;
         font-size: 16px;
         line-height: 28px;
-        label, b {
+        label,
+        b {
           font-weight: normal;
           font-style: normal;
           font-size: 16px;
@@ -472,12 +503,14 @@ body.view-instructordash {
           line-height: 28px;
           margin: 0;
           width: 50%;
-          color:#111827;
+          color: #111827;
         }
       }
     }
   }
-  .enrollment-button, input[type=button], button.btn {
+  .enrollment-button,
+  input[type="button"],
+  button.btn {
     background: $primary;
     border-color: $primary;
     color: white;
@@ -492,12 +525,12 @@ body.view-instructordash {
 .course-wrapper .courseware-results-wrapper .xblock.xblock-public_view-vertical {
   max-width: 100% !important;
 }
-body.view-wiki{
-   .container{
+body.view-wiki {
+  .container {
     max-width: 1600px !important;
     margin: 0 auto !important;
     padding: 0 15px !important;
-    >div {
+    > div {
       background: none;
       box-shadow: none;
       border: none;
@@ -530,12 +563,12 @@ body.view-wiki{
           margin: 0;
           li {
             &:after {
-              color: #6B7280;
+              color: #6b7280;
             }
             a {
               font-size: 14px;
               font-weight: 500;
-              color: #6B7280;
+              color: #6b7280;
             }
           }
         }
@@ -544,14 +577,15 @@ body.view-wiki{
         padding: 10px 0;
       }
     }
-    .page-header, h1 {
+    .page-header,
+    h1 {
       border-bottom: none;
       font-size: 20px;
       padding: 0;
       margin: 0 0 10px;
     }
     .article-wrapper {
-      border: 1px solid #F2F7F8;
+      border: 1px solid #f2f7f8;
       border-radius: 8px;
       padding: 15px;
       &:after {
@@ -598,7 +632,7 @@ body.view-wiki{
               .icon {
                 font-size: 18px;
                 line-height: 28px;
-                color: #82919B;
+                color: #82919b;
                 margin: 0;
               }
             }
@@ -612,19 +646,19 @@ body.view-wiki{
           }
         }
         .timestamp {
-          border: 1px solid #E5E7EB;
+          border: 1px solid #e5e7eb;
           border-radius: 8px;
           border-left: 6px solid $primary-light;
           padding: 15px;
           .label {
             font-weight: 500;
             font-size: 12px;
-            color: #4B5563;
+            color: #4b5563;
           }
           .date {
             font-weight: 500;
             font-size: 14px;
-            color: #4B5563;
+            color: #4b5563;
           }
         }
         .see-children {
@@ -637,7 +671,8 @@ body.view-wiki{
             font-size: 14px;
             font-weight: 500;
             border-radius: 0px;
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
               font-weight: 500;
               color: white;
               text-decoration: none;
@@ -649,15 +684,12 @@ body.view-wiki{
   }
 }
 
-@import '../../../extra/footer';
-@import '../../../extra/header';
-@import '../../../dashboard/dashboard';
-@import '../../../courseware/discover';
-@import '../../../courseware/about';
-@import '../../../courseware/bookmarks';
-@import '../../../home/home';
-@import '../../../programs/programs';
-@import '../../../certificates/certificate';
-
-
-
+@import "../../../extra/footer";
+@import "../../../extra/header";
+@import "../../../dashboard/dashboard";
+@import "../../../courseware/discover";
+@import "../../../courseware/about";
+@import "../../../courseware/bookmarks";
+@import "../../../home/home";
+@import "../../../programs/programs";
+@import "../../../certificates/certificate";

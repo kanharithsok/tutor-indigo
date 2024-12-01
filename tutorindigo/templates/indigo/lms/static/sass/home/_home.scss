@@ -155,12 +155,13 @@ html {
     background-color: rgb(238, 239, 240);
 }
 
-button,
-.button-search,
-input {
+
+
+.search-input {
     border-radius: 0% !important;
 
     background-image: none !important;
+    border: 1px solid #21472e !important;
     // color: white !important;
     font-family: $font-inter;
     text-shadow: none !important;
@@ -168,16 +169,19 @@ input {
     width: 100% !important;
     height: 50px !important;
 }
-button,
-.button-search {
+
+.btn-search,.button-register {
     background-color: #21472e !important;
     color: white !important;
+
     @include media-breakpoint-down(sm) {
         font-size: xx-small !important;
     }
+
 }
-button:hover {
+.btn-search:hover {
     background-color: green !important;
+    border: #21472e !important;
 }
 label {
     font: 1em sans-serif !important;
