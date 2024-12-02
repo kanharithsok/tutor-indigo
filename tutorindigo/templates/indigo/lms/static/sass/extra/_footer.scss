@@ -79,24 +79,30 @@ h5 &ul {
 }
 
 .icon-footer {
-    height: 50px;
-    width: 50px;
-    padding:10px !important;
+    height: 50px !important;
+    width: 50px !important;
+   // padding:auto !important;
+  // display: flex !important;
+   justify-items: center !important;
 }
 
 .icon-footer i,
 .icon-footer svg {
-    font-size: 24px;
-    height: 30px;
-    width: 30px;
+    font-size: 24px !important;
+    height: 30px !important;
+    width: 30px !important;
+   // display: flex !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: auto !important;
 }
 
 .language-select {
     margin-bottom: 20px;
     display: flex;
     //padding: 10px;
-    justify-content: left;
-    align-items: center;
+    // justify-content: left;
+    // align-items: center;
     position: relative; /* Make the container relative */
 }
 
