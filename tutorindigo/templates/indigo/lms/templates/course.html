@@ -30,9 +30,9 @@ from django.urls import reverse
           course_date_string = ''
       %>
       % if course.advertised_start is not None:
-          <div class="course-date w3-border w3-cell w3-center" aria-hidden="true">
+          <div class="course-date w3-border-green w3-cell w3-center" aria-hidden="true">
             <!-- NEW IN INDIGO calendar icon is displayed next to the course start date -->
-            <i class="icon fa fa-clock-o w3-text-black" style="font-size:xx-large;"></i>
+            <i class="icon fa fa-clock-o w3-text-green" style="font-size:xx-large;"></i>
             ${_("Starts")}: ${course.advertised_start}
           </div>
           </span>

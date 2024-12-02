@@ -1,4 +1,3 @@
-
 html,
 body,
 h1,
@@ -51,20 +50,23 @@ span {
         border: 1px solid green;
         margin-bottom: 1px !important;
         color: #000000 !important;
-  
+
         font-size: 15px !important;
         font-family: $font-inter !important;
-        .count{
-            // margin-left: 10px;
-            // font-size: 12px;
-            // font-family: $font-inter !important;
+
+        .count {
             border-radius: 50% !important;
             background-color: #2e5f3f !important;
-           // border: 1px solid #21472E !important;
             color: #ffffff !important;
             width: 22px !important;
             height: 22px !important;
             text-align: center !important;
+        }
+        .count::before{
+            color: white !important;
+            position:relative !important;
+            background: none !important;
+            left: 0% !important;
         }
     }
 }
@@ -257,7 +259,7 @@ span {
                     background: none;
                     button {
                         padding: 2px 10px;
-                        border-radius: 12px;
+                        border: 1px solid #21472e !important;
                         background: #21472e !important;
                         color: #fff;
                         font-size: 14px;
@@ -352,7 +354,7 @@ span {
     float: right;
     position: relative;
     z-index: 20;
-    .dropdown-toggle{
+    .dropdown-toggle {
         border: 1px solid green !important;
         border-radius: 6px !important;
         max-width: 130px !important;
@@ -361,7 +363,6 @@ span {
     &.show {
         .dropdown-menu {
             display: block;
-
         }
     }
     > a {
@@ -403,7 +404,7 @@ span {
         // color: #3d3e3f!important;
         //background-color: red;
         padding: 10px 10px 0;
- 
+
         box-shadow:
             0px 0px 0px 1px rgba(0, 0, 0, 0.05),
             0px 4px 6px -2px rgba(0, 0, 0, 0.05),
@@ -455,12 +456,12 @@ span {
                                 &:before {
                                     content: "\f00c";
                                     width: auto;
-                                    top: 0;
-                                    left: 2px;
-                                    display: block;
-                                    font-size: 10px;
-                                    line-height: 14px;
-                                    color: #000000 !important;
+                                  //  top: 0;
+                                   // left: 2px;
+                                   // display: block;
+                                   // font-size: 10px;
+                                   // line-height: 14px;
+                                    color: #2e5f3f !important;
                                 }
                             }
                         }
@@ -471,9 +472,9 @@ span {
                             right: auto;
                             width: 20px !important;
                             height: 20px !important;
-                            //border-radius: 50%;
+                            border-radius: 0% !important;
                             border: 1px solid #2e5f3f !important;
-                            background: #fff;
+                            background: #fff !important;
                             margin-left: 10px;
                             .count-number {
                                 display: none;
@@ -486,19 +487,19 @@ span {
     }
 }
 
-
-
 .discovery-input,
 .btn-search {
     border-radius: 0% !important;
     border-color: #21472e !important;
     height: 50px !important;
 }
-.previous-button,.next-button,.submit {
+.previous-button,
+.next-button,
+.submit {
     border-radius: 0% !important;
     border-color: #21472e !important;
     height: 50px !important;
-    background-color: #21472E !important;
+    background-color: #21472e !important;
 }
 
 .btn-search {
@@ -507,16 +508,16 @@ span {
     // background-color: #21472E !important;
     &:hover:not(:disabled) {
         background-image: none;
-         background-color:green !important;
+        background-color: green !important;
         color: white !important;
     }
 
     box-shadow: none;
     text-shadow: none;
 }
-.org-icon-filter:hover {
-    transform: scale(1.05);
-}
+// .org-icon-filter:hover {
+//     transform: scale(1.05);
+// }
 
 @media (max-width: 768px) {
     .media,
