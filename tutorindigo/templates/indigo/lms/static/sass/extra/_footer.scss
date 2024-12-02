@@ -64,6 +64,9 @@ h3 {
     color: #ffffff;
     text-decoration: none;
 }
+a:not(.btn), a:visited:not(.btn){
+    color: white !important;
+}
 .footer-bottom ul {
     list-style-type: none;
     text-decoration: none;
@@ -79,11 +82,22 @@ h5 &ul {
 }
 
 .icon-footer {
+//     height: 50px !important;
+//     width: 50px !important;
+//    // padding: auto !important;
+//     display: inline-flex !important;
+//     justify-items: center !important;
+//     align-items: center !important;
+
     height: 50px !important;
     width: 50px !important;
-   // padding:auto !important;
-  // display: flex !important;
-   justify-items: center !important;
+    justify-items: center !important;
+    display: inline-flex !important
+;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .icon-footer i,
@@ -91,10 +105,10 @@ h5 &ul {
     font-size: 24px !important;
     height: 30px !important;
     width: 30px !important;
-   // display: flex !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: auto !important;
+    // display: flex !important;
+   // align-items: center !important;
+    //text-align: center !important;
+   // padding: auto !important;
 }
 
 .language-select {
