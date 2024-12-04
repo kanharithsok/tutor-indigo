@@ -152,7 +152,7 @@ span {
 body,
 html {
     height: 100%;
-    background-color: rgb(238, 239, 240);
+    background-color: rgb(240, 238, 238);
 }
 
 
@@ -170,19 +170,25 @@ html {
     height: 50px !important;
 }
 
-.btn-search,.button-register {
+.btn-search,.btn-register {
+    background: none !important;
     background-color: #21472e !important;
     color: white !important;
+    border-radius: 0% !important;
+    :hover {
+        background-color: green !important;
+        border: #21472e !important;
+    }
 
     @include media-breakpoint-down(sm) {
         font-size: xx-small !important;
     }
 
 }
-.btn-search:hover {
-    background-color: green !important;
-    border: #21472e !important;
-}
+// .btn-search:hover {
+//     background-color: green !important;
+//     border: #21472e !important;
+// }
 label {
     font: 1em sans-serif !important;
     font-family: $font-inter;
