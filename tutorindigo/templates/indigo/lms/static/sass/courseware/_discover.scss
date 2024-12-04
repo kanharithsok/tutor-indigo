@@ -31,19 +31,34 @@ span {
         width: 100% !important;
         float: none !important;
     }
+ 
     .filters {
         background-color: transparent !important;
         li {
             background: none !important;
             padding: 0% !important;
         }
+        .facet-option{
+            border: 1px solid #2e5f3f !important;
+            color: #000000 !important;
+            font-size: 15px !important;
+            font-family: $font-inter !important;
+            padding: 10 !important;
+          
+        }
         .flt-right {
             float: right;
             max-width: 150px !important;
         }
+        .clear-filters{
+            border: 1px solid green;
+            border-radius: 0% !important;
+            color: #060606 !important;
+        }
     }
     .discovery-button {
         text-align: center !important;
+     
     }
     .search-facets .facet-option {
         background-color: #ffffff !important;
