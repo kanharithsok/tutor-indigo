@@ -291,10 +291,10 @@ from openedx.core.lib.courses import course_image_url
   
   <div class="w3-col detail_time m12 l8  " style=" height:100%;">
     
-    <div class="w3-cell-row h-100 " style="background-color: #00522C;">
+    <div class="w3-cell-row h-100 w3-text-white" style="background-color: #00522C;">
      
       <!--Start Course-->
-      <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center">
+      <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
         % if not course.start_date_is_still_default:
         <%
             course_start_date = course.advertised_start or course.start
