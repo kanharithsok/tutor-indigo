@@ -273,14 +273,14 @@ from openedx.core.lib.courses import course_image_url
     % if organization.logo and organization.logo.url:
       <img 
         src="${settings.CMS_ROOT_URL}${organization.logo.url}" 
-        class="w3-padding w3-circle w3-display-middle" 
+        class="w3-padding w3-display-middle" 
         alt="logo" 
         style="max-width: 250px; height: 100% !important;" 
       />
     % else:
       <img 
         src="${static.url('images/flower-white.png')}"
-        class="w3-padding w3-circle w3-display-middle" 
+        class="w3-padding w3-display-middle" 
         alt="default logo" 
         style="max-width: 250px; height: 100% !important;" 
       />
