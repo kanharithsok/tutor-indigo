@@ -1,12 +1,20 @@
 // Include custom cirtificate
 
 body.certificate {
+    // .accomplishment-type{
+    //    // background-color: green !important;
+    //    // background-image: url("");
+    // }
+    .signatory-signature{
+       // background-color: green !important;
+        display: block !important;
+    }
     .wrapper-header {
         padding: 0;
     }
     .accomplishment-metadata {
         .recipient-img {
-            display: none;
+            display: block !important;
         }
         .recipient-name, .recipient-username {
             margin: 0;
@@ -16,15 +24,26 @@ body.certificate {
         .wrapper-introduction {
             padding: 0;
         }
+       
     }
     .wrapper-about {
         padding: 20px 0 0 !important;
     }
+    .layout-accomplishment{
+        background-color: green !important;
+    }
+    .accomplishment-rendering{
+       // background-color: green !important;
+        background-image: url("https://openedxdev.s3.us-east-1.amazonaws.com/certificate_frame.png");
+        background-size: 100% !important;
+        background-repeat: no-repeat;
+    }
     .header-app, .banner-user, .introduction, .wrapper-accomplishment-metadata, .wrapper-accomplishment-rendering, .introduction, aside.about {
         display: block;
+    
         max-width: 1600px !important;
         margin: 0 auto;
-        padding: 0 15px !important;
+       // padding: 0 15px !important;
         box-sizing: border-box;
         .header-app-title {
             text-align: left;
@@ -32,7 +51,7 @@ body.certificate {
                 display: inline-block;
                 vertical-align: top;
                 width: 45px;
-                margin: 10px 0;
+               // margin: 10px 0;
             }
         }
     }
