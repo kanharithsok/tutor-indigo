@@ -33,11 +33,16 @@ body.certificate {
         background-color: green !important;
     }
     .accomplishment-rendering{
-       // background-color: green !important;
+       //background-color: green !important;
         background-image: url("https://openedxdev.s3.us-east-1.amazonaws.com/certificate_frame.png");
         background-size: 100% !important;
         background-repeat: no-repeat;
+        max-width: 100% ;
+        height: 100%!important;
+        //width: 100% !important;
+       // padding-bottom: 12% !important;
     }
+
     .header-app, .banner-user, .introduction, .wrapper-accomplishment-metadata, .wrapper-accomplishment-rendering, .introduction, aside.about {
         display: block;
     
