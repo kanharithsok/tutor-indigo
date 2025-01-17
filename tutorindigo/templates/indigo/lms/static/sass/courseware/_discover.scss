@@ -1,12 +1,5 @@
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-span {
-    font-family: $font-inter !important;
+html, body, h1, h2, h3, h4, h5, span, * {
+    font-family: $font-kantumruy-pro !important;
 }
 
 .bgimg {
@@ -42,7 +35,7 @@ span {
             border: 1px solid #2e5f3f !important;
             color: #000000 !important;
             font-size: 15px !important;
-            font-family: $font-inter !important;
+            font-family: $font-kantumruy-pro !important;
             padding: 10 !important;
           
         }
@@ -67,7 +60,7 @@ span {
         color: #000000 !important;
 
         font-size: 15px !important;
-        font-family: $font-inter !important;
+        font-family: $font-kantumruy-pro !important;
 
         .count {
             border-radius: 50% !important;
@@ -347,7 +340,7 @@ span {
                         font-size: 18px;
                         line-height: 20px;
                         padding: 9px 10px;
-                        font-family: $font-inter;
+                        font-family: $font-kantumruy-pro;
                     }
                 }
             }

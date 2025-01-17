@@ -14,7 +14,7 @@ section.home {
     .btn-holder {
         //letter-spacing: -.32em;
         // margin: 0 -7px;
-        font-family: $font-inter;
+        font-family: $font-kantumruy-pro;
         .nav-item {
             //letter-spacing: normal;
             // margin: 0 7px;
@@ -25,7 +25,7 @@ section.home {
                 padding: 9px 17px;
                 font-size: 16px;
                 border-radius: 0px;
-                font-family: $font-inter;
+                font-family: $font-kantumruy-pro;
                 //  font-weight: 500;
                 display: block;
             }
@@ -139,18 +139,11 @@ section.home {
     }
 }
 
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-span {
-    font-family: "Inter", sans-serif !important;
+html, body, h1, h2, h3, h4, h5, span, * {
+    font-family: $font-kantumruy-pro !important;
 }
-body,
-html {
+
+body, html {
     height: 100%;
     background-color: rgb(240, 238, 238);
 }
@@ -163,7 +156,7 @@ html {
     background-image: none !important;
     border: 1px solid #21472e !important;
     // color: white !important;
-    font-family: $font-inter;
+    font-family: $font-kantumruy-pro;
     text-shadow: none !important;
     // font: normal !important;
     width: 100% !important;
@@ -191,7 +184,7 @@ html {
 // }
 label {
     font: 1em sans-serif !important;
-    font-family: $font-inter;
+    font-family: $font-kantumruy-pro;
 }
 
 @media (max-width: 768px) {

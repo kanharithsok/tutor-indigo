@@ -1,22 +1,15 @@
 // styles.scss
 
-body,
-p {
-    font-family: $font-inter !important;
-}
-
-h1,
-h2,
-h3 {
-    font-family: $font-red-hat-display !important;
+body, p, h1, h2, h3, * {
+    font-family: $font-kantumruy-pro !important;
 }
 
 .special-text {
-    font-family: $font-kantumruy-pro;
+    font-family: $font-kantumruy-pro !important;
 }
 
 .khmer-text {
-    font-family: $font-battambang;
+    font-family: $font-kantumruy-pro !important;
 }
 
 /////////////////////////////////

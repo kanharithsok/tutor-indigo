@@ -44,10 +44,8 @@
 }
 
 ///////// Google Fonts
-$font-inter: 'Inter', sans-serif;
-$font-red-hat-display: 'Red Hat Display', sans-serif;
 $font-kantumruy-pro: 'Kantumruy Pro', sans-serif;
-$font-battambang: 'Battambang', sans-serif;
+$default-font: 'Kantumruy Pro', 'Inter', sans-serif;
 
 // Ensure the Google Fonts are imported at the top of your CSS
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Battambang:wght@400;700&family=Red+Hat+Display:wght@400;700&family=Inter:wght@400;700&display=swap');
