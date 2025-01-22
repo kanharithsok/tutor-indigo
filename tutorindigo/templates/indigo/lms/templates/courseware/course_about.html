@@ -151,7 +151,8 @@ from openedx.core.lib.courses import course_image_url
               <p class="title w3-left-align" style="font-size: 40px; color:darkgreen;"><b>${course.display_name_with_default} </b></p>
               <p class="title w3-left-align " style="font-size: 30px; color:darkgreen;"><b>${course.display_org_with_default}</b></p>
               <p class=" m10 w3-text-gray w3-hide-small">
-                Learn the concepts and techniques that make up the foundation of data science and machine learning.
+                ${get_course_about_section(request, course,'short_description')}
+                <!-- Learn the concepts and techniques that make up the foundation of data science and machine learning. -->
               </p>
                 
 
