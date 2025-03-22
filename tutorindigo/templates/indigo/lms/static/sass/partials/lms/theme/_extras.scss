@@ -55,15 +55,19 @@ body.view-profile {
 // of `#content.content-wrapper` inside the unit iframe in the MFE
 :not(.courseware) > #content.content-wrapper {
   @include media-breakpoint-up(lg) {
-    padding-top: $content-padding-top;
-    padding-bottom: $content-padding-bottom;
-    margin-top: $header-height;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top:0px;
   }
   min-height: calc(
     100vh - #{$header-height + $content-padding-top + $content-padding-bottom + $footer-height}
   ); // sticky footer
 }
-
+@media (min-width: 768px) {
+  .content-wrapper {
+      padding: 0 ;
+  }
+}
 ////////////////// Fonts
 @import "fonts";
 
@@ -246,8 +250,8 @@ nav.wrapper-preview-menu {
 .main-container,
 .find-courses {
   max-width: 1600px;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  // padding-left: 15px !important;
+  // padding-right: 15px !important;
   margin: 0 auto;
   //color: #fff;
 }

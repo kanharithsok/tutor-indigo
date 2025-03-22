@@ -1,0 +1,228 @@
+## mako
+<%page expression_filter="h"/>
+<%!
+  from datetime import datetime
+  from django.urls import reverse
+  from django.utils.translation import gettext as _
+  from lms.djangoapps.branding.api import get_footer
+  from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
+<%namespace name='static' file='static_content.html'/>
+
+
+<!-- NEW IN INDIGO update footer -->
+% if uses_bootstrap:
+
+% else:
+<!-- NEW IN INDIGO update footer -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    rel="stylesheet"
+    href="https://www.w3schools.com/lib/w3-theme-black.css"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<footer>
+  <!-- Top Footer -->
+  <div
+    class="footer-top flex-row d-flex justify-content-center align-items-center"
+  >
+    <div class="w3-row w3-content-top">
+      <!-- Left Side -->
+      <div class="w3-half left-side w3-container text-white w3-animate-left">
+        <div class="w3-left-align w3-padding-64">
+          <h2 class="text-white">${_("Learn and Grow")}</h2>
+          <p>
+            ${_("Our edX learning experience is grounded in cutting-edge cognitive science. With more than two dozen distinct learning features to help you achieve your goals, our approach follows three key principles.")}
+          </p>
+
+          <strong>${_("Experience")}</strong>
+          <p>
+            ${_("Learn new knowledge and skills in a variety of ways, from engaging video lectures and dynamic graphics to data visualizations and interactive elements.")}
+          </p>
+
+          <strong>${_("Practice")}</strong>
+          <p>
+            ${_("Demonstrating your knowledge is a critical part of learning. edX courses and programs provide a space to practice with quizzes, open response assessments, virtual environments, and more.")}
+          </p>
+
+          <strong>${_("Apply")}</strong>
+          <p>
+            ${_("Learning on edX transforms how you think and what you can do, and translates directly into the real world—immediately apply your new capabilities in the context of your job.")}
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="w3-half right-side w3-container w3-center w3-padding-64 w3-animate-right">
+        <img
+          class="logo"
+          src="${static.url('images/flower-white.png')}"
+          alt="Logo"
+        />
+      </div>
+    </div>
+  </div>
+
+      
+    <!-- Bottom Footer -->
+  <div class="footer-bottom text-white py-4">
+    <div class="w3-container w3-center">
+      <div 50px;="w3-row-padding">
+      
+      
+        <!-- Logo and Social Media -->
+        <div class="w3-col s12 m12 l3 w3-center">
+          <img
+            src="${static.url('images/logo-white.png')}"
+            alt="Logo"
+            style="max-width: 200px"
+          />
+          <div class="social-icons w3-margin-top w3-animate-zoom">
+           	<a href='https://www.facebook.com/creditbureaucambodia/' 
+            class="icon-footer w3-button w3-circle w3-border w3-border-green w3-large w3-hover-green w3-card-4 w3-center"><i class="fa fa-facebook"></i></a>
+
+            <a href='https://www.youtube.com/channel/UCq_XVx9Ov7TpTCYh-gGRnwg'
+            class="icon-footer w3-button w3-circle w3-border w3-border-green w3-large w3-hover-green w3-card-4 w3-center">
+            <!-- <i class="fa fa-youtube"></i> -->
+            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+          </a>
+
+            <a href='https://www.linkedin.com/company/credit-bureau-cambodia/posts/'
+              class="icon-footer w3-button w3-circle w3-border w3-border-green w3-large w3-hover-green w3-card-4 w3-center">
+              <i class="fa fa-linkedin"></i>
+            </a>
+
+            <a href="https://t.me/Creditbureaucambodia"
+              class="icon-footer w3-button w3-circle w3-border w3-border-green w3-large w3-hover-green w3-card-4 w3-center">
+              <i class="fa fa-telegram"></i>
+        
+            </a>
+
+             <p class="w3-margin">&copy; 2024 CBC. All rights reserved.</p>
+        
+          </div>
+        </div>
+        <!-- Our Products -->
+        <div class="w3-col s6 m3 l2 w3-left-align">
+          <h4 class="w3-text-white w3-margin-bottom w3-bold ">${_("OUR PRODUCTS")}</h4>
+          <ul >
+            <li><a href="https://www.creditbureau.com.kh/b2c-personal-credit-report">Personal Credit Report</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2c-financial-health-check">Financial Health Check</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-credit-report-commercial-credit-report">Commercial Credit Report</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-credit-report-consumer-credit-report">Consumer Credit Report</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2c-k-score">K-Score</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-bi-data-analytics-report">Data Analytic Report</a></li>
+
+            <li><a href="https://www.creditbureau.com.kh/b2b-bi-credit-risk-heat-map">Credit Risk Heat Map</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-portfolio-monitoring-service-portfolio-monitoring-service">Portfolio Monitoring</a></li>
+
+            <li><a href="https://www.creditbureau.com.kh/b2b-customized-solutions">Customized Solution</a></li>
+          
+          </ul>
+        </div>
+
+        <!-- Reports -->
+        <div class="w3-col s6 m3 l2 w3-left-align">
+          <h4 class="w3-text-white w3-margin-bottom w3-bold ">${_("REPORTS")}</h4>
+          <ul>
+            <li><a href="https://www.creditbureau.com.kh/data-for-good-annual-report">Annual Reports</a></li>
+            <li><a href="https://www.creditbureau.com.kh/news-and-event-newsletter">Newsletter</a></li>
+            <li><a href="https://www.creditbureau.com.kh/data-for-good-consumer-credit-index">Consumer Credit Index</a></li>
+            <li><a href="https://www.creditbureau.com.kh/data-for-good-other-reports">Other Reports</a></li>
+          </ul>
+        </div>
+
+        <!-- Media -->
+        <div class="w3-col s6 m3 l2  w3-left-align">
+          <h4 class="w3-text-white w3-margin-bottom w3-bold ">${_("CBC MEMBERS")}</h4>
+          <ul >
+            <li><a href="https://www.creditbureau.com.kh/null">Benefits</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-our-members-become-member">How to Become Member</a></li>
+            <li><a href="https://www.creditbureau.com.kh/b2b-our-members-member-directory">Member Directory</a></li>
+          </ul>
+        </div>
+
+          <!-- About Us -->
+          <div class="w3-col s6 m3 l2  w3-left-align">
+          <h4 class="w3-text-white w3-margin-bottom w3-bold">${_("ABOUT US")}</h4>
+          <ul >
+            <li><a href="https://www.creditbureau.com.kh/null">Company Profile</a></li>
+            <li><a href="https://www.creditbureau.com.kh/null">Organizational Chart</a></li>
+            <li><a href="https://www.creditbureau.com.kh/about-cbc-vision">Visions, Missions, Core Value</a></li>
+
+            <li><a href="https://www.creditbureau.com.kh/about-cbc-shareholders">Shareholders</a></li>
+            <li><a href="https://www.creditbureau.com.kh/about-cbc-board-of-directors">Board of Directors	</a></li>
+            <li><a href="https://www.creditbureau.com.kh/about-cbc-management-team">Management Team</a></li>
+            <li><a href=" https://www.creditbureau.com.kh/career-current-opportunity">Careers</a></li>
+            <li><a href="https://www.creditbureau.com.kh/news-upcoming-event">Latest News</a></li>
+            <li><a href="https://www.creditbureau.com.kh/about-cbc-csr-and-sustainability">CSR Activities</a></li>
+          </ul>
+          </div>
+
+        <!-- Our Members
+        <div class="w3-col s6 m3 l1 w3-left-align ">
+          <h4 class="w3-text-white w3-margin-bottom w3-bold" id="footer_language">LANGUAGE</h4>
+          <div class="language-select">
+              <select id="language" onchange="changeLanguage(this.value)">
+                  <option value="en">English</option>
+                  <option value="kh">Khmer</option>
+              </select>
+          </div> -->
+          
+      
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+%endif
+
+% if include_dependencies:
+  <%static:js group='base_vendor'/>
+  <%static:css group='style-vendor'/>
+  <%include file="widgets/segment-io.html" />
+  <%include file="widgets/segment-io-footer.html" />
+% endif
+% if footer_css_urls:
+  % for url in footer_css_urls:
+    <link rel="stylesheet" type="text/css" href="${url}">
+  % endfor
+% endif
+
+<script>
+
+  async function loadTranslations() {
+    try {
+      const response = await fetch('../translations/lang.json'); // Check the path and server configuration
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      const translations = await response.json();
+      return translations;
+    } catch (error) {
+      console.error('Error loading translations:', error);
+      return null;
+    }
+  }
+  
+
+  
+  async function changeLanguage(lang) {
+    const translations = await loadTranslations();
+    if (translations && translations[lang]) {
+      // Update the footer content dynamically
+      document.getElementById('footer_language').innerText = translations[lang]['language'];
+    }
+  }
+
+</script>
