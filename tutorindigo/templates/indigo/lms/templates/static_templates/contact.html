@@ -23,13 +23,11 @@
 
 
     <style>
-        html,
-        body {
-            background-color: white !important;
-        }
+ 
 
         .container {
-            max-width: 950px;
+            max-width: 1000px;
+          
           
             display: flex;
 
@@ -43,7 +41,7 @@
         .contact-info {
             background: #174a2f;
             color: white;
-            padding: 30px;
+        
         
         }
 
@@ -88,7 +86,7 @@
             padding-left: 35px;
             margin-bottom: 12px;
             cursor: pointer;
-            font-size: 22px;
+   
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -137,6 +135,9 @@
                   border-radius: 50%;
               }
           }
+          label {
+            font-size: 12px !important;
+          }
           
         
           
@@ -152,10 +153,11 @@
     <p class="w3-large w3-center w3-text-gray">
         Any question or remarks? Just write us a message!
     </p>
-    <div class="container  w3-row w3-margin   w3-padding">
+    <div class="container  w3-row w3-card w3-round-large  w3-white w3-padding">
 
+         <!-- Left side-->
 
-        <div class="contact-info w3-col l4 w3-card w3-round-large">
+        <div class="contact-info w3-col l4 w3-card w3-round-large w3-padding">
             <h2 class=" w3-large"><b>Contact Information</b></h2>
             <p>Say something to start a live chat!</p>
             <br />
@@ -174,9 +176,11 @@
             </div>
         </div>
 
+          <!-- Right side -->
         <div class="contact-form w3-col l8">
 
-            <form class="w3-container">
+            <form class="w3-container " >
+           
                 <div class="w3-row-padding">
                     <div class="w3-half">
                         <p>
@@ -206,28 +210,30 @@
                     </div>
                 </div>
 
+              
+
                 <label class=" w3-text-green">Select Subject?</label>
                 <div class="w3-row-padding">
                     <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">Option 1
+                        <label class="container-checkbox  w3-text-green"> General Inquiry
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">Option 2
+                        <label class="container-checkbox  w3-text-green">General Inquiry
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">Option 3
+                        <label class="container-checkbox  w3-text-green">General Inquiry
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">Option 4
+                        <label class="container-checkbox  w3-text-green">General Inquiry
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
@@ -240,6 +246,7 @@
                     style="background-color: #174a2f">Send Message</button>
             </form>
         </div>
+
     </div>
 </div>
 
