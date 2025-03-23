@@ -10,6 +10,8 @@
 <% footer = get_footer(is_secure=is_secure) %>
 <% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
 <%namespace name='static' file='static_content.html'/>
+
+
 <!-- NEW IN INDIGO update footer -->
 % if uses_bootstrap:
 <div class="wrapper wrapper-footer">
@@ -72,71 +74,56 @@
             % endif
         </p>
     </div>
-  </footer>
+    </footer>
+
 </div>
 % else:
 <!-- NEW IN INDIGO update footer -->
-  <div class="wrapper wrapper-footer text-white">
-    <footer id="footer" class="tutor-container"
-      ## When rendering the footer through the branding API,
-      ## the direction may not be set on the parent element,
-      ## so we set it here.
-      % if bidi:
-        dir=${bidi}
-      % endif
-    >
-    <div class="footer-top">
-      <div class="powered-area">
-        ## Please leave this link and use one of the logos provided
-        ## The OpenEdX link may be hidden when this view is served
-        ## through an API to partner sites (such as marketing sites or blogs),
-        ## which are not technically powered by OpenEdX.
-        % if not hide_openedx_link:
-        <ul class="logo-list">
-          <li>Powered by:</li>
-          <li>
-            <a href="https://docs.tutor.edly.io" rel="noopener" target="_blank">
-              <!-- <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="57" /> -->
-            </a>
-          </li>
-          <li>
-            <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
-              <!-- <img src="${static.url('images/openedx-logo.png')}" alt="${footer['openedx_link']['title']}" width="79" /> -->
-            </a>
-          </li>
-        </ul>
-      </div>
-      {% if INDIGO_FOOTER_NAV_LINKS %}
-      <nav class="nav-colophon" aria-label="${_('About')}">
-        <ol>
-            {% for link in INDIGO_FOOTER_NAV_LINKS %}
-            <li>
-              <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-            </li>
-            {% endfor %}
-        </ol>
-      </nav>
-      {% endif %}
-    </div>
-    <span class="copyright-site text-white"> Aaaaaa Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
-    % endif
-      <div class="colophon">
+  <footer id="footer" class="footer">
+    <div class="wrapper-footer">
+      <div class="container-footer  w3-row-padding">
 
+        <div class=" w3-col l2 m6 s12">
+          <a href="${marketing_link('ROOT')}" target="_blank">
+            <img src="${static.url('images/logo-white.png')}" alt="CBC Logo" width="100" />
+          </a>
+        
+        </div>
+        <div class="w3-col l4 m6 s12">
+          <span class="copyright-site w3-text-white">©2024 Credit Bureau Cambodia. All rights reserved.</span>
+      
+        </div>
+
+        <div class="w3-col l3 m6 s12">
+       
+          <div class="row">
+            <div class="col-md-12 text-center">
+              
+              <nav class="footer-nav w3-text-white">
+                <a class="w3-text-white" href="${marketing_link('ROOT')}dashboard">My Course</a> |
+                <a class="w3-text-white" href="#">Library</a> |
+                <a class="w3-text-white" href="/contact">Contact Us</a> |
+                <a class="w3-text-white" href="${reverse('account_settings')}" >Account</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m6 s12">
+          <form action="#" method="post" class="language-selector">
+            <p for="language-select"class="w3-text-white" >Change Language</p>
+            <select id="language-select" name="language">
+              <option value="en">English</option>
+              <option value="kh">Khmer</option>
+            </select>
+            <button type="submit">APPLY</button>
+          </form>
+        </div>
+      </div>
  
-
-        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']}
-              % if icp_license_info.get('icp_license'):
-                ${u" | {text}".format(text=icp_license_info.get('text'))}
-                <a href="${icp_license_info.get('icp_license_link', '#')}">
-                    ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a>
-              % endif
-          </p>
-      </div>
-    </footer>
-  </div>
-
+    </div>
+  </footer>
+      
 % endif
 
 

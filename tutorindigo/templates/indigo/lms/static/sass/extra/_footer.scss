@@ -1,124 +1,163 @@
-// styles.scss
+// // styles.scss
 
-body, p, h1, h2, h3, * {
-    font-family: $font-kantumruy-pro !important;
-}
-
-.special-text {
-    font-family: $font-kantumruy-pro !important;
-}
-
-.khmer-text {
-    font-family: $font-kantumruy-pro !important;
-}
-
-/////////////////////////////////
-.w3-content-top {
-    max-width: 1600px;
-    margin: 40 auto;
-}
-
-.footer-top {
-    background: linear-gradient(135deg, #12492a, #2baf65);
-
-    .left-side,
-    .right-side {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .right-side {
-        .logo {
-            max-width: 50%;
-        }
-    }
-}
-// .container-top ,.container-bot{
-//   margin: 0 auto;
-//   padding: 0 15px;
-//   max-width: 1600px;
-//   box-sizing: border-box;
-//   font-family: $font-family-title;
+// body, p, h1, h2, h3, * {
+//     font-family: $font-kantumruy-pro !important;
 // }
 
-.footer-bottom {
-    background-color: #374236;
-    color: #ffffff;
-    padding: 20px 0;
-}
-.w3-cell {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.footer-bottom a {
-    color: #ffffff;
-    text-decoration: none;
-    a:not(.btn), a:visited:not(.btn){
-        color: white !important;
-    }
-}
+// .special-text {
+//     font-family: $font-kantumruy-pro !important;
+// }
 
-.footer-bottom ul {
-    list-style-type: none;
-    text-decoration: none;
-    margin: 0%;
-    padding: 0%;
+// .khmer-text {
+//     font-family: $font-kantumruy-pro !important;
+// }
 
-    :hover {
-        color: #58ee99;
-    }
-}
-h5 &ul {
-    padding-left: 30px;
-}
+// /////////////////////////////////
+// .w3-content-top {
+//     max-width: 1600px;
+//     margin: 40 auto;
+// }
 
-.icon-footer {
+// .footer-top {
+//     background: linear-gradient(135deg, #12492a, #2baf65);
+
+//     .left-side,
+//     .right-side {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 100%;
+//     }
+
+//     .right-side {
+//         .logo {
+//             max-width: 50%;
+//         }
+//     }
+// }
+// // .container-top ,.container-bot{
+// //   margin: 0 auto;
+// //   padding: 0 15px;
+// //   max-width: 1600px;
+// //   box-sizing: border-box;
+// //   font-family: $font-family-title;
+// // }
+
+// .footer-bottom {
+//     background-color: #374236;
+//     color: #ffffff;
+//     padding: 20px 0;
+// }
+// .w3-cell {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
+// .footer-bottom a {
+//     color: #ffffff;
+//     text-decoration: none;
+//     a:not(.btn), a:visited:not(.btn){
+//         color: white !important;
+//     }
+// }
+
+// .footer-bottom ul {
+//     list-style-type: none;
+//     text-decoration: none;
+//     margin: 0%;
+//     padding: 0%;
+
+//     :hover {
+//         color: #58ee99;
+//     }
+// }
+// h5 &ul {
+//     padding-left: 30px;
+// }
+
+// .icon-footer {
+// //     height: 50px !important;
+// //     width: 50px !important;
+// //    // padding: auto !important;
+// //     display: inline-flex !important;
+// //     justify-items: center !important;
+// //     align-items: center !important;
+
 //     height: 50px !important;
 //     width: 50px !important;
-//    // padding: auto !important;
-//     display: inline-flex !important;
 //     justify-items: center !important;
-//     align-items: center !important;
+//     display: inline-flex !important
+// ;
 
-    height: 50px !important;
-    width: 50px !important;
-    justify-items: center !important;
-    display: inline-flex !important
-;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+// }
 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+// .icon-footer i,
+// .icon-footer svg {
+//     font-size: 24px !important;
+//     height: 30px !important;
+//     width: 30px !important;
+//     // display: flex !important;
+//    // align-items: center !important;
+//     //text-align: center !important;
+//    // padding: auto !important;
+// }
 
-.icon-footer i,
-.icon-footer svg {
-    font-size: 24px !important;
-    height: 30px !important;
-    width: 30px !important;
-    // display: flex !important;
-   // align-items: center !important;
-    //text-align: center !important;
-   // padding: auto !important;
-}
+// .language-select {
+//     margin-bottom: 20px;
+//     display: flex;
+//     //padding: 10px;
+//     // justify-content: left;
+//     // align-items: center;
+//     position: relative; /* Make the container relative */
+// }
 
-.language-select {
-    margin-bottom: 20px;
-    display: flex;
-    //padding: 10px;
-    // justify-content: left;
-    // align-items: center;
-    position: relative; /* Make the container relative */
-}
+// select {
+//     padding: 10px;
+//     font-size: 16px;
+//     // width: 100%;
+//     max-width: 300px;
+//     position: relative; /* Ensure the select button stays in its place */
+//     z-index: 1; /* Make sure it's above other content */
+// }
 
-select {
-    padding: 10px;
-    font-size: 16px;
-    // width: 100%;
-    max-width: 300px;
-    position: relative; /* Ensure the select button stays in its place */
-    z-index: 1; /* Make sure it's above other content */
+footer {
+    .wrapper-footer {
+        background-color: #21472e !important;
+        color: #ffffff !important;
+  
+    }
+    .container-footer {
+        height: auto !important;
+        display: flex;
+        justify-items: center !important;
+        align-items: center !important;
+     }
+    .language-selector {
+        #language-select {
+            width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        button {
+            width: 30%;
+            background-color: #21472e !important;
+            background-image: none !important;
+            color: #ffffff !important;
+            border: 1px solid #ffffff !important;
+            border-radius: 10px;
+            padding: 10px;
+            margin-left: 10px;
+        }
+        .selector {
+            background-color: #ffffff !important;
+            width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+   
+    }
+ 
 }
