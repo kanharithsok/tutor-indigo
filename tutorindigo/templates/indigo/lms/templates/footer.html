@@ -110,34 +110,40 @@
         </div>
 
         <div class="w3-col l3 m6 s12">
-          <form action="#" method="post" class="language-selector">
+          <!-- <form action="#" method="post" class="language-selector">
             <p for="language-select"class="w3-text-white" >Change Language</p>
             <select id="language-select" name="language">
               <option value="en">English</option>
               <option value="kh">Khmer</option>
             </select>
             <button type="submit">APPLY</button>
-          </form>
+          </form> -->
+          <p for="language-select"class="w3-text-white" >Change Language</p>
+          % if context.get('include_language_selector', footer_language_selector_is_enabled()):
+          <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
+          % endif
+
+
+
+% endfor
+% endif
         </div>
       </div>
  
     </div>
+
   </footer>
       
 % endif
 
 
 % if include_dependencies:
-  <%static:js group='base_vendor'/>
-  <%static:css group='style-vendor'/>
-  <%include file="widgets/segment-io.html" />
-  <%include file="widgets/segment-io-footer.html" />
+<%static:js group='base_vendor'/>
+<%static:css group='style-vendor'/>
+<%include file="widgets/segment-io.html" />
+<%include file="widgets/segment-io-footer.html" />
 % endif
 % if footer_css_urls:
-  % for url in footer_css_urls:
- 
-    <link rel="stylesheet" type="text/css" href="${url}"></link>
-  
-  % endfor
-% endif
+% for url in footer_css_urls:
 
+  <link rel="stylesheet" type="text/css" href="${url}"></link>
