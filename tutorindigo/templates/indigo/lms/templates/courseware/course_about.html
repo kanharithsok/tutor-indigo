@@ -268,19 +268,21 @@ from openedx.core.lib.courses import course_image_url
 
 <!--panel Info-->
 
-<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:140px;">
+<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:160px;">
   
   <div class="w3-col l2 w3-white w3-display-container w3-padding" style="height: 100%;">
-    % if organization.logo and organization.logo.url:
+    % if organization :
       <img 
         src="${settings.CMS_ROOT_URL}${organization.logo.url}" 
         class="w3-padding w3-display-middle" 
         alt="logo" 
         style="max-width: 250px; height: 100% !important;" 
       />
-    % else:
+  
+      % else:
       <img 
-        src="${static.url('images/flower-white.png')}"
+
+        src="${static.url('images/flower-green.png')}"
         class="w3-padding w3-display-middle" 
         alt="default logo" 
         style="max-width: 250px; height: 100% !important;" 
@@ -398,7 +400,7 @@ from openedx.core.lib.courses import course_image_url
 <!--Contain Course-->
 <section class=" h-100" style=" background-color:#eef6ec; justify-content:center; ">
 
-    <div class=" w3-container" style="max-width:1600px;d-flex; justify-items:center;" >
+    <div class=" w3-container" style="max-width:1600px;d-flex; justify-items:center; margin:auto;" >
         <!-- Infomation Course-->
         <div class="about-content w3-text-black"> 
 
