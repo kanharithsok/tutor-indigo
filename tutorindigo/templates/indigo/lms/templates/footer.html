@@ -79,9 +79,9 @@
 </div>
 % else:
 <!-- NEW IN INDIGO update footer -->
-  <footer id="footer" class="footer">
-    <div class="wrapper-footer">
-      <div class="container-footer  w3-row-padding">
+  <footer id="footer" class="footer ">
+    <div class="wrapper-footer  w3-container ">
+      <div class="container-footer  w3-row">
 
         <div class=" w3-col l2 m6 s12">
           <a href="${marketing_link('ROOT')}" target="_blank">
@@ -94,7 +94,7 @@
       
         </div>
 
-        <div class="w3-col l3 m6 s12">
+        <div class="w3-col l4 m6 s12">
        
           <div class="row">
             <div class="col-md-12 text-center">
@@ -109,21 +109,13 @@
           </div>
         </div>
 
-        <div class="w3-col l3 m6 s12">
-          <!-- <form action="#" method="post" class="language-selector">
-            <p for="language-select"class="w3-text-white" >Change Language</p>
-            <select id="language-select" name="language">
-              <option value="en">English</option>
-              <option value="kh">Khmer</option>
-            </select>
-            <button type="submit">APPLY</button>
-          </form> -->
-          <p for="language-select"class="w3-text-white" >Change Language</p>
+        <div class="w3-col l2 m6 s12">
+    
+         
           % if context.get('include_language_selector', footer_language_selector_is_enabled()):
+          <p for="language-select"class="w3-text-white" >Change Language</p>
           <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
           % endif
-
-
 
           </div>
         </div>
