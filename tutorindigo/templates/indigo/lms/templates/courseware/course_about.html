@@ -307,31 +307,26 @@ from openedx.core.lib.courses import course_image_url
      
       <!--Start Course-->
       <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
-        % if not course.start_date_is_still_default:
-        <%
-            course_start_date = course.advertised_start or course.start
-            course_date_string = course_start_date.strftime('%Y-%b-%d')
-        %>
-        %endif
-        <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
-
-    
-        <span class="w3-large w3-margin-left "><b>Start ${course_date_string}</b></span>
-        
+      % if not course.start_date_is_still_default and course.start:
+      <%
+        course_start_date = course.advertised_start or course.start
+        course_date_string = course_start_date.strftime('%Y-%b-%d')
+      %>
+      <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
+      <span class="w3-large w3-margin-left "><b>Start ${course_date_string}</b></span>
+      %endif
       </div>
 
       <!--End Course-->
       <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
-        <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
-        <span class="w3-large w3-margin-left ">
-          % if course.end and not course.start_date_is_still_default:
-          <%
-            course_end_date = course.end
-            course_date_string = course_end_date.strftime('%Y-%b-%d')
-          %>
-          %endif
-          <b >End ${course_date_string}</b>
-        </span>
+      % if course.end and not course.start_date_is_still_default:
+      <%
+        course_end_date = course.end
+        course_date_string = course_end_date.strftime('%Y-%b-%d')
+      %>
+      <img src="${static.url('images/clock-icon1.png')}" alt="logo" style="width: 30px; " />
+      <span class="w3-large w3-margin-left "><b>End ${course_date_string}</b></span>
+      %endif
       </div>
 
       <!--Course Type-->
