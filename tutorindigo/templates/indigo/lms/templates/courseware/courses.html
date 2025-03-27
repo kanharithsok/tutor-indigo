@@ -146,21 +146,7 @@
   <section class="find-courses w3-container" style="background: none;" >
     <section class="courses-container " >
 
-      <div class="w3-padding w3-left-align">
-        <i class="fa fa-book fa-2x" style="color:#374236;"></i>
-        <span class="top-courses w3-text-black w3-margin-left" style="font-size: 30px; color:#374236;"><b>${_('Explore top courses')}</b></span>
-   
-      </div>
-
-       <!--  search bar and filters. -->
-      <div class="discover-search w3-container">
-        <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
-       
-          <div id="discovery-message" class="search-status-label"></div>
-        </div>
-        <div id="filter-bar" class="filters hide-phone is-collapsed">>
-        </div>
-      </div>
+  
     
       <!-- NEW IN INDIGO Modified search bar and filters. -->
       % if course_discovery_enabled:
@@ -193,11 +179,11 @@
 
                <!-- NEW IN INDIGO: Added search bar. -->
          % if course_discovery_enabled:
-        <div class="w3-col l3 w3-hide-medium  w3-hide-small filter w3-center w3-white h-100" style="margin-right: 3%;">
+        <div class="w3-col l3 w3-hide-medium  w3-hide-small filter h-100" style="margin-right: 3%;">
       
           <h3 class=" w3-padding-top-24">
-            ${_("Filter Course")}
-            <i class="fa fa-arrow-down-wide-short w3-margin-right"></i>
+            ${_("Refine Your Search")}
+        
           </h3>
 
           <aside class="search-facets phone-menu w-100 ">
@@ -206,14 +192,26 @@
           </aside>
         </div>
         % endif
+
+
         <div class="courses-card w3-rest">
-          <div class="courses-list-title w3-container">
-            <!-- <img class=" w3-green" src="${static.url('images/head-icon.png')}" alt="logo" style="width: 40px; " /> -->
+          <!-- <div class="courses-list-title w3-container">
+        
             <i class=" fa fa-note-sticky  " style="color: green;"  ></i>
             <span>
               ${_("Continuing Education")}
             </span>
-          </div>
+          </div> -->
+
+       <!--  tag search result-->
+      <div class="discover-search w3-container">
+        <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
+       
+          <div id="discovery-message" class="search-status-label"></div>
+        </div>
+        <div id="filter-bar" class="filters hide-phone is-collapsed">>
+        </div>
+      </div>
      
        
 
