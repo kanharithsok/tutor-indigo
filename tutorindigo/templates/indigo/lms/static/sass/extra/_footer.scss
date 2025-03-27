@@ -129,6 +129,7 @@ footer {
     height: 170px !important;
 
     .wrapper-footer {
+        box-shadow: none !important;
         max-width: 1600px;
         margin: 0 auto;
         padding: 0 0 10px 50px !important;
@@ -164,7 +165,7 @@ footer {
     color: #ffffff !important;
     border: 1px solid #ffffff !important;
     border-radius: 10px;
-    padding:0px !important;
+    padding:10px !important;
     margin-left: 10px;
 }
 
