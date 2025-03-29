@@ -1,6 +1,7 @@
 // Include custom header
 body {
     font-family: $font-kantumruy-pro;
+    background-color: red;
 }
 .global-header .nav-links .main .nav-tab a {
     display: inline !important;
@@ -62,8 +63,9 @@ header.global-header {
                 align-items: center !important;
                 justify-items: center !important;
                 a {
+                   // background-color: red!important;
                     align-content: center !important;
-                    margin-left:30px;
+                    //margin-left:30px;
                     // height: 75px !important;
                     font-size: 18px !important;
                     line-height: 2.5 !important;
