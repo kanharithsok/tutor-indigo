@@ -1,11 +1,32 @@
-// // Include custom home
+html, body, h1, h2, h3, h4, h5, span, * {
+    font-family: $font-kantumruy-pro !important;
+}
+
+body, html {
+    height: 100%;
+
+}
+.window-wrap #content.content-wrapper {
+    background-color: #f6f6f6 !important;
+}
+
+ // Include custom home
 section.home {
     max-width: 1600px;
-    margin: 0 auto;
+ 
     padding: 0 15px;
 }
 .home > header .title {
     background: none !important;
+}
+.home{
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+
+    h1.title2 {
+  
+        color: #21472e !important;
+    }
 }
 .home > header .outer-wrapper {
     max-width: 100%;
@@ -139,14 +160,7 @@ section.home {
     }
 }
 
-html, body, h1, h2, h3, h4, h5, span, * {
-    font-family: $font-kantumruy-pro !important;
-}
 
-body, html {
-    height: 100%;
-    background-color: rgb(240, 238, 238);
-}
 
 
 
@@ -196,6 +210,10 @@ label {
 
     .title1 {
         font-size: 20px !important;
+    }
+    .title2 {
+        font-size: 16px !important;
+    
     }
     .detail_time {
         height: 180px !important;

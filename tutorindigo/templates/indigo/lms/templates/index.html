@@ -153,72 +153,22 @@ from openedx.core.djangolib.markup import HTML, Text
 
 
 <section class="home style-logout">
-
-  <!--Filter Subject-->
-<div class="w3-container">
-    <h1 class="Titil2 w3-left-align">New top courses</h1>
-  <!--
-    <div class="filter-tabs w3-border-bottom">
-      <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
-      <div class="w3-button tablink" onclick="filterSelection('education')">Education</div>
-      <div class="w3-button tablink" onclick="filterSelection('finance')">Finance</div>
-      <div class="w3-button tablink" onclick="filterSelection('programming')">Programming</div>
-      <div class="w3-button tablink" onclick="filterSelection('leadership')">Leadership & Interpersonal Skills</div>
-      <div class="w3-button tablink" onclick="filterSelection('business')">Business Management & Strategy</div>
-  </div> -->
-
-
+  <div class="w3-container">
+      <h1 class="title2 w3-left-align"><b>${_("Recently Viewed Courses")}</b></h1>
   </div>
-
   <%include file="${top_courses_list}" />
+</section>
 
+<section class="home style-logout">
+  <div class="w3-container">
+      <h1 class="title2 w3-left-align"><b>${_("Most Popular Courses")}</b></h1>
+  </div>
+  <%include file="${top_courses_list}" />
 </section>
 
 
 
 
-<!--Banner2-->
-<header class="w3-display-container">
-
-  <div class="Img-Banner2  w3-display-container" >
-
-    <div class="  w3-display-middle " style="max-width:1600px; width:100%;height:100%;">
-
-        <div class=" w3-container w3-display-left   ">
-
-          <h1 class=" title1 w3-left-align" style="color:darkgreen;font-size: 30px ; max-width: 700px !important;">
-            <b >   Transform your organization with comprehensive up skilling and re skilling solutions.
-            </b>
-          </h1>
-          <!-- <p class=" w3-text-gray">Build up your skills. Explore courses here</p> -->
-
-          <div class="discover-search w3-padding-64 ">
-            <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
-
-              <button class="btn-register w3-button  w3-hover-green" type="submit" 
-              style="width: 200px!important; height:50px !important;"
-              onclick="window.location.href='/register'">
-                Register for free
-                
-              </button>
-              <!-- <a href="http://apps.local.edly.io:1999/authn/register?next=%2F" 
-              class="w3-button button-register w3-hover-green" 
-              style="width: 200px!important; text-decoration: none;">
-                Register for free
-            </a> -->
-  
-            </div>
-
-          </div>
-
-        </div>
-
-    </div>
-
-  </div>
-
-  <%include file="index_promo_video.html" />
-</header>
 
 <!--Cards -->
 <main id="main" aria-label="Content" tabindex="-1">
@@ -226,23 +176,9 @@ from openedx.core.djangolib.markup import HTML, Text
       
     <!--Filter Subject-->
     <div class="w3-container ">
-      <h1 class="Titil2 w3-left-align">Explore top courses</h1>
-    
-      <!-- <div class="filter-tabs w3-border-bottom">
-        <div class="w3-button tablink active" onclick="filterSelection('new')">New</div>
-        <div class="w3-button tablink" onclick="filterSelection('education')">Education</div>
-        <div class="w3-button tablink" onclick="filterSelection('finance')">Finance</div>
-        <div class="w3-button tablink" onclick="filterSelection('programming')">Programming</div>
-        <div class="w3-button tablink" onclick="filterSelection('leadership')">Leadership & Interpersonal Skills</div>
-        <div class="w3-button tablink" onclick="filterSelection('business')">Business Management & Strategy</div>
-    </div> -->
-
-
+      <h1 class="title2 w3-left-align"><b>${_("New Courses on CBC Academy")}</b></h1>
     </div>
-
-
       <%include file="${courses_list}" />
-
     </section>
 </main>
 
