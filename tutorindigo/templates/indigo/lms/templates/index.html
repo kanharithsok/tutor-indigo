@@ -83,7 +83,7 @@ from openedx.core.djangolib.markup import HTML, Text
         <div class=" w3-container w3-display-left   ">
 
           <h1 class=" title1 w3-left-align" style="color:darkgreen;font-size: 50px ; max-width: 700px !important;">
-            <b >     Welcome to CBC Academy Online Courses
+            <b >     ${_('Welcome to CBC Academy Online Courses')}
               ## % if homepage_overlay_html:
               ##   ${homepage_overlay_html | n, decode.utf8}
               ## % else:
@@ -91,7 +91,7 @@ from openedx.core.djangolib.markup import HTML, Text
               ## % endif
             </b>
           </h1>
-          <p class=" w3-text-gray">Build up your skills. Explore courses here</p>
+          <p class=" w3-text-gray">${_('Build up your skills. Explore courses here')}</p>
 
           <div class="discover-search w3-padding-64 ">
             <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
@@ -109,7 +109,7 @@ from openedx.core.djangolib.markup import HTML, Text
                       </div>
                       <div class="w3-col s4 m3 l2">
                         <button class=" w3-button btn-search w3-hover-green" type="submit">
-                          SEARCH
+                          ${_('SEARCH')}
                           <i class="fa fa-search "></i>
                         </button>
                       </div>
