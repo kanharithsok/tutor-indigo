@@ -2,7 +2,12 @@
 <%page expression_filter="h" />
 
 <%namespace name='static' file='../static_content.html' />
+<%!
+from django.utils.translation import gettext as _
+from django.urls import reverse
 
+from openedx.core.djangolib.markup import HTML, Text
+%>
 <%inherit file="../main.html" />
 <%! main_css = "css/bootstrap/lms-main.css" %>
 
