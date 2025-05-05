@@ -90,7 +90,7 @@
         
         </div>
         <div class="w3-col l4 m12 s12">
-          <span class="copyright-site w3-text-white">©2024 Credit Bureau Cambodia. All rights reserved.</span>
+          <span class="copyright-site w3-text-white">${_('© 2025 Credit Bureau Cambodia. All rights reserved.')}</span>
       
         </div>
 
@@ -100,10 +100,10 @@
             <div class="col-md-12 text-center">
               
               <nav class="footer-nav w3-text-white">
-                <a class="w3-text-white" href="${marketing_link('ROOT')}dashboard">My Course</a> |
-                <a class="w3-text-white" href="#">Library</a> |
+                <a class="w3-text-white" href="${marketing_link('ROOT')}dashboard">${_('My Course')}</a> |
+                <a class="w3-text-white" href="#">${_('Library')}</a> |
                 <a class="w3-text-white" href="/contact">${_('Contact Us')}</a> |
-                <a class="w3-text-white" href="${reverse('account_settings')}" >Account</a>
+                <a class="w3-text-white" href="${reverse('account_settings')}" >${_('Account')}</a>
               </nav>
             </div>
           </div>
@@ -113,7 +113,7 @@
     
          
           % if context.get('include_language_selector', footer_language_selector_is_enabled()):
-          <p for="language-select"class="w3-text-white" >Change Language</p>
+          <p for="language-select"class="w3-text-white" >${_('Change Language')}</p>
           <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
           % endif
 
