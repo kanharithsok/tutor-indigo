@@ -1,4 +1,3 @@
-## mako
 <%page expression_filter="h" />
 
 <%namespace name='static' file='../static_content.html' />
@@ -11,49 +10,37 @@ from openedx.core.djangolib.markup import HTML, Text
 <%inherit file="../main.html" />
 <%! main_css = "css/bootstrap/lms-main.css" %>
 
-<!-- NEW IN INDIGO update footer -->
 % if uses_bootstrap:
-
+<!-- Content for Bootstrap version could go here -->
 % else:
-<!-- NEW IN INDIGO update footer -->
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<!-- ✅ Load EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
     <style>
- 
-
         .container {
             max-width: 1000px;
-          
-          
             display: flex;
-
-            justify-self: center;
-            background: rgb(255, 255, 255);
-          
+            justify-content: center;
+            background: white;
             overflow: hidden;
-       
         }
 
         .contact-info {
             background: #174a2f;
             color: white;
-        
-        
         }
 
         .contact-form {
             padding: 30px;
-         
         }
+
         .social-icons {
             display: flex;
             justify-content: center;
@@ -71,19 +58,17 @@ from openedx.core.djangolib.markup import HTML, Text
             align-items: center;
             text-align: center;
             vertical-align: middle;
+            margin-right: 5px;
         }
 
         .social-icons a:hover {
             background-color: green;
         }
 
-        .social-icons  
         input,
         textarea {
             width: 100%;
-
         }
-
 
         .container-checkbox {
             display: block;
@@ -91,171 +76,134 @@ from openedx.core.djangolib.markup import HTML, Text
             padding-left: 35px;
             margin-bottom: 12px;
             cursor: pointer;
-   
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
+        }
 
-            input:hover ~ .checkmark {
-                background-color: #ccc;
-              }
+        .container-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
 
-              input {
-                position: absolute;
-                opacity: 0;
-                cursor: pointer;
-                height: 0;
-                width: 0;
-              }
-              .checkmark:after {
-                content: "";
-                position: absolute;
-                display: none;
-                left: 50%;
-                top: 50%;
-                width: 5px;
-                height: 10px;
-                border: solid white;
-                border-width: 0 3px 3px 0;
-                -webkit-transform: translate(-50%, -50%) rotate(45deg);
-                -ms-transform: translate(-50%, -50%) rotate(45deg);
-                transform: translate(-50%, -50%) rotate(45deg);
-              }
-              .checkmark {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 15px;
-                width: 15px;
-                background-color: green;
-                border-radius: 50%;
-              }
-       
-              input:checked ~ .checkmark:after {
-                display: block;
-              }
-              input:checked ~ .checkmark {
-                background-color: green;
-                  border-radius: 50%;
-              }
-          }
-          label {
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 50%;
+            top: 50%;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .container-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        label {
             font-size: 12px !important;
-          }
-          
-        
-          
-  
+        }
     </style>
+
+    <script>
+        (function () {
+            emailjs.init("Ke5o3xowVyHaDE4eh");
+        })();
+
+        function sendEmail(e) {
+            e.preventDefault();
+            emailjs.sendForm('service_768e5qw', 'template_klipodv', '#contact-form')
+                .then(function (response) {
+                    alert("Email sent successfully!");
+                    document.getElementById("contact-form").reset();
+                }, function (error) {
+                    alert("Failed to send email: " + error.text);
+                });
+        }
+    </script>
 </head>
 
+<body>
+    <div class="w3-content w3-margin-top w3-padding">
+        <h1 class="w3-center w3-panel" style="color: #174a2f;"><b>${_('Contact Us')}</b></h1>
+        <p class="w3-large w3-center w3-text-gray">
+            ${_('Any question or remarks? Just write us a message!')}
+        </p>
 
+        <div class="container w3-row w3-card w3-round-large w3-white w3-padding">
+            <!-- Left side -->
+            <div class="contact-info w3-col l4 w3-card w3-round-large w3-padding">
+                <h2 class="w3-large"><b>Contact Information</b></h2>
+                <p>Say something to start a live chat!</p>
+                <br />
+                <p><i class="fa fa-phone"></i> (+855) 23 999 006</p>
+                <p><i class="fa fa-envelope"></i> info@creditbureau.com.kh</p>
+                <p><i class="fa fa-map"></i> Level 9, Vattanac Capital, Phnom Penh</p>
+                <br />
+                <div class="social-icons w3-padding w3-center">
+                    <a href="https://www.facebook.com/creditbureaucambodia/" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/credit-bureau-cambodia/posts/" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-linkedin"></i></a>
+                    <a href="mailto:reaksmey.than7up@gmail.com" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-envelope"></i></a>
+                    <a href="https://t.me/Creditbureaucambodia" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-telegram"></i></a>
+                </div>
+            </div>
 
+            <!-- Right side -->
+            <div class="contact-form w3-col l8">
+                <form id="contact-form" class="w3-container" onsubmit="sendEmail(event)">
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label class="w3-text-gray" style="color: #174a2f;">First Name</label>
+                            <input class="w3-input" type="text" name="first_name" required />
+                        </div>
+                        <div class="w3-half">
+                            <label class="w3-text-gray" style="color: #174a2f;">Last Name</label>
+                            <input class="w3-input" type="text" name="last_name" required />
+                        </div>
+                        <div class="w3-half">
+                            <label class="w3-text-gray" style="color: #174a2f;">Email</label>
+                            <input class="w3-input" type="email" name="email" required />
+                        </div>
+                        <div class="w3-half">
+                            <label class="w3-text-gray" style="color: #174a2f;">Phone Number</label>
+                            <input class="w3-input" type="tel" name="phone" required />
+                        </div>
+                    </div>
 
-<div class=" w3-content  w3-margin-top w3-padding">
-    <h1 class="w3-center w3-panel" style="color: #174a2f;"><b>${_('Contact Us')}</b></h1>
-    <p class="w3-large w3-center w3-text-gray">
-        ${_('Any question or remarks? Just write us a message!')}
-    </p>
-    <div class="container  w3-row w3-card w3-round-large  w3-white w3-padding">
+                    <label class="w3-text-green">Select Subject</label>
+                    <div class="w3-row-padding">
+                        % for subject in ['General Inquiry', 'Support', 'Feedback', 'Other']:
+                            <div class="w3-quarter">
+                                <label class="container-checkbox w3-text-green">${subject}
+                                    <input type="checkbox" name="subject" value="${subject}" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        % endfor
+                    </div>
 
-         <!-- Left side-->
+                    <label>Message</label>
+                    <textarea class="w3-input w3-border" rows="4" name="message" placeholder="Write your message..." required></textarea>
 
-        <div class="contact-info w3-col l4 w3-card w3-round-large w3-padding">
-            <h2 class=" w3-large"><b>Contact Information</b></h2>
-            <p>Say something to start a live chat!</p>
-            <br />
-
-            <p><i class="fa fa-phone" aria-hidden="true"></i> (+855) 23 999 006</p>
-            <p><i class="fa fa-envelope"></i> info@creditbureau.com.kh</p>
-            <p><i class="fa fa-map"></i> Level 9, Vattanac Capital, Phnom Penh</p>
-
-
-            <br />
-            <div class="social-icons w3-padding w3-center">
-                <a href='https://www.facebook.com/creditbureaucambodia/' class="w3-circle w3-border w3-border-white w3-padding-small w3-margin-right"><i class="fa fa-facebook-f"></i></a>
-                <a href='https://www.linkedin.com/company/credit-bureau-cambodia/posts/' class="w3-circle w3-border w3-border-white w3-padding-small w3-margin-right"><i class="fa fa-linkedin"></i></a>
-                <a href="#" class="w3-circle w3-border w3-border-white w3-padding-small w3-margin-right"><i class="fa fa-envelope"></i></a>
-                <a href="https://t.me/Creditbureaucambodia" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-telegram"></i></a>
+                    <button type="submit" class="send-button w3-button w3-margin-top w3-round w3-right w3-hover-green w3-text-white" style="background-color: #174a2f">Send Message</button>
+                </form>
             </div>
         </div>
-
-          <!-- Right side -->
-        <div class="contact-form w3-col l8">
-
-            <form class="w3-container " >
-           
-                <div class="w3-row-padding">
-                    <div class="w3-half">
-                        <p>
-                            <label class="w3-text-gray" style="color: #174a2f;">Name</label>
-                            <input class="w3-input" type="text" style="color: #174a2f;" required />
-
-                        </p>
-                    </div>
-                    <div class="w3-half">
-                        <p>
-                            <label class="w3-text-gray" placeholder="Write your message..." style="color: #174a2f;">Last
-                                Name</label>
-                            <input class="w3-input" type="text" required />
-                        </p>
-                    </div>
-                    <div class="w3-half">
-                        <p>
-                            <label class="w3-text-gray" style="color: #174a2f;">Email</label>
-                            <input class="w3-input" type="email" required />
-                        </p>
-                    </div>
-                    <div class="w3-half">
-                        <p>
-                            <label class="w3-text-gray" style="color: #174a2f;">Phone Number</label>
-                            <input class="w3-input" type="tel" required />
-                        </p>
-                    </div>
-                </div>
-
-              
-
-                <label class=" w3-text-green">Select Subject?</label>
-                <div class="w3-row-padding">
-                    <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green"> General Inquiry
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">General Inquiry
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">General Inquiry
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="w3-quarter">
-                        <label class="container-checkbox  w3-text-green">General Inquiry
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <label>Message</label>
-                <textarea class="w3-input w3-border" rows="4" placeholder="Write your message..."></textarea>
-                <button class="send-button w3-button w3-margin-top w3-round w3-right w3-hover-green w3-text-white"
-                    style="background-color: #174a2f">Send Message</button>
-            </form>
-        </div>
-
     </div>
-</div>
-
-
+</body>
 </html>
-%endif
-
+% endif
