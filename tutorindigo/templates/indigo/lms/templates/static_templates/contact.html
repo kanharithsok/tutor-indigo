@@ -20,8 +20,7 @@ from openedx.core.djangolib.markup import HTML, Text
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<!-- ✅ Load EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 
     <style>
         .container {
@@ -120,20 +119,45 @@ from openedx.core.djangolib.markup import HTML, Text
     </style>
 
     <script>
-        (function () {
-            emailjs.init("Ke5o3xowVyHaDE4eh");
-        })();
+        function sendEmail(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const formData = new FormData(form);
 
-        function sendEmail(e) {
-            e.preventDefault();
-            emailjs.sendForm('service_768e5qw', 'template_klipodv', '#contact-form')
-                .then(function (response) {
-                    alert("Email sent successfully!");
-                    document.getElementById("contact-form").reset();
-                }, function (error) {
-                    alert("Failed to send email: " + error.text);
-                });
+            // Prepare payload for API
+            const data = {
+                first_name: formData.get('first_name'),
+                last_name: formData.get('last_name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                subject: Array.from(formData.getAll('subject')).join(', '),
+                message: formData.get('message')
+            };
+
+            fetch('https://apim.creditbureau.com.kh/uat-notify-api/api/v2/email/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'api-key': '4a88171b7006e4d33fbc8cc94fd96aae6abed'
+                    // Add authorization headers here if required by the API
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    form.reset();
+                } else {
+                    alert('Error sending message. Please try again later.');
+                }
+            })
+            .catch(() => {
+                alert('Error sending message. Please try again later.');
+            });
         }
+
+        
     </script>
 </head>
 
