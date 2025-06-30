@@ -1,14 +1,12 @@
 <%page expression_filter="h" />
-
 <%namespace name='static' file='../static_content.html' />
-<%!
-from django.utils.translation import gettext as _
-from django.urls import reverse
-
-from openedx.core.djangolib.markup import HTML, Text
-%>
 <%inherit file="../main.html" />
 <%! main_css = "css/bootstrap/lms-main.css" %>
+
+<%
+# ✅ Fix NameError: define _ (gettext) at runtime, not compile-time
+from django.utils.translation import gettext as _
+%>
 
 % if uses_bootstrap:
 <!-- Content for Bootstrap version could go here -->
@@ -21,143 +19,69 @@ from openedx.core.djangolib.markup import HTML, Text
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-
     <style>
-        .container {
-            max-width: 1000px;
-            display: flex;
-            justify-content: center;
-            background: white;
-            overflow: hidden;
-        }
-
-        .contact-info {
-            background: #174a2f;
-            color: white;
-        }
-
-        .contact-form {
-            padding: 30px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            width: 35px;
-            height: 35px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-
-        .social-icons a:hover {
-            background-color: green;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-        }
-
-        .container-checkbox {
-            display: block;
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .container-checkbox input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 15px;
-            width: 15px;
-            background-color: green;
-            border-radius: 50%;
-        }
-
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-            left: 50%;
-            top: 50%;
-            width: 5px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 3px 3px 0;
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-
-        .container-checkbox input:checked ~ .checkmark:after {
-            display: block;
-        }
-
-        label {
-            font-size: 12px !important;
-        }
+        .container { max-width: 1000px; display: flex; justify-content: center; background: white; overflow: hidden; }
+        .contact-info { background: #174a2f; color: white; }
+        .contact-form { padding: 30px; }
+        .social-icons { display: flex; justify-content: center; align-items: center; margin: auto; }
+        .social-icons a { color: white; font-size: 20px; width: 35px; height: 35px; display: inline-flex; justify-content: center; align-items: center; text-align: center; margin-right: 5px; }
+        .social-icons a:hover { background-color: green; }
+        input, textarea { width: 100%; }
+        .container-checkbox { display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; user-select: none; }
+        .container-checkbox input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark { position: absolute; top: 0; left: 0; height: 15px; width: 15px; background-color: green; border-radius: 50%; }
+        .checkmark:after { content: ""; position: absolute; display: none; left: 50%; top: 50%; width: 5px; height: 10px; border: solid white; border-width: 0 3px 3px 0; transform: translate(-50%, -50%) rotate(45deg); }
+        .container-checkbox input:checked ~ .checkmark:after { display: block; }
+        label { font-size: 12px !important; }
     </style>
 
     <script>
-        function sendEmail(event) {
-            event.preventDefault();
-            const form = document.getElementById('contact-form');
-            const formData = new FormData(form);
+function sendEmail(event) {
+    event.preventDefault();
 
-            // Prepare payload for API
-            const data = {
-                first_name: formData.get('first_name'),
-                last_name: formData.get('last_name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                subject: Array.from(formData.getAll('subject')).join(', '),
-                message: formData.get('message')
-            };
+    const form = document.getElementById('contact-form');
+    const formData = new FormData();
 
-            fetch('https://apim.creditbureau.com.kh/uat-notify-api/api/v2/email/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'api-key': '4a88171b7006e4d33fbc8cc94fd96aae6abed'
-                    // Add authorization headers here if required by the API
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    form.reset();
-                } else {
-                    alert('Error sending message. Please try again later.');
-                }
-            })
-            .catch(() => {
-                alert('Error sending message. Please try again later.');
+    // Collect form data
+    formData.append('first_name', form.first_name.value);
+    formData.append('last_name', form.last_name.value);
+    formData.append('email', form.email.value);
+    formData.append('phone', form.phone.value);
+    formData.append('message', form.message.value);
+
+    // Collect checked subjects
+    const subjects = Array.from(form.querySelectorAll('input[name="subject"]:checked')).map(cb => cb.value);
+    if (subjects.length === 0) {
+        alert('Please select at least one subject.');
+        return;
+    }
+    // Add all selected subjects (as a comma-separated string or as multiple fields, depending on backend)
+    formData.append('subject', subjects.join(', '));
+
+    // Add recipients (adjust as needed for your backend)
+    formData.append('recipients', 'reaksmey.than7up@gmail.com');// info@creditbureau.com.kh
+
+    // Add body (assuming message is the body)
+    formData.append('body', form.message.value);
+
+    fetch('/contact/submit/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Message sent successfully!');
+            form.reset();
+        } else {
+            response.text().then(text => {
+                alert('Error sending message:\n' + text);
             });
         }
-
-        
+    })
+    .catch(error => {
+        alert('Error: ' + error.message);
+    });
+}
     </script>
 </head>
 
@@ -170,14 +94,12 @@ from openedx.core.djangolib.markup import HTML, Text
 
         <div class="w3-row w3-card w3-round-large w3-white w3-padding">
             <!-- Left side -->
-            <div class="contact-info w3-col l4 m12 s12 w3-card w3-round-large w3-padding" >
+            <div class="contact-info w3-col l4 m12 s12 w3-card w3-round-large w3-padding">
                 <h2 class="w3-large"><b>Contact Information</b></h2>
                 <p>Say something to start a live chat!</p>
-                <br />
                 <p><i class="fa fa-phone"></i> (+855) 23 999 006</p>
                 <p><i class="fa fa-envelope"></i> info@creditbureau.com.kh</p>
                 <p><i class="fa fa-map"></i> Level 9, Vattanac Capital, Phnom Penh</p>
-                <br />
                 <div class="social-icons w3-padding w3-center">
                     <a href="https://www.facebook.com/creditbureaucambodia/" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-facebook-f"></i></a>
                     <a href="https://www.linkedin.com/company/credit-bureau-cambodia/posts/" class="w3-circle w3-border w3-border-white w3-padding-small"><i class="fa fa-linkedin"></i></a>
