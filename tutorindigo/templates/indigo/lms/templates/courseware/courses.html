@@ -44,6 +44,30 @@
   
 </head>
 
+% if not (user.is_authenticated and user.email.lower().split('@')[-1] == 'yopmail.com'):
+  <script>
+    function removeCBCInternalCoursesAndFacets() {
+      // Remove course cards
+      document.querySelectorAll('.courses-listing-item').forEach(function(item) {
+        var org = item.querySelector('.course-organization');
+        if (org && org.textContent.trim() === "CBC-Internal") {
+          item.remove();
+        }
+      });
+
+      // Remove facet/filter buttons
+      document.querySelectorAll('li').forEach(function(li) {
+        var btn = li.querySelector('button[data-value="CBC-Internal"]');
+        if (btn) {
+          li.remove();
+        }
+      });
+    }
+    removeCBCInternalCoursesAndFacets();
+    const observer = new MutationObserver(removeCBCInternalCoursesAndFacets);
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+% endif
 
 <main id="main" aria-label="Content" tabindex="-1" style="background-color:#F6F6F6 !important;" >
 
