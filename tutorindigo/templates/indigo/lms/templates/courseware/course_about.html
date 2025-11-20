@@ -150,9 +150,8 @@ from openedx.core.lib.courses import course_image_url
           <div class="w3-cell w3-display-middle" style="height :70%; width:60%">
               <p class="title w3-left-align" style="font-size: 40px; color:white;"><b>${course.display_name_with_default} </b></p>
               <p class="title w3-left-align " style="font-size: 30px; color:white;"><b>${course.display_org_with_default}</b></p>
-              <p class=" m10 w3-text-gray w3-hide-small">
+              <p class=" m10 w3-text-white w3-hide-small">
                 ${get_course_about_section(request, course,'short_description')}
-                <!-- Learn the concepts and techniques that make up the foundation of data science and machine learning. -->
               </p>
                 
 
@@ -268,9 +267,9 @@ from openedx.core.lib.courses import course_image_url
 
 <!--panel Info-->
 
-<section class=" w3-row timer-info w3-display-container " style="background-color: #00522C; height:160px;">
+<section class=" w3-row timer-info w3-display-container " style=" height:160px; background-image: url('${static.url('images/bg-panel.jpg')}'); background-size: cover; background-position: center; ">
   
-  <div class="w3-col l2 w3-white w3-display-container w3-padding" style="height: 100%;">
+  <div class="w3-col l2 w3-display-container w3-padding" style="height: 100%;">
     % if organization:
         % if organization.logo and organization.logo.url:
         <img 
@@ -303,7 +302,7 @@ from openedx.core.lib.courses import course_image_url
   
   <div class="w3-col detail_time m12 l8  " style=" height:100%;">
     
-    <div class="w3-cell-row h-100 w3-text-white" style="background-color: #00522C;">
+    <div class="w3-cell-row h-100 w3-text-white" >
      
       <!--Start Course-->
       <div class="text w3-container w3-cell w3-cell-middle w3-mobile  w3-center ">
@@ -356,7 +355,7 @@ from openedx.core.lib.courses import course_image_url
   <div class="w3-col m12 l2   h-100  w3-center w3-text-white" >
     
   
-      <div class=" w3-cell-row h-100  " style="background-color: #ff0909; ">
+      <div class=" w3-cell-row h-100  " style="background-color: #00522C; ">
        
         <div class=" w3-cell w3-cell-middle w3-padding">
 
@@ -385,7 +384,7 @@ from openedx.core.lib.courses import course_image_url
 
         </div>
 
-        <div class=" w3-cell w3-hide-small w3-hide-medium h-100" style="width: 10%;background-color: #00522C;">
+        <div class=" w3-cell w3-hide-small w3-hide-medium h-100" style="width: 10%;background-color: #EEB326;">
           <!-- <br/> -->
         </div>
 
@@ -404,7 +403,7 @@ from openedx.core.lib.courses import course_image_url
 <!--Contain Course-->
 <section class=" h-100" style="justify-content:center; ">
 
-    <div class=" w3-container" style="max-width:1600px;d-flex; justify-items:center; margin:auto;" >
+    <div class=" w3-container" style="max-width:1600px; display:flex; justify-items:center; margin:auto;" >
         <!-- Infomation Course-->
         <div class="about-content w3-text-black w3-padding-32"> 
 

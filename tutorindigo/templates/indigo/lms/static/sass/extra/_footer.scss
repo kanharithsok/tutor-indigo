@@ -124,8 +124,11 @@
 // }
 
 footer {
-    background-color: #EFA834 !important;
-  
+    background-color: #f3d287;
+    background-image: url('../images/footer-bg.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important; 
     height: auto !important;
 
     .wrapper-footer {
@@ -133,7 +136,9 @@ footer {
         max-width: 1600px;
         margin: 0 auto;
         padding: 10px 10px 10px 10px !important;
-        background-color: #EFA834 !important;
+        background-color: transparent !important;
+       // background-color: #EFA834 !important;
+    
         color: #ffffff !important;
         min-height: 170px !important;
         height: 100%;
