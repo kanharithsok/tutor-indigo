@@ -50,14 +50,14 @@
       // Remove course cards
       document.querySelectorAll('.courses-listing-item').forEach(function(item) {
         var org = item.querySelector('.course-organization');
-        if (org && org.textContent.trim() === "CBC-Internal") {
+        if (org && (org.textContent.trim() === "CBC-Internal" || org.textContent.trim().toLowerCase() === "internal")) {
           item.remove();
         }
       });
 
       // Remove facet/filter buttons
       document.querySelectorAll('li').forEach(function(li) {
-        var btn = li.querySelector('button[data-value="CBC-Internal"]');
+        var btn = li.querySelector('button[data-value="CBC-Internal"], button[data-value="CBC Internal"]');
         if (btn) {
           li.remove();
         }
