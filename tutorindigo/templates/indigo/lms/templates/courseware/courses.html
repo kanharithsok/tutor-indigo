@@ -55,10 +55,10 @@
         }
       });
 
-      // Remove facet/filter buttons
-      document.querySelectorAll('li').forEach(function(li) {
-        var btn = li.querySelector('button[data-value="CBC-Internal"], button[data-value="CBC Internal"]');
-        if (btn) {
+      // Remove facet/filter buttons - target only facet list items
+      document.querySelectorAll('.search-facets-lists li').forEach(function(li) {
+        var text = li.textContent.trim();
+        if (text !== "CBC-Internal" && text !== "CBC Internal" && text.toLowerCase() !== "internal") {
           li.remove();
         }
       });
