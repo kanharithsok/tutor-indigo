@@ -34,7 +34,9 @@ body.certificate {
     }
     .accomplishment-rendering {
         display: block;
-        background-image: url("../images/certificate_frame.png");
+        // See _footer.scss: use $static-path, not a relative path — this compiles into CSS
+        // at more than one depth and '../images' does not resolve from all of them.
+        background-image: url("#{$static-path}/images/certificate_frame.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;

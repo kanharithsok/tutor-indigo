@@ -125,7 +125,10 @@
 
 footer {
     background-color: #f3d287;
-    background-image: url('../images/footer-bg.png') !important;
+    // Use $static-path, not a relative path: this partial is compiled into CSS at two
+    // different depths (css/lms-main-v1.css and css/bootstrap/lms-main.css), so '../images'
+    // resolves to css/images/ in the second and 404s.
+    background-image: url('#{$static-path}/images/footer-bg.png') !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: cover !important; 
