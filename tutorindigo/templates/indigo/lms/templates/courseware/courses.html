@@ -44,8 +44,14 @@
   
 </head>
 
-% if not (user.is_authenticated and user.email.lower().split('@')[-1] == 'creditbureau.com.kh'):
+## Mirrors can_view_internal_courses() in lms/djangoapps/courseware/courses.py:
+## CBC staff (by email domain) and administrators see internal courses.
+## Keep the two in step — the backend is the real control, this only tidies the page.
+% if not (user.is_authenticated and (user.is_staff or user.is_superuser or user.email.lower().split('@')[-1] == 'creditbureau.com.kh')):
   <script>
+    // Intentional: strip the whole facet list for external users. Leaving only the
+    // non-internal facets would still hint that other organizations exist.
+    // Do not "fix" this to remove only the CBC-Internal entry.
     function removeCBCInternalCoursesAndFacets() {
       // Remove course cards
       document.querySelectorAll('.courses-listing-item').forEach(function(item) {
